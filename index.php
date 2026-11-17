@@ -82,7 +82,7 @@ declare(strict_types=1);
         <h1>Nieprzypadkowy<br>Czytelnik</h1>
         <div class="rule" aria-hidden="true"></div>
         <p class="tagline">Dobre książki. Świadome wybory.</p>
-        <p class="status">Wkrótce zaprosimy Cię do świata ciekawych książek.</p>
+        <p class="status">Nasza strona jest w przygotowaniu.<br>Wkrótce zaprosimy Cię do świata ciekawych książek.</p>
     </main>
 </body>
 </html>
