@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   deploy:
-    name: Upload theme files via SFTP
+    name: Synchronize complete theme directory via SFTP
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -27,19 +27,26 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_THEME_TARGET_DIR: ${{ secrets.FTP_THEME_TARGET_DIR }}
         run: |
+          set -euo pipefail
           for name in FTP_SERVER FTP_USERNAME FTP_PASSWORD FTP_THEME_TARGET_DIR; do
             if [ -z "${!name}" ]; then
               echo "::error::Missing required repository secret: $name"
               exit 1
             fi
           done
+          if [ ! -d theme ]; then
+            echo "::error::Local theme/ directory does not exist"
+            exit 1
+          fi
+          echo "Files queued for synchronization: $(find theme -type f | wc -l)"
+          echo "Directories in theme: $(find theme -type d | wc -l)"
 
-      - name: Install SFTP password helper
+      - name: Install SFTP synchronization tools
         run: |
           sudo apt-get update
-          sudo apt-get install --yes sshpass
+          sudo apt-get install --yes lftp sshpass
 
-      - name: Deploy theme to OVH test
+      - name: Recursively synchronize the complete theme directory
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -49,14 +56,27 @@ jobs:
           set -euo pipefail
           export SSHPASS="$FTP_PASSWORD"
 
-          # OVH SFTP starts in the account home (/home/<account>).
-          # The path shown by the OVH file manager / WinSCP is relative
-          # to that home, so remove the leading slash before SFTP cd.
+          # OVH SFTP starts in /home/<account>; use a path relative to that directory.
           TARGET_DIR="${FTP_THEME_TARGET_DIR#/}"
-          printf 'cd "%s"\nput -r theme/*\n' "$TARGET_DIR" |
-            sshpass -e sftp \
-              -oBatchMode=no \
-              -oStrictHostKeyChecking=accept-new \
-              -P 22 \
-              -b - \
-              "$FTP_USERNAME@$FTP_SERVER"
+          TARGET_DIR="${TARGET_DIR%/}"
+
+          echo "Remote destination: $TARGET_DIR"
+          echo "Starting recursive directory synchronization..."
+
+          # lftp mirror -R walks the complete local directory tree and uploads
+          # every new or changed file while preserving subdirectory structure.
+          # No --delete option is used: unrelated or older remote files are not removed.
+          {
+            printf '%s\n' 'set cmd:fail-exit yes'
+            printf '%s\n' 'set net:max-retries 2'
+            printf '%s\n' 'set net:timeout 30'
+            printf '%s\n' 'set sftp:auto-confirm yes'
+            printf '%s\n' 'set sftp:connect-program "sshpass -e ssh -a -x -oStrictHostKeyChecking=accept-new -p 22"'
+            printf 'open -u "%s" "sftp://%s"\n' "$FTP_USERNAME" "$FTP_SERVER"
+            printf 'mkdir -p "%s"\n' "$TARGET_DIR"
+            printf 'cd "%s"\n' "$TARGET_DIR"
+            printf '%s\n' 'mirror -R --verbose --parallel=2 --no-perms --no-umask theme .'
+            printf '%s\n' 'bye'
+          } | lftp
+
+          echo "Recursive synchronization completed."
