@@ -20,23 +20,42 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Validate deployment target
+      - name: Validate deployment settings
         env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_THEME_TARGET_DIR: ${{ secrets.FTP_THEME_TARGET_DIR }}
         run: |
-          if [ -z "$FTP_THEME_TARGET_DIR" ]; then
-            echo "::error::Missing GitHub secret FTP_THEME_TARGET_DIR. Set it to the full SFTP path of the dedicated theme directory on the test WordPress installation."
-            exit 1
-          fi
+          for name in FTP_SERVER FTP_USERNAME FTP_PASSWORD FTP_THEME_TARGET_DIR; do
+            if [ -z "${!name}" ]; then
+              echo "::error::Missing required repository secret: $name"
+              exit 1
+            fi
+          done
+
+      - name: Install SFTP password helper
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes sshpass
 
       - name: Deploy theme to OVH test
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 22
-          local_path: './theme/*'
-          remote_path: ${{ secrets.FTP_THEME_TARGET_DIR }}
-          sftp_only: true
-          delete_remote_files: false
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_THEME_TARGET_DIR: ${{ secrets.FTP_THEME_TARGET_DIR }}
+        run: |
+          set -euo pipefail
+          export SSHPASS="$FTP_PASSWORD"
+
+          # Change directory on the SFTP server first, then upload into that
+          # already-existing directory. This avoids passing the destination
+          # path as the target argument to the SFTP put command.
+          printf 'cd "%s"\nput -r theme/*\n' "$FTP_THEME_TARGET_DIR" |
+            sshpass -e sftp \
+              -oBatchMode=no \
+              -oStrictHostKeyChecking=accept-new \
+              -P 22 \
+              -b - \
+              "$FTP_USERNAME@$FTP_SERVER"
