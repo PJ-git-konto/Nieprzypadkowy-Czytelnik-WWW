@@ -1,11 +1,10 @@
-name: Deploy WordPress theme to OVH test
+name: Diagnose OVH SFTP target
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'theme/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
@@ -13,21 +12,17 @@ permissions:
   contents: read
 
 jobs:
-  deploy:
-    name: Upload theme files via SFTP
+  diagnose:
+    name: Inspect SFTP directory visibility
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Validate deployment settings
+      - name: Validate connection settings
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_THEME_TARGET_DIR: ${{ secrets.FTP_THEME_TARGET_DIR }}
         run: |
-          for name in FTP_SERVER FTP_USERNAME FTP_PASSWORD FTP_THEME_TARGET_DIR; do
+          for name in FTP_SERVER FTP_USERNAME FTP_PASSWORD; do
             if [ -z "${!name}" ]; then
               echo "::error::Missing required repository secret: $name"
               exit 1
@@ -39,20 +34,15 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes sshpass
 
-      - name: Deploy theme to OVH test
+      - name: List remote SFTP directories
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_THEME_TARGET_DIR: ${{ secrets.FTP_THEME_TARGET_DIR }}
         run: |
           set -euo pipefail
           export SSHPASS="$FTP_PASSWORD"
-
-          # Change directory on the SFTP server first, then upload into that
-          # already-existing directory. This avoids passing the destination
-          # path as the target argument to the SFTP put command.
-          printf 'cd "%s"\nput -r theme/*\n' "$FTP_THEME_TARGET_DIR" |
+          printf 'pwd\nls -la\nls -la /\nls -la public_html\nls -la /public_html\n' |
             sshpass -e sftp \
               -oBatchMode=no \
               -oStrictHostKeyChecking=accept-new \
