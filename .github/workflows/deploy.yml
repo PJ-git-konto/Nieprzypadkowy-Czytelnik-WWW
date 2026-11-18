@@ -34,12 +34,9 @@ jobs:
               exit 1
             fi
           done
-          if [ ! -d theme ]; then
-            echo "::error::Local theme/ directory does not exist"
-            exit 1
-          fi
-          echo "Files queued for synchronization: $(find theme -type f | wc -l)"
-          echo "Directories in theme: $(find theme -type d | wc -l)"
+          test -d theme || { echo "::error::Local theme/ directory does not exist"; exit 1; }
+          echo "Files queued: $(find theme -type f | wc -l)"
+          echo "Directories queued: $(find theme -type d | wc -l)"
 
       - name: Install SFTP synchronization tools
         run: |
@@ -56,23 +53,21 @@ jobs:
           set -euo pipefail
           export SSHPASS="$FTP_PASSWORD"
 
-          # OVH SFTP starts in /home/<account>; use a path relative to that directory.
           TARGET_DIR="${FTP_THEME_TARGET_DIR#/}"
           TARGET_DIR="${TARGET_DIR%/}"
 
           echo "Remote destination: $TARGET_DIR"
-          echo "Starting recursive directory synchronization..."
 
-          # lftp mirror -R walks the complete local directory tree and uploads
-          # every new or changed file while preserving subdirectory structure.
-          # No --delete option is used: unrelated or older remote files are not removed.
+          # Pass the password to lftp as well as to sshpass. Without the
+          # second open -u field lftp prompts interactively and falls back
+          # to anonymous login in a non-interactive GitHub Actions runner.
           {
             printf '%s\n' 'set cmd:fail-exit yes'
             printf '%s\n' 'set net:max-retries 2'
             printf '%s\n' 'set net:timeout 30'
             printf '%s\n' 'set sftp:auto-confirm yes'
             printf '%s\n' 'set sftp:connect-program "sshpass -e ssh -a -x -oStrictHostKeyChecking=accept-new -p 22"'
-            printf 'open -u "%s" "sftp://%s"\n' "$FTP_USERNAME" "$FTP_SERVER"
+            printf 'open -u "%s,%s" "sftp://%s"\n' "$FTP_USERNAME" "$FTP_PASSWORD" "$FTP_SERVER"
             printf 'mkdir -p "%s"\n' "$TARGET_DIR"
             printf 'cd "%s"\n' "$TARGET_DIR"
             printf '%s\n' 'mirror -R --verbose --parallel=2 --no-perms --no-umask theme .'
