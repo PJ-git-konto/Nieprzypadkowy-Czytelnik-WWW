@@ -1,10 +1,11 @@
-name: Diagnose OVH SFTP target
+name: Deploy WordPress theme to OVH test
 
 on:
   push:
     branches:
       - main
     paths:
+      - 'theme/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
@@ -12,17 +13,21 @@ permissions:
   contents: read
 
 jobs:
-  diagnose:
-    name: Inspect SFTP directory visibility
+  deploy:
+    name: Upload theme files via SFTP
     runs-on: ubuntu-latest
     steps:
-      - name: Validate connection settings
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate deployment settings
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_THEME_TARGET_DIR: ${{ secrets.FTP_THEME_TARGET_DIR }}
         run: |
-          for name in FTP_SERVER FTP_USERNAME FTP_PASSWORD; do
+          for name in FTP_SERVER FTP_USERNAME FTP_PASSWORD FTP_THEME_TARGET_DIR; do
             if [ -z "${!name}" ]; then
               echo "::error::Missing required repository secret: $name"
               exit 1
@@ -34,15 +39,21 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes sshpass
 
-      - name: List remote SFTP directories
+      - name: Deploy theme to OVH test
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_THEME_TARGET_DIR: ${{ secrets.FTP_THEME_TARGET_DIR }}
         run: |
           set -euo pipefail
           export SSHPASS="$FTP_PASSWORD"
-          printf 'pwd\nls -la\nls -la /\nls -la public_html\nls -la /public_html\n' |
+
+          # OVH SFTP starts in the account home (/home/<account>).
+          # The path shown by the OVH file manager / WinSCP is relative
+          # to that home, so remove the leading slash before SFTP cd.
+          TARGET_DIR="${FTP_THEME_TARGET_DIR#/}"
+          printf 'cd "%s"\nput -r theme/*\n' "$TARGET_DIR" |
             sshpass -e sftp \
               -oBatchMode=no \
               -oStrictHostKeyChecking=accept-new \
