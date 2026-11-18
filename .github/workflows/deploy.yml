@@ -68,9 +68,11 @@ jobs:
             printf '%s\n' 'set sftp:auto-confirm yes'
             printf '%s\n' 'set sftp:connect-program "sshpass -e ssh -a -x -oStrictHostKeyChecking=accept-new -p 22"'
             printf 'open -u "%s,%s" "sftp://%s"\n' "$FTP_USERNAME" "$FTP_PASSWORD" "$FTP_SERVER"
-            printf 'mkdir -p "%s"\n' "$TARGET_DIR"
             printf 'cd "%s"\n' "$TARGET_DIR"
+            printf '%s\n' 'pwd'
+            printf '%s\n' 'cls -la'
             printf '%s\n' 'mirror -R --verbose --parallel=2 --no-perms --no-umask theme .'
+            printf '%s\n' 'cls -la'
             printf '%s\n' 'bye'
           } | lftp
 
