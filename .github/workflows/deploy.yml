@@ -1,9 +1,12 @@
-name: Deploy website to OVH
+name: Deploy WordPress theme to OVH test
 
 on:
   push:
     branches:
       - main
+    paths:
+      - 'theme/**'
+      - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 permissions:
@@ -11,20 +14,29 @@ permissions:
 
 jobs:
   deploy:
-    name: Upload website files via SFTP
+    name: Upload theme files via SFTP
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Deploy index.php to OVH
+      - name: Validate deployment target
+        env:
+          FTP_THEME_TARGET_DIR: ${{ secrets.FTP_THEME_TARGET_DIR }}
+        run: |
+          if [ -z "$FTP_THEME_TARGET_DIR" ]; then
+            echo "::error::Missing GitHub secret FTP_THEME_TARGET_DIR. Set it to the full SFTP path of the dedicated theme directory on the test WordPress installation."
+            exit 1
+          fi
+
+      - name: Deploy theme to OVH test
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 22
-          local_path: './index.php'
-          remote_path: ${{ secrets.FTP_TARGET_DIR }}
+          local_path: './theme/*'
+          remote_path: ${{ secrets.FTP_THEME_TARGET_DIR }}
           sftp_only: true
           delete_remote_files: false
