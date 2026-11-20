@@ -38,18 +38,16 @@ button,input{font:inherit}
 .nc-search svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
 .nc-menu-toggle{display:none}
 .nc-main{width:100%;overflow:hidden}
-.nc-hero{min-height:312px;display:grid;grid-template-columns: minmax(0,1fr) minmax(0,1.12fr);position:relative;border-bottom:1px solid var(--nc-line);background:#f8efdf}
-.nc-hero-copy{position:relative;z-index:1;align-self:center;padding:25px 4.4% 30px max(4.4%,calc((100vw - 1430px)/2));background:radial-gradient(ellipse at 12% 45%,#fffaf1 0%,#fffaf1 68%,rgba(255,250,241,.9) 100%)}
+.nc-hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:stretch;position:relative;border-bottom:1px solid var(--nc-line);background:#f8efdf}
+.nc-hero-copy{position:relative;z-index:1;align-self:end;padding:25px 4.4% 10px max(4.4%,calc((100vw - 1430px)/2));background:radial-gradient(ellipse at 12% 45%,#fffaf1 0%,#fffaf1 68%,rgba(255,250,241,.9) 100%)}
 .nc-hero h1{margin:0 0 12px;color:var(--nc-navy);font-size:clamp(2.6rem,5.2vw,4.7rem);font-weight:700;line-height:.98;letter-spacing:-.045em}
 .nc-hero-copy p{max-width:590px;margin:0 0 17px;font-size:clamp(1rem,1.45vw,1.28rem);line-height:1.25}
 .nc-button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:49px;padding:11px 28px;border:1px solid var(--nc-navy);border-radius:28px;background:var(--nc-navy);color:white;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .2s,background .2s}
 .nc-button:hover{transform:translateY(-1px);background:#1c4267;color:white}
 .nc-button-gold{border-color:var(--nc-gold);background:var(--nc-gold);padding-inline:34px}
 .nc-button-gold:hover{background:#a9670e}
-.nc-hero-image{position:relative;min-height:312px;display:grid;place-items:center;overflow:hidden;background:linear-gradient(90deg,rgba(251,245,233,.12),transparent 24%),linear-gradient(135deg,#b78d5e,#e8c99c 42%,#8c6039 43%,#3e3028 100%)}
-.nc-hero-image:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(42,27,15,.16) 0 3px,transparent 3px 85px),linear-gradient(0deg,rgba(28,24,20,.28),transparent 38%)}
-.nc-hero-image:after{content:"";position:absolute;width:55%;height:42%;right:9%;bottom:8%;border-radius:8px;background:linear-gradient(180deg,#f6e4c5 0 12%,#182f49 12% 54%,#f7e8ce 54% 67%,#263d56 67%);box-shadow:0 12px 25px #38281966;transform:perspective(500px) rotateX(4deg)}
-.nc-image-placeholder-label{position:relative;z-index:1;padding:8px 14px;border:1px dashed rgba(255,255,255,.7);border-radius:4px;background:#172b4066;color:#fff;font:italic 14px var(--nc-serif);opacity:.92}
+.nc-hero-image{width:100%;aspect-ratio:839/407;min-width:0;overflow:hidden;background:#e8d7bf}
+.nc-hero-image img{width:100%;height:100%;object-fit:cover;object-position:center}
 .nc-featured{width:min(100%,1456px);margin:auto;padding:14px 20px 16px;display:grid;grid-template-columns:minmax(0,1fr) 306px;gap:28px;align-items:stretch}
 .nc-section-title{display:flex;align-items:center;gap:24px;margin:0 0 12px}
 .nc-section-title>span{height:1px;flex:1;background:var(--nc-gold)}
@@ -107,7 +105,7 @@ button,input{font:inherit}
  .nc-nav li a{border:0;border-radius:3px!important;background:transparent!important;color:var(--nc-navy)!important;padding:9px 7px!important}
  .nc-search{width:100%;padding:5px 7px;border-top:1px solid var(--nc-line)}.nc-search input{width:100%;padding:7px;border-bottom-color:var(--nc-line)}
  .nc-hero{grid-template-columns:1fr}.nc-hero-copy{padding:32px 22px 26px}.nc-hero h1{font-size:clamp(2.35rem,10vw,3.3rem)}
- .nc-hero-image{min-height:190px}
+ .nc-hero-image{min-height:0}
  .nc-featured{padding:18px 16px}.nc-section-title{gap:10px}.nc-section-title h2{font-size:1.75rem}
  .nc-book-grid{grid-template-columns:1fr;gap:14px}.nc-book-card{grid-template-columns:112px minmax(0,1fr);gap:15px;padding:0 0 14px;border-right:0;border-bottom:1px solid var(--nc-line)}
  .nc-book-cover{max-height:168px}.nc-book-card h3{margin-top:4px;font-size:1.2rem}.nc-book-author{margin-bottom:8px}.nc-book-excerpt{font-size:.88rem}
