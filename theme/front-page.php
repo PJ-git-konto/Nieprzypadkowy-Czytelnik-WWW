@@ -43,7 +43,14 @@ $books_query = new WP_Query([
                 <p class="nc-book-excerpt"><?php echo esc_html(get_the_excerpt()); ?></p>
                 <?php $book_categories = get_the_terms(get_the_ID(), 'kategoria_ksiazki'); ?>
                 <?php if ($book_categories && !is_wp_error($book_categories)) : ?>
-                  <span class="nc-book-category"><?php echo esc_html(implode(' · ', wp_list_pluck($book_categories, 'name'))); ?></span>
+                  <div class="nc-book-category-list" aria-label="Kategorie książki">
+                    <?php foreach ($book_categories as $book_category) : ?>
+                      <span class="nc-book-category">
+                        <svg class="nc-category-icon" aria-hidden="true" focusable="false"><use href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/category-icons.svg#nc-icon-' . nc_book_category_icon_key($book_category->slug)); ?>"></use></svg>
+                        <span><?php echo esc_html($book_category->name); ?></span>
+                      </span>
+                    <?php endforeach; ?>
+                  </div>
                 <?php endif; ?>
               </div>
             </article>
