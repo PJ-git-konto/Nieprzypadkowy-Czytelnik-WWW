@@ -40,7 +40,7 @@ button,input{font:inherit}
 .nc-main{width:100%;overflow:hidden}
 .nc-hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:end;position:relative;border-bottom:1px solid var(--nc-line);background:#f8efdf}
 .nc-hero-copy{position:relative;z-index:1;align-self:end;padding:25px 4.4% 10px max(4.4%,calc((100vw - 1430px)/2));background:radial-gradient(ellipse at 12% 45%,#fffaf1 0%,#fffaf1 68%,rgba(255,250,241,.9) 100%)}
-.nc-hero h1{margin:0 0 12px;color:var(--nc-navy);font-size:clamp(2.6rem,5.2vw,4.7rem);font-weight:700;line-height:.98;letter-spacing:-.045em}
+.nc-hero h1{margin:0 0 12px;color:var(--nc-navy);font-size:clamp(2.6rem,5.2vw,4.7rem);font-weight:400;line-height:.98;letter-spacing:-.045em}
 .nc-hero-copy p{max-width:590px;margin:0 0 17px;font-size:clamp(1rem,1.45vw,1.28rem);line-height:1.25}
 .nc-button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:49px;padding:11px 28px;border:1px solid var(--nc-navy);border-radius:28px;background:var(--nc-navy);color:white;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .2s,background .2s}
 .nc-button:hover{transform:translateY(-1px);background:#1c4267;color:white}
