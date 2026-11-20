@@ -44,6 +44,23 @@ function nc_register_book_type(): void {
         'supports' => ['title', 'editor', 'excerpt', 'thumbnail'],
         'show_in_rest' => true,
     ]);
+
+    register_taxonomy('kategoria_ksiazki', ['ksiazka'], [
+        'labels' => [
+            'name' => __('Kategorie książek', 'nieprzypadkowy-czytelnik'),
+            'singular_name' => __('Kategoria książki', 'nieprzypadkowy-czytelnik'),
+            'search_items' => __('Szukaj kategorii', 'nieprzypadkowy-czytelnik'),
+            'all_items' => __('Wszystkie kategorie', 'nieprzypadkowy-czytelnik'),
+            'edit_item' => __('Edytuj kategorię', 'nieprzypadkowy-czytelnik'),
+            'add_new_item' => __('Dodaj kategorię książki', 'nieprzypadkowy-czytelnik'),
+            'menu_name' => __('Kategorie książek', 'nieprzypadkowy-czytelnik'),
+        ],
+        'public' => true,
+        'hierarchical' => true,
+        'show_admin_column' => true,
+        'show_in_rest' => true,
+        'rewrite' => ['slug' => 'kategoria-ksiazki'],
+    ]);
 }
 add_action('init', 'nc_register_book_type');
 
@@ -87,6 +104,9 @@ function nc_book_card_data(int $post_id): array {
         'excerpt' => get_the_excerpt($post_id),
         'url' => get_permalink($post_id),
         'image' => $image ? esc_url($image) : '',
+        'categories' => ($terms = get_the_terms($post_id, 'kategoria_ksiazki')) && !is_wp_error($terms)
+            ? array_values(wp_list_pluck($terms, 'name'))
+            : [],
     ];
 }
 

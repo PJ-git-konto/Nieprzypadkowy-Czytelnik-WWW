@@ -36,7 +36,9 @@
           '<div class="nc-book-details"><h3><a href="' + escapeHtml(book.url) + '">' + escapeHtml(book.title) + '</a></h3>' +
           (book.author ? '<p class="nc-book-author">' + escapeHtml(book.author) + '</p>' : '') +
           '<p class="nc-book-excerpt">' + escapeHtml(book.excerpt) + '</p>' +
-          '<span class="nc-book-category">✦ Wybrane przez redakcję</span></div></article>';
+          (Array.isArray(book.categories) && book.categories.length
+            ? '<span class="nc-book-category">' + escapeHtml(book.categories.join(' · ')) + '</span>'
+            : '') + '</div></article>';
       }).join('');
       status.textContent = '';
     } catch (error) {
