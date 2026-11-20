@@ -10,8 +10,7 @@
 <header class="nc-site-header">
   <div class="nc-container nc-header-inner">
     <a class="nc-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Nieprzypadkowy Czytelnik — strona główna', 'nieprzypadkowy-czytelnik'); ?>">
-      <span class="nc-brand-name">Nieprzypadkowy Czytelnik</span>
-      <span class="nc-brand-tagline">Dobre książki. Świadome wybory.</span>
+      <img class="nc-brand-logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-nieprzypadkowy-czytelnik.png'); ?>" alt="Nieprzypadkowy Czytelnik — Dobre książki. Świadome wybory.">
     </a>
     <nav class="nc-nav" aria-label="<?php esc_attr_e('Menu główne', 'nieprzypadkowy-czytelnik'); ?>">
       <?php
