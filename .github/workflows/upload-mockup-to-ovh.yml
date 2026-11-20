@@ -1,0 +1,51 @@
+name: Temporary upload mockup to OVH test
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/upload-mockup-to-ovh.yml'
+      - '_robocze/assets/images/Nieprzypadkowy Czytelnik_ Odkrywaj dobre książki_zaakceptowana.png'
+
+permissions:
+  contents: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Upload only the approved mockup to the test theme assets
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_THEME_TARGET_DIR: ${{ secrets.FTP_THEME_TARGET_DIR }}
+        run: |
+          set -euo pipefail
+          for name in FTP_SERVER FTP_USERNAME FTP_PASSWORD FTP_THEME_TARGET_DIR; do
+            if [ -z "${!name}" ]; then
+              echo "::error::Missing required repository secret: $name"
+              exit 1
+            fi
+          done
+          sudo apt-get update
+          sudo apt-get install --yes lftp sshpass
+          export SSHPASS="$FTP_PASSWORD"
+          TARGET_DIR="${FTP_THEME_TARGET_DIR%/}/assets/images/_robocze"
+          FILE="_robocze/assets/images/Nieprzypadkowy Czytelnik_ Odkrywaj dobre książki_zaakceptowana.png"
+          {
+            printf '%s\n' 'set cmd:fail-exit yes'
+            printf '%s\n' 'set net:max-retries 2'
+            printf '%s\n' 'set net:timeout 30'
+            printf '%s\n' 'set sftp:auto-confirm yes'
+            printf '%s\n' 'set sftp:connect-program "sshpass -e ssh -a -x -oStrictHostKeyChecking=accept-new -p 22"'
+            printf 'open -u "%s,%s" "sftp://%s"\n' "$FTP_USERNAME" "$FTP_PASSWORD" "$FTP_SERVER"
+            printf 'mkdir -p "%s"\n' "$TARGET_DIR"
+            printf 'put "%s" -o "%s/%s"\n' "$FILE" "$TARGET_DIR" "$(basename "$FILE")"
+            printf 'ls -l "%s"\n' "$TARGET_DIR"
+            printf '%s\n' 'bye'
+          } | lftp
