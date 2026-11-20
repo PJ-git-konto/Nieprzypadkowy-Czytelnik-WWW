@@ -30,13 +30,13 @@
       grid.innerHTML = books.map((book) => {
         const cover = book.image
           ? '<img src="' + escapeHtml(book.image) + '" alt="Okładka książki ' + escapeHtml(book.title) + '">'
-          : '<span class="nc-cover-placeholder">Nieprzypadkowy<br>Czytelnik</span>';
+          : '<span class="nc-cover-placeholder">Miejsce<br>na okładkę</span>';
         return '<article class="nc-book-card" data-book-id="' + escapeHtml(book.id) + '">' +
           '<a class="nc-book-cover" href="' + escapeHtml(book.url) + '" aria-label="Przejdź do książki: ' + escapeHtml(book.title) + '">' + cover + '</a>' +
-          '<div><h3><a href="' + escapeHtml(book.url) + '">' + escapeHtml(book.title) + '</a></h3>' +
+          '<div class="nc-book-details"><h3><a href="' + escapeHtml(book.url) + '">' + escapeHtml(book.title) + '</a></h3>' +
           (book.author ? '<p class="nc-book-author">' + escapeHtml(book.author) + '</p>' : '') +
           '<p class="nc-book-excerpt">' + escapeHtml(book.excerpt) + '</p>' +
-          '<a class="nc-read-more" href="' + escapeHtml(book.url) + '">Poznaj tę książkę</a></div></article>';
+          '<span class="nc-book-category">✦ Wybrane przez redakcję</span></div></article>';
       }).join('');
       status.textContent = '';
     } catch (error) {
