@@ -16,7 +16,7 @@
         const icon = /^[a-z-]+$/.test(category.icon || '') ? category.icon : 'book';
         const sprite = escapeHtml(window.ncHome.categoryIconSprite);
         return '<span class="nc-book-category">' +
-          '<svg class="nc-category-icon" aria-hidden="true" focusable="false"><use href="' + sprite + '#nc-icon-' + icon + '"></use></svg>' +
+          '<svg class="nc-category-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:block;width:17px;height:17px;min-width:17px;max-width:17px;flex:0 0 17px;fill:none;stroke:#ad741f;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round"><use href="' + sprite + '#nc-icon-' + icon + '"></use></svg>' +
           '<span>' + name + '</span></span>';
       }).join('') +
       '</div>';
