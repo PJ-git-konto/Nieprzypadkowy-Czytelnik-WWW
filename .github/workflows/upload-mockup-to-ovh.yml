@@ -40,15 +40,15 @@ jobs:
           RELATIVE_DIR="assets/images/_robocze"
           FILE="_robocze/assets/images/Nieprzypadkowy Czytelnik_ Odkrywaj dobre książki_zaakceptowana.png"
           {
-            printf '%s\\n' 'set cmd:fail-exit yes'
-            printf '%s\\n' 'set net:max-retries 2'
-            printf '%s\\n' 'set net:timeout 30'
-            printf '%s\\n' 'set sftp:auto-confirm yes'
-            printf '%s\\n' 'set sftp:connect-program "sshpass -e ssh -a -x -oStrictHostKeyChecking=accept-new -p 22"'
-            printf 'open -u "%s,%s" "sftp://%s"\\n' "$FTP_USERNAME" "$FTP_PASSWORD" "$FTP_SERVER"
-            printf 'cd "%s"\\n' "$TARGET_DIR"
-            printf 'mkdir -p "%s"\\n' "$RELATIVE_DIR"
-            printf 'put "%s" -o "%s/%s"\\n' "$FILE" "$RELATIVE_DIR" "$(basename "$FILE")"
-            printf 'ls -l "%s"\\n' "$RELATIVE_DIR"
-            printf '%s\\n' 'bye'
+            printf '%s\n' 'set cmd:fail-exit yes'
+            printf '%s\n' 'set net:max-retries 2'
+            printf '%s\n' 'set net:timeout 30'
+            printf '%s\n' 'set sftp:auto-confirm yes'
+            printf '%s\n' 'set sftp:connect-program "sshpass -e ssh -a -x -oStrictHostKeyChecking=accept-new -p 22"'
+            printf 'open -u "%s,%s" "sftp://%s"\n' "$FTP_USERNAME" "$FTP_PASSWORD" "$FTP_SERVER"
+            printf 'cd "%s"\n' "$TARGET_DIR"
+            printf 'mkdir -p "%s"\n' "$RELATIVE_DIR"
+            printf 'put "%s" -o "%s/%s"\n' "$FILE" "$RELATIVE_DIR" "$(basename "$FILE")"
+            printf 'ls -l "%s"\n' "$RELATIVE_DIR"
+            printf '%s\n' 'bye'
           } | lftp
