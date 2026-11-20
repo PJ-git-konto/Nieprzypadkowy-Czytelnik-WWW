@@ -13,7 +13,7 @@ $books_query = new WP_Query([
     <div class="nc-hero-copy">
       <h1>Odkrywaj książki,<br>które warto czytać.</h1>
       <p>Nieprzypadkowy Czytelnik to miejsce dla wszystkich, którzy szukają dobrych książek – z sensem, emocjami i duszą.</p>
-      <a class="nc-button nc-button-gold" href="<?php echo esc_url(home_url('/o-nas/')); ?>">Poznaj naszą misję <span aria-hidden="true">→</span></a>
+      <a class="nc-button nc-button-gold" href="<?php echo esc_url(home_url('/o-nas/')); ?>">Dowiedz się więcej <span aria-hidden="true">→</span></a>
     </div>
     <div class="nc-hero-image">
       <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/hero-ksiazki-kubek.png')); ?>" alt="Stos książek i kubek z symbolem otwartej książki na tle biblioteczki">
