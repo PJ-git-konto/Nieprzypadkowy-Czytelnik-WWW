@@ -240,3 +240,17 @@ button,input{font:inherit}
   .nc-book-category-list{padding-top:7px;gap:5px}
   .nc-book-category{font-size:.68rem;padding:4px 8px 4px 6px}
 }
+
+/* Twarde ograniczenie rozmiaru emblematów kategorii */
+.nc-book-category-list .nc-category-icon{
+  display:block!important;
+  width:17px!important;
+  height:17px!important;
+  min-width:17px!important;
+  max-width:17px!important;
+  min-height:17px!important;
+  max-height:17px!important;
+  flex:0 0 17px!important;
+  fill:none!important;
+  stroke:#ad741f!important;
+}
