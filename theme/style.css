@@ -38,7 +38,7 @@ button,input{font:inherit}
 .nc-search svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
 .nc-menu-toggle{display:none}
 .nc-main{width:100%;overflow:hidden}
-.nc-hero{position:relative;width:calc(100% - 30px);margin-inline:auto;height:311px;min-height:0;overflow:hidden;border-bottom:1px solid var(--nc-line);background:#f8efdf}
+.nc-hero{position:relative;width:min(100%,1536px);margin-inline:auto;height:311px;min-height:0;overflow:hidden;border-bottom:1px solid var(--nc-line);background:#f8efdf}
 .nc-hero-inner{position:relative;width:min(100%,1536px);height:100%;margin:0 auto;padding:0 3.6%;display:flex;align-items:center;isolation:isolate}
 .nc-hero-image{position:absolute;z-index:-1;right:max(0px,calc(3.6% - 15px));top:50%;width:auto;height:100%;max-width:58%;object-fit:contain;object-position:right center;transform:translateY(-50%);-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 10%);mask-image:linear-gradient(to right,transparent 0%,#000 10%)}
 .nc-hero-copy{position:relative;z-index:1;width:55%;max-width:760px;padding:18px 20px 18px 0}
