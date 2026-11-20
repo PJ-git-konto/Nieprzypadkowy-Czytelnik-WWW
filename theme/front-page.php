@@ -46,7 +46,7 @@ $books_query = new WP_Query([
                   <div class="nc-book-category-list" aria-label="Kategorie książki">
                     <?php foreach ($book_categories as $book_category) : ?>
                       <span class="nc-book-category">
-                        <svg class="nc-category-icon" aria-hidden="true" focusable="false"><use href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/category-icons.svg#nc-icon-' . nc_book_category_icon_key($book_category->slug)); ?>"></use></svg>
+                        <svg class="nc-category-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:block;width:17px;height:17px;min-width:17px;max-width:17px;flex:0 0 17px;fill:none;stroke:#ad741f;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round"><use href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/category-icons.svg#nc-icon-' . nc_book_category_icon_key($book_category->slug)); ?>"></use></svg>
                         <span><?php echo esc_html($book_category->name); ?></span>
                       </span>
                     <?php endforeach; ?>
