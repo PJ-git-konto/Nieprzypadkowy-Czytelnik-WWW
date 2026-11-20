@@ -228,6 +228,7 @@ button,input{font:inherit}
 /* Emblematy kategorii — autorskie, wektorowe symbole w kolorze starego złota */
 .nc-book-category-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px}
 .nc-book-category{
+  margin-top:0;
   display:inline-flex;align-items:center;gap:6px;
   min-height:27px;padding:4px 9px 4px 6px;
   border:1px solid #e7c995;border-radius:18px;
