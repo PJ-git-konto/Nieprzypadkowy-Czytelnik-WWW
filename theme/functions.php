@@ -21,6 +21,7 @@ function nc_enqueue_assets(): void {
         wp_enqueue_script('nc-home', get_template_directory_uri() . '/assets/js/home.js', [], $version, true);
         wp_localize_script('nc-home', 'ncHome', [
             'endpoint' => esc_url_raw(rest_url('nc/v1/recommendations')),
+            'categoryIconSprite' => esc_url_raw(get_template_directory_uri() . '/assets/images/category-icons.svg'),
             'loading' => __('Szukam kolejnych propozycji…', 'nieprzypadkowy-czytelnik'),
             'error' => __('Nie udało się pobrać kolejnych książek. Spróbuj ponownie.', 'nieprzypadkowy-czytelnik'),
             'empty' => __('Dodajemy kolejne książki do naszej redakcyjnej półki.', 'nieprzypadkowy-czytelnik'),
@@ -95,8 +96,47 @@ function nc_save_book_details(int $post_id): void {
 }
 add_action('save_post_ksiazka', 'nc_save_book_details');
 
+/**
+ * Dobiera emblemat do znaczenia kategorii, a nie do jej dosłownej nazwy.
+ * Nowe kategorie bez własnej reguły otrzymują neutralny symbol książki.
+ */
+function nc_book_category_icon_key(string $slug): string {
+    $icons = [
+        'klasyka' => 'laurel',
+        'literatura' => 'leaf',
+        'literatura-piekna' => 'leaf',
+        'powiesc-historyczna' => 'compass',
+        'powiesc-obyczajowa' => 'flower',
+        'psychologia' => 'star',
+        'powiesc-psychologiczna' => 'star',
+        'kryminal' => 'magnifier',
+        'sensacja' => 'magnifier',
+        'fantasy' => 'moon',
+        'science-fiction' => 'orbit',
+        'biografia' => 'portrait',
+        'poradniki' => 'lightbulb',
+        'rozwoj-osobisty' => 'lightbulb',
+        'poezja' => 'quill',
+    ];
+
+    return $icons[$slug] ?? 'book';
+}
+
 function nc_book_card_data(int $post_id): array {
     $image = get_the_post_thumbnail_url($post_id, 'large');
+    $terms = get_the_terms($post_id, 'kategoria_ksiazki');
+    $categories = [];
+
+    if ($terms && !is_wp_error($terms)) {
+        foreach ($terms as $term) {
+            $categories[] = [
+                'name' => $term->name,
+                'slug' => $term->slug,
+                'icon' => nc_book_category_icon_key($term->slug),
+            ];
+        }
+    }
+
     return [
         'id' => $post_id,
         'title' => get_the_title($post_id),
@@ -104,9 +144,7 @@ function nc_book_card_data(int $post_id): array {
         'excerpt' => get_the_excerpt($post_id),
         'url' => get_permalink($post_id),
         'image' => $image ? esc_url($image) : '',
-        'categories' => ($terms = get_the_terms($post_id, 'kategoria_ksiazki')) && !is_wp_error($terms)
-            ? array_values(wp_list_pluck($terms, 'name'))
-            : [],
+        'categories' => $categories,
     ];
 }
 

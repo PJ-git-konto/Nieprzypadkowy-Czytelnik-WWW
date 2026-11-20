@@ -223,3 +223,20 @@ button,input{font:inherit}
 
 /* Etykieta przycisku doładowującego książki bez pogrubienia */
 .nc-actions .nc-button{font-weight:400}
+
+
+/* Emblematy kategorii — autorskie, wektorowe symbole w kolorze starego złota */
+.nc-book-category-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px}
+.nc-book-category{
+  margin-top:0;
+  display:inline-flex;align-items:center;gap:6px;
+  min-height:27px;padding:4px 9px 4px 6px;
+  border:1px solid #e7c995;border-radius:18px;
+  background:linear-gradient(135deg,#fbf1df,#f4e2c3);
+  color:#66502f;font-size:.7rem;line-height:1.15;letter-spacing:.01em;
+}
+.nc-category-icon{width:17px;height:17px;flex:0 0 17px;overflow:visible;color:#ad741f;fill:none;stroke:currentColor;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:620px){
+  .nc-book-category-list{padding-top:7px;gap:5px}
+  .nc-book-category{font-size:.68rem;padding:4px 8px 4px 6px}
+}
