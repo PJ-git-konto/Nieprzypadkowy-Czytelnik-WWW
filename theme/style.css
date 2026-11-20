@@ -220,3 +220,6 @@ button,input{font:inherit}
   .nc-editorial-icon{width:50px;height:50px;font-size:1.6rem}
   .nc-actions .nc-button{width:100%;min-width:0;padding-inline:16px}
 }
+
+/* Etykieta przycisku doładowującego książki bez pogrubienia */
+.nc-actions .nc-button{font-weight:400}
