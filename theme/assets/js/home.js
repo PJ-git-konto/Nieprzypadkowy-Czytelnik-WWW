@@ -8,6 +8,20 @@
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
   }[char]));
 
+  const renderCategories = (categories) => {
+    if (!Array.isArray(categories) || !categories.length) return '';
+    return '<div class="nc-book-category-list" aria-label="Kategorie książki">' +
+      categories.map((category) => {
+        const name = escapeHtml(category.name);
+        const icon = /^[a-z-]+$/.test(category.icon || '') ? category.icon : 'book';
+        const sprite = escapeHtml(window.ncHome.categoryIconSprite);
+        return '<span class="nc-book-category">' +
+          '<svg class="nc-category-icon" aria-hidden="true" focusable="false"><use href="' + sprite + '#nc-icon-' + icon + '"></use></svg>' +
+          '<span>' + name + '</span></span>';
+      }).join('') +
+      '</div>';
+  };
+
   button.addEventListener('click', async () => {
     const currentIds = Array.from(grid.querySelectorAll('[data-book-id]'))
       .map((card) => card.dataset.bookId)
@@ -36,9 +50,7 @@
           '<div class="nc-book-details"><h3><a href="' + escapeHtml(book.url) + '">' + escapeHtml(book.title) + '</a></h3>' +
           (book.author ? '<p class="nc-book-author">' + escapeHtml(book.author) + '</p>' : '') +
           '<p class="nc-book-excerpt">' + escapeHtml(book.excerpt) + '</p>' +
-          (Array.isArray(book.categories) && book.categories.length
-            ? '<span class="nc-book-category">' + escapeHtml(book.categories.join(' · ')) + '</span>'
-            : '') + '</div></article>';
+          renderCategories(book.categories) + '</div></article>';
       }).join('');
       status.textContent = '';
     } catch (error) {
