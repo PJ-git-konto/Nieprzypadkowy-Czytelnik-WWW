@@ -69,15 +69,15 @@ $books_query = new WP_Query([
       <h2 id="nc-editorial-title">Z redakcyjnego notesu</h2>
       <article class="nc-editorial-item">
         <span class="nc-editorial-icon" aria-hidden="true">▤</span>
-        <div><h3>Jesienne inspiracje</h3><p>10 książek, które umilą długie wieczory.</p><span class="nc-editorial-link">Zobacz listę <b>→</b></span></div>
+        <div><h3>Jesienne inspiracje</h3><p>10 książek, które umilą długie wieczory.</p><a class="nc-editorial-link" href="<?php echo esc_url(home_url('/jesienne-inspiracje/')); ?>">Zobacz listę <b aria-hidden="true">→</b></a></div>
       </article>
       <article class="nc-editorial-item">
         <span class="nc-editorial-icon" aria-hidden="true">◇</span>
-        <div><h3>Podróże bez biletu</h3><p>Literackie podróże w nieznane.</p><span class="nc-editorial-link">Zobacz listę <b>→</b></span></div>
+        <div><h3>Podróże bez biletu</h3><p>Literackie podróże w nieznane.</p><a class="nc-editorial-link" href="<?php echo esc_url(home_url('/podroze-bez-biletu/')); ?>">Zobacz listę <b aria-hidden="true">→</b></a></div>
       </article>
       <article class="nc-editorial-item">
         <span class="nc-editorial-icon" aria-hidden="true">✎</span>
-        <div><h3>Klasyka, która wciąż zachwyca</h3><p>Ponadczasowe książki na każdą okazję.</p><span class="nc-editorial-link">Zobacz listę <b>→</b></span></div>
+        <div><h3>Klasyka, która wciąż zachwyca</h3><p>Ponadczasowe książki na każdą okazję.</p><a class="nc-editorial-link" href="<?php echo esc_url(home_url('/klasyka-ktora-wciaz-zachwyca/')); ?>">Zobacz listę <b aria-hidden="true">→</b></a></div>
       </article>
     </aside>
   </section>
