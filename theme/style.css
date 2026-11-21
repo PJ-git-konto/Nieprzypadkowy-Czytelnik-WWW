@@ -254,3 +254,28 @@ button,input{font:inherit}
   fill:none!important;
   stroke:#ad741f!important;
 }
+
+
+/* Redakcyjne strony z zestawieniami książek */
+.nc-reading-list{padding-block:38px 76px}
+.nc-reading-list-header{max-width:820px;margin:0 auto 42px;text-align:center}
+.nc-reading-list-back{display:inline-block;margin-bottom:24px;color:var(--nc-navy);font-size:.9rem;text-decoration:none}
+.nc-reading-list-back:hover{text-decoration:underline}
+.nc-reading-list-eyebrow{margin:0 0 10px;color:var(--nc-gold);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.nc-reading-list-header h1{margin:0 0 16px;color:var(--nc-navy);font-family:var(--nc-serif);font-size:clamp(2rem,4vw,3.2rem);line-height:1.08}
+.nc-reading-list-intro{max-width:700px;margin:0 auto;color:var(--nc-text);font-size:1.05rem;line-height:1.7}
+.nc-reading-list-books{max-width:1100px;margin-inline:auto}
+.nc-reading-list-books .nc-section-title{margin-bottom:12px}
+.nc-reading-list-test-note{margin:0 0 24px;color:var(--nc-muted);font-size:.88rem;text-align:center}
+.nc-reading-list-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.nc-reading-book-card{display:grid;grid-template-columns:minmax(110px,38%) minmax(0,1fr);gap:18px;align-items:start;padding:16px;border:1px solid var(--nc-line);border-radius:4px;background:#fff}
+.nc-reading-book-cover{display:block;overflow:hidden;border-radius:2px;box-shadow:0 5px 15px rgba(25,30,40,.14)}
+.nc-reading-book-cover img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
+.nc-reading-book-details h3{margin:2px 0 8px;color:var(--nc-navy);font-family:var(--nc-serif);font-size:1.15rem;line-height:1.2}
+.nc-reading-book-details h3 a{color:inherit;text-decoration:none}
+.nc-reading-book-details h3 a:hover{text-decoration:underline}
+.nc-reading-book-details .nc-book-author{margin:0 0 10px}
+.nc-reading-book-details .nc-book-excerpt{font-size:.9rem;line-height:1.5}
+.nc-reading-list-empty{padding:32px;text-align:center}
+@media(max-width:900px){.nc-reading-list-grid{grid-template-columns:1fr}.nc-reading-book-card{grid-template-columns:140px minmax(0,1fr);max-width:700px;width:100%;margin-inline:auto}}
+@media(max-width:520px){.nc-reading-list{padding-block:24px 52px}.nc-reading-list-header{margin-bottom:30px}.nc-reading-list-intro{font-size:.96rem}.nc-reading-list-grid{gap:14px}.nc-reading-book-card{grid-template-columns:108px minmax(0,1fr);gap:13px;padding:11px}.nc-reading-book-details h3{font-size:1.05rem}}
