@@ -662,11 +662,11 @@ button,input{font:inherit}
 }
 
 
-/* Jesienna mapa — kolor tekstu zgodny z tytułem „Jesienne inspiracje” */
+/* Jesienna mapa — kolor i grubość tekstu zgodne z pozostałymi nagłówkami kolekcji */
 .nc-autumn-map{align-items:start}
 .nc-autumn-section-heading h2{
   color:var(--nc-navy);
-  font-weight:700;
+  font-weight:400;
 }
 .nc-autumn-section-heading>p:last-child,
 .nc-autumn-stop-copy>p:not(.nc-autumn-author),
