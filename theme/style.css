@@ -387,3 +387,127 @@ button,input{font:inherit}
   .nc-autumn-closing{gap:10px;padding:22px 16px 0}
   .nc-autumn-closing p{font-size:1.25rem}
 }
+
+
+/* PROP 5 — wierne odtworzenie kompozycji „Jesienne inspiracje” */
+.nc-autumn-page{padding:0 0 34px}
+.nc-autumn-opening{
+  max-width:1536px;padding:28px 3.6% 30px;
+  grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
+  gap:34px;align-items:center
+}
+.nc-autumn-opening-copy{max-width:520px}
+.nc-autumn-opening .nc-reading-list-back{margin-bottom:18px}
+.nc-autumn-eyebrow{letter-spacing:.12em}
+.nc-autumn-opening h1{font-size:clamp(2.55rem,3.8vw,3.65rem);margin-bottom:10px}
+.nc-autumn-intro{font-size:1rem;line-height:1.5}
+.nc-autumn-rule{display:none}
+.nc-autumn-small-note{display:none}
+.nc-autumn-featured{
+  grid-template-columns:minmax(150px,.55fr) minmax(0,1.45fr);
+  gap:26px;padding:24px;border:1px solid #e2cfb2;border-radius:17px;
+  background:linear-gradient(135deg,#fffaf1 0%,#f7eddd 100%);
+  box-shadow:0 5px 18px rgba(62,46,25,.07)
+}
+.nc-autumn-featured-cover{width:100%;max-width:250px}
+.nc-autumn-featured-cover a{border-radius:7px;box-shadow:0 7px 16px rgba(35,27,18,.2)}
+.nc-autumn-featured-cover img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover}
+.nc-autumn-featured-copy h2{font-size:clamp(1.65rem,2.3vw,2.35rem)}
+.nc-autumn-featured-label{margin-bottom:8px}
+.nc-autumn-description{font-size:.91rem;line-height:1.48;margin-bottom:12px}
+.nc-autumn-tags{margin-bottom:14px}
+.nc-autumn-cta{border-radius:28px;padding:10px 22px;font-weight:600}
+.nc-autumn-filters{
+  max-width:1456px;margin:0 auto;padding:8px 3.6% 12px;
+  display:flex;align-items:center;justify-content:center;gap:0;
+  border-bottom:1px solid #dfc9a9;white-space:nowrap;overflow-x:auto
+}
+.nc-autumn-filters a{
+  display:inline-block;padding:8px 16px;color:#514b43;font-size:.88rem;
+  border-right:1px solid #e5d6c0
+}
+.nc-autumn-filters a:last-child{border-right:0}
+.nc-autumn-filters a.is-active{color:var(--nc-navy);font-weight:700;border-bottom:2px solid var(--nc-navy)}
+.nc-autumn-map{
+  max-width:1536px;padding:24px 3.6% 28px;
+  display:grid;grid-template-columns:minmax(205px,.78fr) minmax(0,3.22fr);
+  gap:22px;align-items:center
+}
+.nc-autumn-section-heading{margin:0;text-align:left;max-width:270px}
+.nc-autumn-section-heading h2{font-size:clamp(1.65rem,2.1vw,2.15rem);line-height:1.08;margin-bottom:8px}
+.nc-autumn-section-heading>p:last-child{font-size:.9rem;font-style:italic;line-height:1.4}
+.nc-autumn-stops{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px
+}
+.nc-autumn-stops:before{display:none}
+.nc-autumn-stop{
+  min-height:178px;padding:13px 13px 12px;
+  grid-template-columns:minmax(68px,.7fr) minmax(0,1.3fr);
+  gap:12px;align-items:start;border:1px solid #dfc9a9;border-radius:14px;
+  background:linear-gradient(145deg,#fffaf1,#f8efdf);
+  box-shadow:0 3px 9px rgba(62,46,25,.07);
+  transition:transform .18s ease,box-shadow .18s ease
+}
+.nc-autumn-stop:hover{transform:translateY(-2px);box-shadow:0 7px 16px rgba(62,46,25,.11)}
+.nc-autumn-stop-number{
+  position:absolute;top:7px;left:8px;width:26px;height:26px;
+  border:0;border-radius:50%;background:#bd873c;color:white;
+  font-family:var(--nc-serif);font-size:.85rem;box-shadow:0 1px 4px #59401c44
+}
+.nc-autumn-stop-cover{
+  align-self:start;margin-top:0;border-radius:5px;box-shadow:0 4px 9px rgba(35,27,18,.16)
+}
+.nc-autumn-stop-cover img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover}
+.nc-autumn-stop-copy h3{margin:0 0 4px;font-size:1.08rem;line-height:1.12}
+.nc-autumn-stop-copy .nc-autumn-author{font-size:.78rem;margin-bottom:7px}
+.nc-autumn-stop-copy>p:not(.nc-autumn-author){font-size:.76rem;line-height:1.35;margin-bottom:8px}
+.nc-autumn-stop-copy .nc-autumn-tags{margin-bottom:6px}
+.nc-autumn-stop-copy .nc-autumn-tags span{font-size:.62rem;padding:3px 7px}
+.nc-autumn-text-link{font-size:.75rem;font-weight:500}
+.nc-autumn-stop-placeholder{background:linear-gradient(145deg,#fffaf1,#f3e5cf)}
+.nc-autumn-placeholder-cover{
+  min-height:125px;display:grid;place-items:center;border-radius:5px;
+  background:radial-gradient(circle at 50% 35%,#f7e4c4,#ddc49e 75%);
+  color:#a87835;font-size:2rem;box-shadow:0 4px 9px rgba(35,27,18,.12)
+}
+.nc-autumn-placeholder-note{color:#6e665b;font-style:italic}
+.nc-autumn-closing{
+  max-width:none;min-height:100px;margin:0;padding:20px 4%;
+  background:linear-gradient(90deg,#f1e2cb,#fff8ed 50%,#f1e2cb);
+  border-top:1px solid #dfc9a9;border-bottom:1px solid #dfc9a9
+}
+.nc-autumn-closing p{font-size:clamp(1.55rem,2.7vw,2.4rem)}
+.nc-autumn-closing-mark{font-size:1.5rem}
+@media(max-width:1100px){
+ .nc-autumn-opening{grid-template-columns:1fr;gap:22px}
+ .nc-autumn-opening-copy{max-width:760px}
+ .nc-autumn-featured{max-width:900px}
+ .nc-autumn-map{grid-template-columns:1fr;gap:18px}
+ .nc-autumn-section-heading{max-width:650px;text-align:center;margin:0 auto}
+ .nc-autumn-stops{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .nc-autumn-stop{grid-template-columns:75px minmax(0,1fr);gap:10px}
+}
+@media(max-width:760px){
+ .nc-autumn-opening{padding:24px 20px}
+ .nc-autumn-featured{grid-template-columns:125px minmax(0,1fr);gap:17px;padding:16px;border-radius:14px}
+ .nc-autumn-filters{justify-content:flex-start;padding-inline:16px}
+ .nc-autumn-filters a{padding-inline:12px;font-size:.8rem}
+ .nc-autumn-map{padding:22px 20px}
+ .nc-autumn-stops{grid-template-columns:1fr;gap:12px}
+ .nc-autumn-stop{grid-template-columns:95px minmax(0,1fr);min-height:0;padding:13px;border-radius:13px}
+ .nc-autumn-placeholder-cover{min-height:125px}
+}
+@media(max-width:520px){
+ .nc-autumn-opening{padding:20px 16px}
+ .nc-autumn-opening h1{font-size:2.55rem}
+ .nc-autumn-featured{grid-template-columns:100px minmax(0,1fr);gap:13px;padding:12px}
+ .nc-autumn-featured-copy h2{font-size:1.5rem}
+ .nc-autumn-description{font-size:.82rem}
+ .nc-autumn-cta{padding:9px 12px;font-size:.78rem}
+ .nc-autumn-map{padding:20px 16px}
+ .nc-autumn-section-heading h2{font-size:1.85rem}
+ .nc-autumn-stop{grid-template-columns:82px minmax(0,1fr);gap:11px;padding:11px}
+ .nc-autumn-stop-copy h3{font-size:1.05rem}
+ .nc-autumn-stop-copy>p:not(.nc-autumn-author){font-size:.78rem}
+ .nc-autumn-closing{padding:18px 14px}
+}
