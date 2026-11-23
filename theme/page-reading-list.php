@@ -59,6 +59,7 @@ if ($page_slug === 'jesienne-inspiracje') :
           <a class="nc-reading-list-back" href="<?php echo esc_url(home_url('/')); ?>">← Strona główna</a>
           <p class="nc-autumn-eyebrow"><?php echo esc_html($list['eyebrow']); ?></p>
           <h1><?php the_title(); ?></h1>
+          <p class="nc-autumn-subheading">10 książek, które umilą długie wieczory</p>
           <p class="nc-autumn-intro"><?php echo esc_html($list['intro']); ?></p>
           <span class="nc-autumn-rule" aria-hidden="true"></span>
           <p class="nc-autumn-small-note">Trzy historie. Trzy różne światy. Jeden dobry powód, by zostać dziś trochę dłużej z książką.</p>
