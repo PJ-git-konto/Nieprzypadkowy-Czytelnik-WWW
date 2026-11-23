@@ -559,5 +559,5 @@ button,input{font:inherit}
 
 
 /* Podnagłówek kolekcji Jesienne inspiracje — zgodnie z PROP 5 */
-.nc-autumn-subheading{margin:0 0 17px;color:var(--nc-navy);font-family:var(--nc-serif);font-size:clamp(1.25rem,1.75vw,1.55rem);line-height:1.25;font-style:italic}
-@media(max-width:520px){.nc-autumn-subheading{font-size:1.15rem;margin-bottom:14px}}
+.nc-autumn-subheading{margin:0 0 17px;color:var(--nc-navy);font-family:var(--nc-serif);font-size:clamp(1.05rem,1.3vw,1.25rem);line-height:1.35;font-style:normal}
+@media(max-width:520px){.nc-autumn-subheading{font-size:1.05rem;margin-bottom:14px}}
