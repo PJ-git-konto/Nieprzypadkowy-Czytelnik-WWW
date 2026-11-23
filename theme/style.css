@@ -843,3 +843,38 @@ button,input{font:inherit}
     font-size:.78rem;
   }
 }
+
+/* Jesienne inspiracje — gałązka wyróżnionej pozycji: naturalne proporcje i mocniejszy rysunek */
+.nc-autumn-featured:after{
+  top:-10%;
+  right:-8%;
+  width:88%;
+  height:120%;
+  background-position:right center;
+  background-size:auto 100%;
+  opacity:1;
+  filter:saturate(1.18) contrast(1.12);
+}
+@media(max-width:1100px){
+  .nc-autumn-featured:after{
+    top:-8%;
+    right:-8%;
+    width:82%;
+    height:116%;
+    background-position:right center;
+    background-size:auto 100%;
+    opacity:1;
+  }
+}
+@media(max-width:760px){
+  .nc-autumn-featured:after{
+    top:-5%;
+    right:-10%;
+    width:88%;
+    height:110%;
+    background-position:right center;
+    background-size:auto 100%;
+    opacity:1;
+  }
+}
+
