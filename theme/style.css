@@ -761,7 +761,7 @@ button,input{font:inherit}
 }
 
 
-/* Jesienne inspiracje — nawigacja wyśrodkowana pod ostatnią kartą */
+/* Jesienne inspiracje — środkowy przycisk na osi okładki ostatniej książki */
 .nc-autumn-pagination{
   position:relative;
   z-index:2;
@@ -774,6 +774,7 @@ button,input{font:inherit}
   margin:24px 0 0 auto;
   padding:0;
   text-align:center;
+  transform:translateX(4.5%);
 }
 @media(max-width:1100px){
   .nc-autumn-pagination{
@@ -781,6 +782,7 @@ button,input{font:inherit}
     width:100%;
     justify-content:center;
     margin:24px auto 0;
+    transform:none;
   }
 }
 .nc-autumn-pagination a{
