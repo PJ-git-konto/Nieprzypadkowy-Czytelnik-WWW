@@ -106,7 +106,10 @@ if ($page_slug === 'jesienne-inspiracje') :
               <?php if ($featured_terms && !is_wp_error($featured_terms)) : ?>
                 <div class="nc-autumn-tags" aria-label="Kategorie książki">
                   <?php foreach ($featured_terms as $term) : ?>
-                    <span><?php echo esc_html($term->name); ?></span>
+                    <span>
+                      <svg class="nc-category-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/category-icons.svg#nc-icon-' . nc_book_category_icon_key($term->slug)); ?>"></use></svg>
+                      <?php echo esc_html($term->name); ?>
+                    </span>
                   <?php endforeach; ?>
                 </div>
               <?php endif; ?>
@@ -150,7 +153,12 @@ if ($page_slug === 'jesienne-inspiracje') :
                 <p class="nc-autumn-stop-description"><?php echo esc_html(get_the_excerpt($book_id)); ?></p>
                 <?php if ($terms && !is_wp_error($terms)) : ?>
                   <div class="nc-autumn-tags">
-                    <?php foreach ($terms as $term) : ?><span><?php echo esc_html($term->name); ?></span><?php endforeach; ?>
+                    <?php foreach ($terms as $term) : ?>
+                      <span>
+                        <svg class="nc-category-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/category-icons.svg#nc-icon-' . nc_book_category_icon_key($term->slug)); ?>"></use></svg>
+                        <?php echo esc_html($term->name); ?>
+                      </span>
+                    <?php endforeach; ?>
                   </div>
                 <?php endif; ?>
                 <a class="nc-autumn-text-link" href="<?php echo esc_url(get_permalink($book_id)); ?>">Zobacz recenzję <span aria-hidden="true">→</span></a>
@@ -230,7 +238,10 @@ else :
                   <?php if ($book_categories && !is_wp_error($book_categories)) : ?>
                     <div class="nc-book-category-list" aria-label="Kategorie książki">
                       <?php foreach ($book_categories as $book_category) : ?>
-                        <span class="nc-book-category"><?php echo esc_html($book_category->name); ?></span>
+                        <span class="nc-book-category">
+                          <svg class="nc-category-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/category-icons.svg#nc-icon-' . nc_book_category_icon_key($book_category->slug)); ?>"></use></svg>
+                          <span><?php echo esc_html($book_category->name); ?></span>
+                        </span>
                       <?php endforeach; ?>
                     </div>
                   <?php endif; ?>
