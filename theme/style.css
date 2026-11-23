@@ -298,7 +298,7 @@ button,input{font:inherit}
   margin:0 0 20px;color:var(--nc-navy);font-size:clamp(2.7rem,4.4vw,4.5rem);
   font-weight:400;line-height:.98;letter-spacing:-.045em
 }
-.nc-autumn-intro{margin:0;color:#4f4a42;font-size:1.12rem;line-height:1.7}
+.nc-autumn-intro{margin:0;color:var(--nc-navy);font-size:1.12rem;line-height:1.7}
 .nc-autumn-rule{display:block;width:76px;height:2px;margin:25px 0 18px;background:var(--nc-gold)}
 .nc-autumn-small-note{max-width:390px;margin:0;color:#81715b;font-size:.92rem;font-style:italic;line-height:1.55}
 .nc-autumn-featured{
@@ -559,5 +559,5 @@ button,input{font:inherit}
 
 
 /* Podnagłówek kolekcji Jesienne inspiracje — zgodnie z PROP 5 */
-.nc-autumn-subheading{margin:0 0 17px;color:#a66b20;font-family:var(--nc-serif);font-size:clamp(1.4rem,2vw,1.8rem);line-height:1.25;font-style:italic}
-@media(max-width:520px){.nc-autumn-subheading{font-size:1.3rem;margin-bottom:14px}}
+.nc-autumn-subheading{margin:0 0 17px;color:var(--nc-navy);font-family:var(--nc-serif);font-size:clamp(1.25rem,1.75vw,1.55rem);line-height:1.25;font-style:italic}
+@media(max-width:520px){.nc-autumn-subheading{font-size:1.15rem;margin-bottom:14px}}
