@@ -677,3 +677,12 @@ button,input{font:inherit}
   color:var(--nc-navy);
   font-weight:700;
 }
+
+
+/* Jesienne inspiracje — delikatnie zwężone trzy dolne rekomendacje */
+@media(min-width:1101px){
+  .nc-autumn-stops{
+    width:92%;
+    margin-left:auto;
+  }
+}
