@@ -774,7 +774,7 @@ button,input{font:inherit}
   margin:24px 0 0 auto;
   padding:0;
   text-align:center;
-  transform:translateX(-18%);
+  transform:translateX(-17%);
 }
 @media(max-width:1100px){
   .nc-autumn-pagination{
