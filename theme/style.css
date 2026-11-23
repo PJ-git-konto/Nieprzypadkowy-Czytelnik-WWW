@@ -665,15 +665,15 @@ button,input{font:inherit}
 /* Jesienna mapa — hierarchia nagłówków i kolor grafitowy */
 .nc-autumn-map{align-items:start}
 .nc-autumn-section-heading h2{
-  color:#1d242a;
+  color:#152941;
   font-weight:700;
 }
 .nc-autumn-section-heading>p:last-child,
 .nc-autumn-stop-copy>p:not(.nc-autumn-author),
 .nc-autumn-description{
-  color:#1d242a;
+  color:#152941;
 }
 .nc-autumn-stop-copy h3{
-  color:#1d242a;
+  color:#152941;
   font-weight:700;
 }
