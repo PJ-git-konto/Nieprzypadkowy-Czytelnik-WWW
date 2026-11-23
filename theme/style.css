@@ -316,7 +316,7 @@ button,input{font:inherit}
 .nc-autumn-author{margin:0 0 17px;color:#a66b20;font-size:1rem}
 .nc-autumn-description{margin:0 0 18px;color:#514b43;font-size:.98rem;line-height:1.6}
 .nc-autumn-tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 22px}
-.nc-autumn-tags span{padding:5px 11px;border:1px solid #e5cda7;border-radius:30px;background:#fbf1e1;color:#725b39;font-size:.72rem}
+.nc-autumn-tags span{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border:1px solid #e5cda7;border-radius:30px;background:#fbf1e1;color:#725b39;font-size:.72rem}
 .nc-autumn-cta{display:inline-flex;align-items:center;gap:13px;padding:12px 20px;border-radius:2px;background:var(--nc-navy);color:#fff;font-size:.92rem;transition:background .2s,transform .2s}
 .nc-autumn-cta:hover{background:#1d466d;color:#fff;transform:translateY(-2px)}
 .nc-autumn-map{max-width:1384px;margin:0 auto;padding:0 36px 44px}
