@@ -851,7 +851,7 @@ button,input{font:inherit}
   transform:translate(25px,0);
   width:88%;
   height:120%;
-  background-position:right top;
+  background-position:right -15px;
   background-size:auto 49%;
   opacity:1;
 }
@@ -861,7 +861,7 @@ button,input{font:inherit}
     right:-8%;
     width:82%;
     height:116%;
-    background-position:right top;
+    background-position:right -15px;
     background-size:auto 49%;
     opacity:1;
   }
@@ -872,7 +872,7 @@ button,input{font:inherit}
     right:-10%;
     width:88%;
     height:110%;
-    background-position:right top;
+    background-position:right -15px;
     background-size:auto 49%;
     opacity:1;
   }
