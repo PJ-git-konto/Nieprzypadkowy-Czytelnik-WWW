@@ -9,7 +9,7 @@ $page_slug = get_post_field('post_name', get_queried_object_id());
 
 $editorial_lists = [
     'jesienne-inspiracje' => [
-        'intro' => 'Jesienne wieczory sprzyjają czytaniu. Przygotowaliśmy zestaw książek, z którymi można zwolnić tempo, zanurzyć się w opowieści i na chwilę odciąć od codziennego pośpiechu.',
+        'intro' => 'Przedłużające się wieczory to czas, by zwolnić tempo, zaparzyć ulubioną herbatę i zanurzyć się w literaturze. Przygotowaliśmy dla Ciebie subiektywny wybór książek, które otulają ciepłem, skłaniają do refleksji i zostają w pamięci na długo po zamknięciu ostatniej strony.',
         'eyebrow' => 'Na długie wieczory',
     ],
     'podroze-bez-biletu' => [
