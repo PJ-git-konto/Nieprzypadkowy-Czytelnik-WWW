@@ -177,9 +177,9 @@ if ($page_slug === 'jesienne-inspiracje') :
             </article>
           <?php endif; ?>
         </div>
-        <nav class="nc-autumn-pagination" aria-label="Strony rekomendacji">
+        <nav id="nc-autumn-pagination" class="nc-autumn-pagination" aria-label="Strony rekomendacji">
           <?php for ($page_number = 1; $page_number <= 3; $page_number++) : ?>
-            <a href="<?php echo esc_url(add_query_arg('strona', $page_number, get_permalink())); ?>"
+            <a href="<?php echo esc_url(add_query_arg('strona', $page_number, get_permalink()) . '#nc-autumn-pagination'); ?>"
                class="<?php echo $autumn_page === $page_number ? 'is-active' : ''; ?>"
                <?php echo $autumn_page === $page_number ? 'aria-current="page"' : ''; ?>>
               <?php echo esc_html($page_number); ?>
