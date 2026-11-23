@@ -97,12 +97,19 @@ if ($page_slug === 'jesienne-inspiracje') :
         <?php endif; ?>
       </section>
 
-      <section class="nc-autumn-map" aria-labelledby="nc-autumn-map-title">
-        <div class="nc-autumn-section-heading">
-          <p class="nc-autumn-eyebrow">Dalszy ciąg czytelniczej wyprawy</p>
-          <h2 id="nc-autumn-map-title">Literacka mapa</h2>
-          <p>Wybierz kolejny przystanek i pozwól, by historia poprowadziła Cię dalej.</p>
-        </div>
+      <nav class="nc-autumn-filters" aria-label="Filtry kolekcji">
+        <a class="is-active" href="#nc-autumn-map">Wszystkie (10)</a>
+        <a href="#nc-autumn-map">Przytulne historie</a>
+        <a href="#nc-autumn-map">Mroczne tajemnice</a>
+        <a href="#nc-autumn-map">Sagi i wspomnienia</a>
+        <a href="#nc-autumn-map">Literatura faktu</a>
+      </nav>
+
+      <section class="nc-autumn-map" id="nc-autumn-map" aria-labelledby="nc-autumn-map-title">
+        <header class="nc-autumn-section-heading">
+          <h2 id="nc-autumn-map-title">Literacka mapa<br>jesiennych wieczorów</h2>
+          <p>Ścieżka nastrojów i kolejnych rekomendacji</p>
+        </header>
         <div class="nc-autumn-stops">
           <?php foreach ($map_books as $index => $book) :
               $book_id = $book->ID;
@@ -110,7 +117,7 @@ if ($page_slug === 'jesienne-inspiracje') :
               $terms = get_the_terms($book_id, 'kategoria_ksiazki');
               ?>
             <article class="nc-autumn-stop">
-              <div class="nc-autumn-stop-number"><?php echo esc_html(sprintf('%02d', $index + 2)); ?></div>
+              <div class="nc-autumn-stop-number"><?php echo esc_html($index + 2); ?></div>
               <a class="nc-autumn-stop-cover" href="<?php echo esc_url(get_permalink($book_id)); ?>">
                 <?php if (has_post_thumbnail($book_id)) : ?>
                   <?php echo get_the_post_thumbnail($book_id, 'medium', ['alt' => esc_attr(get_the_title($book_id) . ' — okładka')]); ?>
@@ -127,12 +134,20 @@ if ($page_slug === 'jesienne-inspiracje') :
                     <?php foreach ($terms as $term) : ?><span><?php echo esc_html($term->name); ?></span><?php endforeach; ?>
                   </div>
                 <?php endif; ?>
-                <a class="nc-autumn-text-link" href="<?php echo esc_url(get_permalink($book_id)); ?>">Odkryj książkę <span aria-hidden="true">→</span></a>
+                <a class="nc-autumn-text-link" href="<?php echo esc_url(get_permalink($book_id)); ?>">Zobacz recenzję <span aria-hidden="true">→</span></a>
               </div>
             </article>
           <?php endforeach; ?>
-          <?php if (!$featured_book && !$map_books) : ?>
-            <p class="nc-reading-list-empty">W tym zestawieniu pojawią się książki, gdy dodamy je do redakcyjnej biblioteki.</p>
+          <?php if (count($map_books) < 3) : ?>
+            <article class="nc-autumn-stop nc-autumn-stop-placeholder" aria-label="Kolejna rekomendacja w przygotowaniu">
+              <div class="nc-autumn-stop-number"><?php echo esc_html(count($map_books) + 2); ?></div>
+              <div class="nc-autumn-placeholder-cover" aria-hidden="true">✦</div>
+              <div class="nc-autumn-stop-copy">
+                <h3>Kolejny przystanek</h3>
+                <p class="nc-autumn-placeholder-note">Przygotowujemy kolejne literackie odkrycie na długie jesienne wieczory.</p>
+                <span class="nc-autumn-text-link">Wkrótce na mapie</span>
+              </div>
+            </article>
           <?php endif; ?>
         </div>
       </section>
