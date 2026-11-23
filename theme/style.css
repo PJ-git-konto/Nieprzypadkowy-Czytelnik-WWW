@@ -561,3 +561,33 @@ button,input{font:inherit}
 /* Podnagłówek kolekcji Jesienne inspiracje — zgodnie z PROP 5 */
 .nc-autumn-subheading{margin:0 0 17px;color:var(--nc-navy);font-family:var(--nc-serif);font-size:clamp(1.05rem,1.3vw,1.25rem);line-height:1.35;font-style:normal}
 @media(max-width:520px){.nc-autumn-subheading{font-size:1.05rem;margin-bottom:14px}}
+
+/* Jesienna mapa — jedna ciągła, klonowa gałąź biegnąca pod całym szeregiem kart */
+.nc-autumn-map:before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:2.5%;
+  right:2.5%;
+  top:12%;
+  bottom:0;
+  width:95%;
+  height:88%;
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  background-size:100% 100%;
+  opacity:.58;
+  pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 280' preserveAspectRatio='none'%3E%3Cpath d='M8 258 C170 230 235 190 360 195 S570 232 700 184 S930 126 1050 150 S1300 170 1592 42' fill='none' stroke='%23ad8050' stroke-width='3' stroke-linecap='round'/%3E%3Cg fill='none' stroke='%23ad8050' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M175 228 Q150 190 126 157 M330 199 Q335 156 310 124 M505 213 Q490 170 470 143 M690 187 Q715 145 704 110 M865 145 Q850 105 824 80 M1045 150 Q1080 112 1070 77 M1240 164 Q1240 120 1210 94 M1435 105 Q1460 70 1445 38'/%3E%3C/g%3E%3Cg fill='%23d9a65f' stroke='%23a8793e' stroke-width='1.8' stroke-linejoin='round'%3E%3Cpath d='M126 157 L111 145 116 128 101 132 104 113 83 122 91 99 70 103 91 86 88 67 108 79 121 60 126 84 145 74 139 96 160 105 140 119 146 139 129 136Z'/%3E%3Cpath d='M310 124 L294 113 299 96 281 101 286 82 264 91 273 68 250 73 271 55 268 36 288 49 302 29 307 53 327 43 320 65 341 74 321 88 327 108 310 105Z'/%3E%3Cpath d='M470 143 L454 132 459 115 441 120 446 101 424 110 433 87 410 92 431 74 428 55 448 68 462 48 467 72 487 62 480 84 501 93 481 107 487 127 470 124Z'/%3E%3Cpath d='M704 110 L688 99 693 82 675 87 680 68 658 77 667 54 644 59 665 41 662 22 682 35 696 15 701 39 721 29 714 51 735 60 715 74 721 94 704 91Z'/%3E%3Cpath d='M824 80 L808 69 813 52 795 57 800 38 778 47 787 24 764 29 785 11 782 -8 802 5 816 -15 821 9 841 -1 834 21 855 30 835 44 841 64 824 61Z'/%3E%3Cpath d='M1070 77 L1054 66 1059 49 1041 54 1046 35 1024 44 1033 21 1010 26 1031 8 1028 -11 1048 2 1062 -18 1067 6 1087 -4 1080 18 1101 27 1081 41 1087 61 1070 58Z'/%3E%3Cpath d='M1210 94 L1194 83 1199 66 1181 71 1186 52 1164 61 1173 38 1150 43 1171 25 1168 6 1188 19 1202 -1 1207 23 1227 13 1220 35 1241 44 1221 58 1227 78 1210 75Z'/%3E%3Cpath d='M1445 38 L1429 27 1434 10 1416 15 1421 -4 1399 5 1408 -18 1385 -13 1406 -31 1403 -50 1423 -37 1437 -57 1442 -33 1462 -43 1455 -21 1476 -12 1456 2 1462 22 1445 19Z'/%3E%3C/g%3E%3Cg fill='%23c47b4b' stroke='%239e6841' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M220 213 L205 202 210 185 192 190 197 171 175 180 184 157 161 162 182 144 179 125 199 138 213 118 218 142 238 132 231 154 252 163 232 177 238 197 221 194Z'/%3E%3Cpath d='M590 204 L575 193 580 176 562 181 567 162 545 171 554 148 531 153 552 135 549 116 569 129 583 109 588 133 608 123 601 145 622 154 602 168 608 188 591 185Z'/%3E%3Cpath d='M945 137 L930 126 935 109 917 114 922 95 900 104 909 81 886 86 907 68 904 49 924 62 938 42 943 66 963 56 956 78 977 87 957 101 963 121 946 118Z'/%3E%3Cpath d='M1325 145 L1310 134 1315 117 1297 122 1302 103 1280 112 1289 89 1266 94 1287 76 1284 57 1304 70 1318 50 1323 74 1343 64 1336 86 1357 95 1337 109 1343 129 1326 126Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.nc-autumn-map:after{display:none}
+.nc-autumn-section-heading,.nc-autumn-stops{z-index:1}
+.nc-autumn-stop{background:rgba(255,250,241,.91)}
+@media(max-width:1100px){
+  .nc-autumn-map:before{left:2%;width:96%;height:75%;top:20%;opacity:.42}
+}
+@media(max-width:760px){
+  .nc-autumn-map:before{left:0;width:100%;height:100%;top:0;opacity:.22;background-size:auto 100%;background-position:center}
+  .nc-autumn-stop{background:rgba(255,250,241,.94)}
+}
+
