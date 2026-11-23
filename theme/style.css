@@ -342,7 +342,7 @@ button,input{font:inherit}
 .nc-autumn-stop-copy h3{margin:2px 0 7px;color:var(--nc-navy);font-size:1.45rem;font-weight:400;line-height:1.1}
 .nc-autumn-stop-copy .nc-autumn-author{margin-bottom:11px;font-size:.9rem}
 .nc-autumn-stop-copy>p:not(.nc-autumn-author){margin:0 0 14px;color:#5c554c;font-size:.88rem;line-height:1.5}
-.nc-autumn-stop-copy .nc-autumn-tags{margin-bottom:14px}
+.nc-autumn-stop-copy .nc-autumn-tags{min-height:65px;box-sizing:border-box;align-content:flex-start;margin-bottom:14px}
 .nc-autumn-text-link{display:inline-flex;gap:9px;color:var(--nc-navy);font-size:.86rem;font-weight:700}
 .nc-autumn-text-link:hover{color:#a66b20}
 .nc-autumn-closing{
