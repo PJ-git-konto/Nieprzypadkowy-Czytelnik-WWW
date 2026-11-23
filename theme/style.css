@@ -765,6 +765,7 @@ button,input{font:inherit}
 .nc-autumn-pagination{
   position:relative;
   z-index:2;
+  grid-column:1 / -1;
   display:flex;
   width:100%;
   justify-content:center;
