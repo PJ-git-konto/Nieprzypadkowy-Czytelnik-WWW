@@ -46,6 +46,17 @@ function nc_register_book_type(): void {
         'show_in_rest' => true,
     ]);
 
+    // Udostępnia istniejące pole autora w REST API, bez zmiany zapisanych danych.
+    register_post_meta('ksiazka', '_nc_book_author', [
+        'type' => 'string',
+        'single' => true,
+        'show_in_rest' => true,
+        'sanitize_callback' => 'sanitize_text_field',
+        'auth_callback' => static function ($allowed, $meta_key, $post_id): bool {
+            return current_user_can('edit_post', $post_id);
+        },
+    ]);
+
     register_taxonomy('kategoria_ksiazki', ['ksiazka'], [
         'labels' => [
             'name' => __('Kategorie książek', 'nieprzypadkowy-czytelnik'),
