@@ -42,7 +42,7 @@ function nc_register_book_type(): void {
         'has_archive' => true,
         'rewrite' => ['slug' => 'ksiazki'],
         'menu_icon' => 'dashicons-book-alt',
-        'supports' => ['title', 'editor', 'excerpt', 'thumbnail'],
+        'supports' => ['title', 'editor', 'excerpt', 'thumbnail', 'custom-fields'],
         'show_in_rest' => true,
     ]);
 
