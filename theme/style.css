@@ -846,9 +846,9 @@ button,input{font:inherit}
 
 /* Jesienne inspiracje — gałązka wyróżnionej pozycji: naturalne proporcje i mocniejszy rysunek */
 .nc-autumn-featured:after{
-  top:-10%;
+  top:0;
   right:-8%;
-  transform:translate(25px,-45px);
+  transform:translate(25px,0);
   width:88%;
   height:120%;
   background-position:right center;
@@ -857,7 +857,7 @@ button,input{font:inherit}
 }
 @media(max-width:1100px){
   .nc-autumn-featured:after{
-    top:-8%;
+    top:0;
     right:-8%;
     width:82%;
     height:116%;
@@ -868,7 +868,7 @@ button,input{font:inherit}
 }
 @media(max-width:760px){
   .nc-autumn-featured:after{
-    top:-5%;
+    top:0;
     right:-10%;
     width:88%;
     height:110%;
