@@ -30,6 +30,19 @@ if ($page_slug === 'jesienne-inspiracje') :
     // Jedna wyróżniona książka oraz dziewięć rekomendacji podzielonych na trzy strony.
     $featured_book_id = 7;
     $autumn_map_book_ids = [8, 9, 22, 23, 24, 25, 26, 27, 28];
+    // Autorzy domyślni dla tej kolekcji; zapisane dane książki mają pierwszeństwo.
+    $autumn_authors = [
+        7 => 'Bolesław Prus',
+        8 => 'Henryk Sienkiewicz',
+        9 => 'Władysław Reymont',
+        22 => 'Charlotte Brontë',
+        23 => 'Emily Brontë',
+        24 => 'Charles Dickens',
+        25 => 'Oscar Wilde',
+        26 => 'Frances Hodgson Burnett',
+        27 => 'Fiodor Dostojewski',
+        28 => 'Louisa May Alcott',
+    ];
     $autumn_page = isset($_GET['strona']) ? absint(wp_unslash($_GET['strona'])) : 1;
     $autumn_page = max(1, min(3, $autumn_page));
     $map_page_ids = array_slice($autumn_map_book_ids, ($autumn_page - 1) * 3, 3);
@@ -72,7 +85,7 @@ if ($page_slug === 'jesienne-inspiracje') :
 
         <?php if ($featured_book) :
             $featured_id = $featured_book->ID;
-            $featured_author = get_post_meta($featured_id, '_nc_book_author', true);
+            $featured_author = get_post_meta($featured_id, '_nc_book_author', true) ?: ($autumn_authors[$featured_id] ?? '');
             $featured_terms = get_the_terms($featured_id, 'kategoria_ksiazki');
             ?>
           <article class="nc-autumn-featured">
@@ -119,7 +132,7 @@ if ($page_slug === 'jesienne-inspiracje') :
         <div class="nc-autumn-stops">
           <?php foreach ($map_books as $index => $book) :
               $book_id = $book->ID;
-              $author = get_post_meta($book_id, '_nc_book_author', true);
+              $author = get_post_meta($book_id, '_nc_book_author', true) ?: ($autumn_authors[$book_id] ?? '');
               $terms = get_the_terms($book_id, 'kategoria_ksiazki');
               ?>
             <article class="nc-autumn-stop">
@@ -134,7 +147,7 @@ if ($page_slug === 'jesienne-inspiracje') :
               <div class="nc-autumn-stop-copy">
                 <h3><a href="<?php echo esc_url(get_permalink($book_id)); ?>"><?php echo esc_html(get_the_title($book_id)); ?></a></h3>
                 <?php if ($author) : ?><p class="nc-autumn-author"><?php echo esc_html($author); ?></p><?php endif; ?>
-                <p><?php echo esc_html(get_the_excerpt($book_id)); ?></p>
+                <p class="nc-autumn-stop-description"><?php echo esc_html(get_the_excerpt($book_id)); ?></p>
                 <?php if ($terms && !is_wp_error($terms)) : ?>
                   <div class="nc-autumn-tags">
                     <?php foreach ($terms as $term) : ?><span><?php echo esc_html($term->name); ?></span><?php endforeach; ?>
