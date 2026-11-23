@@ -679,10 +679,10 @@ button,input{font:inherit}
 }
 
 
-/* Jesienne inspiracje — delikatnie zwężone trzy dolne rekomendacje */
+/* Jesienne inspiracje — delikatnie zwężone i wyśrodkowane trzy dolne rekomendacje */
 @media(min-width:1101px){
   .nc-autumn-stops{
     width:92%;
-    margin-left:auto;
+    margin-inline:auto;
   }
 }
