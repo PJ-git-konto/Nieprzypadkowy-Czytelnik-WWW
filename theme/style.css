@@ -771,7 +771,7 @@ button,input{font:inherit}
   justify-content:center;
   align-items:center;
   gap:10px;
-  margin:24px 0 0 auto;
+  margin:16px 0 0 auto;
   padding:0;
   text-align:center;
   transform:translateX(-10%);
