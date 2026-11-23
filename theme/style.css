@@ -768,11 +768,12 @@ button,input{font:inherit}
   grid-column:1 / -1;
   display:flex;
   width:100%;
-  justify-content:center;
+  justify-content:flex-end;
   align-items:center;
   gap:10px;
   margin:24px auto 0;
-  text-align:center;
+  padding-right:25px;
+  text-align:right;
 }
 .nc-autumn-pagination a{
   min-width:40px;
