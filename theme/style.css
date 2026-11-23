@@ -715,3 +715,35 @@ button,input{font:inherit}
     opacity:1;
   }
 }
+
+
+/* Jesienna mapa — zachowanie proporcji oryginalnej ilustracji PNG */
+.nc-autumn-map:before{
+  left:2.5%;
+  right:auto;
+  top:8%;
+  bottom:0;
+  width:95%;
+  height:92%;
+  background-position:center center;
+  background-size:100% auto;
+}
+@media(max-width:1100px){
+  .nc-autumn-map:before{
+    left:2%;
+    width:96%;
+    height:78%;
+    top:17%;
+    background-size:100% auto;
+  }
+}
+@media(max-width:760px){
+  .nc-autumn-map:before{
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background-size:auto 100%;
+    background-position:center;
+  }
+}
