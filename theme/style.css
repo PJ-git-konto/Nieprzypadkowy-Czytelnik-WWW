@@ -276,6 +276,7 @@ button,input{font:inherit}
 .nc-reading-book-details h3 a:hover{text-decoration:underline}
 .nc-reading-book-details .nc-book-author{margin:0 0 10px}
 .nc-reading-book-details .nc-book-excerpt{font-size:.9rem;line-height:1.5}
+.nc-reading-book-details .nc-book-category-list{height:90px;min-height:90px;max-height:90px;box-sizing:border-box;overflow:hidden;align-content:flex-start}
 .nc-reading-list-empty{padding:32px;text-align:center}
 @media(max-width:900px){.nc-reading-list-grid{grid-template-columns:1fr}.nc-reading-book-card{grid-template-columns:140px minmax(0,1fr);max-width:700px;width:100%;margin-inline:auto}}
 @media(max-width:520px){.nc-reading-list{padding-block:24px 52px}.nc-reading-list-header{margin-bottom:30px}.nc-reading-list-intro{font-size:.96rem}.nc-reading-list-grid{gap:14px}.nc-reading-book-card{grid-template-columns:108px minmax(0,1fr);gap:13px;padding:11px}.nc-reading-book-details h3{font-size:1.05rem}}
