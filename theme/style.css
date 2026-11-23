@@ -878,3 +878,41 @@ button,input{font:inherit}
   }
 }
 
+/* Strona główna — autorzy, odstępy i stała wysokość opisów kart książek */
+.front-page .nc-book-card h3{
+  margin:0 0 6px;
+  min-height:calc(1.13em * 2);
+  line-height:1.13;
+}
+.front-page .nc-book-card .nc-book-author{
+  margin:0 0 9px;
+  color:#a66b20;
+  font-size:.86rem;
+  line-height:1.3;
+}
+.front-page .nc-book-card .nc-book-excerpt{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:4;
+  overflow:hidden;
+  min-height:calc(1.42em * 4);
+  margin:0 0 8px;
+  font-size:.84rem;
+  line-height:1.42;
+}
+@media(max-width:620px){
+  .front-page .nc-book-card h3{
+    margin:0 0 6px;
+    min-height:calc(1.13em * 2);
+  }
+  .front-page .nc-book-card .nc-book-author{
+    margin:0 0 7px;
+    font-size:.82rem;
+  }
+  .front-page .nc-book-card .nc-book-excerpt{
+    min-height:calc(1.4em * 4);
+    margin-bottom:7px;
+    font-size:.82rem;
+    line-height:1.4;
+  }
+}
