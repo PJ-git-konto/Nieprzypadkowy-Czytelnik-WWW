@@ -848,7 +848,7 @@ button,input{font:inherit}
 .nc-autumn-featured:after{
   top:-10%;
   right:-8%;
-  transform:translate(-20px,20px);
+  transform:translate(10px,20px);
   width:88%;
   height:120%;
   background-position:right center;
