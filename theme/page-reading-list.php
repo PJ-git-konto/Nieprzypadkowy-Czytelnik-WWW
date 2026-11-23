@@ -27,8 +27,13 @@ $list = $editorial_lists[$page_slug] ?? [
 ];
 
 if ($page_slug === 'jesienne-inspiracje') :
-    // Na etapie pierwszego podglądu korzystamy wyłącznie z trzech istniejących książek.
-    $autumn_book_ids = [7, 8, 9];
+    // Jedna wyróżniona książka oraz dziewięć rekomendacji podzielonych na trzy strony.
+    $featured_book_id = 7;
+    $autumn_map_book_ids = [8, 9, 22, 23, 24, 25, 26, 27, 28];
+    $autumn_page = isset($_GET['strona']) ? absint(wp_unslash($_GET['strona'])) : 1;
+    $autumn_page = max(1, min(3, $autumn_page));
+    $map_page_ids = array_slice($autumn_map_book_ids, ($autumn_page - 1) * 3, 3);
+    $autumn_book_ids = array_merge([$featured_book_id], $map_page_ids);
     $autumn_books = new WP_Query([
         'post_type' => 'ksiazka',
         'post_status' => 'publish',
@@ -45,9 +50,9 @@ if ($page_slug === 'jesienne-inspiracje') :
         }
         wp_reset_postdata();
     }
-    $featured_book = $autumn_book_map[7] ?? null;
+    $featured_book = $autumn_book_map[$featured_book_id] ?? null;
     $map_books = [];
-    foreach ([8, 9] as $book_id) {
+    foreach ($map_page_ids as $book_id) {
         if (isset($autumn_book_map[$book_id])) {
             $map_books[] = $autumn_book_map[$book_id];
         }
@@ -118,7 +123,7 @@ if ($page_slug === 'jesienne-inspiracje') :
               $terms = get_the_terms($book_id, 'kategoria_ksiazki');
               ?>
             <article class="nc-autumn-stop">
-              <div class="nc-autumn-stop-number"><?php echo esc_html($index + 2); ?></div>
+              <div class="nc-autumn-stop-number"><?php echo esc_html((($autumn_page - 1) * 3) + $index + 2); ?></div>
               <a class="nc-autumn-stop-cover" href="<?php echo esc_url(get_permalink($book_id)); ?>">
                 <?php if (has_post_thumbnail($book_id)) : ?>
                   <?php echo get_the_post_thumbnail($book_id, 'medium', ['alt' => esc_attr(get_the_title($book_id) . ' — okładka')]); ?>
@@ -151,6 +156,15 @@ if ($page_slug === 'jesienne-inspiracje') :
             </article>
           <?php endif; ?>
         </div>
+        <nav class="nc-autumn-pagination" aria-label="Strony rekomendacji">
+          <?php for ($page_number = 1; $page_number <= 3; $page_number++) : ?>
+            <a href="<?php echo esc_url(add_query_arg('strona', $page_number, get_permalink())); ?>"
+               class="<?php echo $autumn_page === $page_number ? 'is-active' : ''; ?>"
+               <?php echo $autumn_page === $page_number ? 'aria-current="page"' : ''; ?>>
+              <?php echo esc_html($page_number); ?>
+            </a>
+          <?php endfor; ?>
+        </nav>
       </section>
 
       <footer class="nc-autumn-closing">
