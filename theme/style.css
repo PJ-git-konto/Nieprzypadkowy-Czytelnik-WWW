@@ -998,3 +998,26 @@ button,input{font:inherit}
     grid-auto-rows:auto;
   }
 }
+
+/* Strona glowna: stala wysokosc calego bloku trzech ksiazek */
+body.home .nc-book-grid,
+body.front-page .nc-book-grid{
+  height:270px;
+  min-height:270px;
+  max-height:270px;
+  grid-auto-rows:270px;
+}
+body.home .nc-book-card,
+body.front-page .nc-book-card{
+  height:270px;
+  min-height:270px;
+  max-height:270px;
+  box-sizing:border-box;
+}
+body.home .nc-book-card .nc-book-cover,
+body.front-page .nc-book-card .nc-book-cover{
+  height:256px;
+  min-height:256px;
+  max-height:256px;
+  aspect-ratio:auto;
+}
