@@ -1209,3 +1209,7 @@ body.front-page #nc-books-status{
 /* Strona główna — kolory notesu jak wyróżnionej lektury */
 .nc-editorial{background:#f8efdf;border-color:#d8c4a7}
 .nc-editorial{box-shadow:0 5px 18px rgba(62,46,25,.07)}
+
+
+/* Strona główna — typografia nagłówka notesu jak w haśle głównym */
+.nc-editorial>h2{font-weight:400;letter-spacing:-.045em}
