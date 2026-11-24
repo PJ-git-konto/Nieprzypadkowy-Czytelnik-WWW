@@ -1258,3 +1258,12 @@ body.front-page #nc-books-status{
 .nc-editorial-icon-book{background-position:0 0,center}
 .nc-editorial-icon-compass{background-position:-66px 0,center}
 .nc-editorial-icon-quill{background-position:-132px 0,center}
+
+/* Z redakcyjnego notesu — ilustracje z makiety bez medalionów */
+.nc-editorial-icon{
+  border:0;
+  border-radius:0;
+  background-color:transparent;
+  background-image:url("assets/images/editorial-icons.png");
+  box-shadow:none;
+}
