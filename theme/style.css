@@ -964,3 +964,7 @@ button,input{font:inherit}
   }
 }
 
+/* Strona główna — stała minimalna wysokość wierszy rekomendacji */
+.front-page .nc-book-grid{
+  grid-auto-rows:minmax(260px,auto);
+}
