@@ -11,7 +11,7 @@ $books_query = new WP_Query([
 <main class="nc-main">
   <section class="nc-hero">
     <div class="nc-hero-inner">
-      <img class="nc-hero-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero-test-1.jpeg'); ?>" alt="Książki ułożone obok kubka z kawą">
+      <img class="nc-hero-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero-test-2.jpeg'); ?>" alt="Książki ułożone obok kubka z kawą">
       <div class="nc-hero-copy">
       <h1>Odkrywaj książki,<br>które warto czytać.</h1>
       <p>Nieprzypadkowy Czytelnik to miejsce dla wszystkich,<br>którzy szukają dobrych książek – z sensem, emocjami i duszą.</p>
