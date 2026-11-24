@@ -68,15 +68,15 @@ $books_query = new WP_Query([
     <aside class="nc-editorial" aria-labelledby="nc-editorial-title">
       <h2 id="nc-editorial-title">Z redakcyjnego notesu</h2>
       <article class="nc-editorial-item">
-        <span class="nc-editorial-icon" aria-hidden="true"><svg class="nc-editorial-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false"><use href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/category-icons.svg#nc-icon-leaf'); ?>"></use></svg></span>
+        <span class="nc-editorial-icon" aria-hidden="true"><svg class="nc-editorial-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" focusable="false"><path d="M10 38C18 31 24 22 36 9" /><path d="M13 34C5 27 7 16 9 10c9 1 17 7 17 16" /><path d="M17 30c-1-7-3-12-7-18M21 25c-1-5-1-9-1-13M25 21c3-6 7-9 12-12-1 8-4 14-11 17" /><path d="M10 38c-2 2-3 4-4 6M10 38l7 2" /><path d="M30 15l5 1M25 22l6 1" opacity=".7"/></svg></span>
         <div><h3>Jesienne inspiracje</h3><p>10 książek, które umilą długie wieczory.</p><a class="nc-editorial-link" href="<?php echo esc_url(get_permalink(get_page_by_path('jesienne-inspiracje'))); ?>">Zobacz listę <b aria-hidden="true">→</b></a></div>
       </article>
       <article class="nc-editorial-item">
-        <span class="nc-editorial-icon" aria-hidden="true"><svg class="nc-editorial-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false"><use href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/category-icons.svg#nc-icon-compass'); ?>"></use></svg></span>
+        <span class="nc-editorial-icon" aria-hidden="true"><svg class="nc-editorial-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" focusable="false"><circle cx="24" cy="24" r="17.5"/><circle cx="24" cy="24" r="2.5"/><path d="M24 6.5v4M24 37.5v4M6.5 24h4M37.5 24h4M11.6 11.6l2.8 2.8M33.6 33.6l2.8 2.8M36.4 11.6l-2.8 2.8M14.4 33.6l-2.8 2.8" /><path d="M24 12l3.8 10.2L36 24l-10.2 3.8L24 36l-3.8-8.2L12 24l8.2-3.8L24 12z"/><path d="M24 18.5v11M18.5 24h11" opacity=".65"/></svg></span>
         <div><h3>Podróże bez biletu</h3><p>Literackie podróże w nieznane.</p><a class="nc-editorial-link" href="<?php echo esc_url(get_permalink(get_page_by_path('podroze-bez-biletu'))); ?>">Zobacz listę <b aria-hidden="true">→</b></a></div>
       </article>
       <article class="nc-editorial-item">
-        <span class="nc-editorial-icon" aria-hidden="true"><svg class="nc-editorial-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false"><use href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/category-icons.svg#nc-icon-quill'); ?>"></use></svg></span>
+        <span class="nc-editorial-icon" aria-hidden="true"><svg class="nc-editorial-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" focusable="false"><path d="M9 39C12 32 14 24 17 17 20 10 29 6 39 7c-1 10-5 19-12 23-6 4-12 6-18 9z"/><path d="M10 38c8-9 15-17 27-29M18 30l-1-9M24 24l-1-9M29 19l-1-7M18 30l8 1M24 24l8 1M29 19l7 1"/><path d="M8 40l-2 3 4-1M39 7l3-2-1 4" /><path d="M15 35l-3-1M33 13l-1-3" opacity=".7"/></svg></span>
         <div><h3>Klasyka, która wciąż zachwyca</h3><p>Ponadczasowe książki na każdą okazję.</p><a class="nc-editorial-link" href="<?php echo esc_url(get_permalink(get_page_by_path('klasyka-ktora-wciaz-zachwyca'))); ?>">Zobacz listę <b aria-hidden="true">→</b></a></div>
       </article>
     </aside>
