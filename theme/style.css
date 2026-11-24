@@ -1862,15 +1862,25 @@ body.front-page #nc-books-status{
 
 
 
-/* Dolny pas strony głównej — baner z grafiką wyrównaną do lewej */
-.nc-autumn-closing{
+/* Strona główna — własny układ i dolny baner */
+.nc-home-page{
+  padding:0 0 34px;
+  background:var(--nc-cream);
+}
+.nc-home-closing{
   min-height:0;
+  margin:0;
   padding:0;
+  display:flex;
   justify-content:flex-start;
+  align-items:center;
   gap:0;
   overflow:hidden;
+  background:linear-gradient(90deg,#f1e2cb,#fff8ed 50%,#f1e2cb);
+  border-top:1px solid #dfc9a9;
+  border-bottom:1px solid #dfc9a9;
 }
-.nc-autumn-closing-image{
+.nc-home-closing-image{
   display:block;
   flex:0 1 1440px;
   width:min(100%,1440px);
@@ -1880,6 +1890,6 @@ body.front-page #nc-books-status{
   object-fit:contain;
 }
 @media(max-width:620px){
-  .nc-autumn-closing{padding:0}
-  .nc-autumn-closing-image{width:100%;max-height:none}
+  .nc-home-closing{padding:0}
+  .nc-home-closing-image{width:100%;max-height:none}
 }
