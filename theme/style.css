@@ -1211,5 +1211,20 @@ body.front-page #nc-books-status{
 .nc-editorial{box-shadow:0 5px 18px rgba(62,46,25,.07)}
 
 
-/* Strona główna — typografia nagłówka notesu jak w haśle głównym */
-.nc-editorial>h2{font-weight:400;letter-spacing:-.045em}
+/* Strona główna — dopracowanie typografii nagłówka notesu */
+.nc-editorial>h2{
+  position:relative;
+  font-size:clamp(1.35rem,1.55vw,1.55rem);
+  font-weight:400;
+  letter-spacing:-.015em;
+}
+.nc-editorial>h2:after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-1px;
+  width:44px;
+  height:2px;
+  transform:translateX(-50%);
+  background:#c98217;
+}
