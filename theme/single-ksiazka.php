@@ -57,13 +57,13 @@ while (have_posts()) :
           <div class="nc-book-detail-intro nc-hero-copy">
             <div class="nc-book-detail-badges">
               <?php if (get_post_meta($book_id, '_nc_book_recommended', true)) : ?>
-                <span class="nc-book-detail-badge nc-book-detail-badge-gold">★ Nasza rekomendacja</span>
+                <span class="nc-book-recommendation-stamp"><span aria-hidden="true">★</span> Nasza rekomendacja</span>
               <?php endif; ?>
-              <?php if ($book_terms && !is_wp_error($book_terms)) : ?>
-                <?php foreach (array_slice($book_terms, 0, 3) as $term) : ?>
-                  <a class="nc-book-detail-badge" href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo esc_html($term->name); ?></a>
-                <?php endforeach; ?>
-              <?php endif; ?>
+              <?php
+                $book_categories = $book_terms;
+                $nc_category_limit = 3;
+                include get_theme_file_path('/template-parts/book-category-chips.php');
+              ?>
             </div>
             <h1><?php the_title(); ?></h1>
             <?php if ($book_author !== '') : ?><p class="nc-book-detail-author"><?php echo esc_html($book_author); ?></p><?php endif; ?>
