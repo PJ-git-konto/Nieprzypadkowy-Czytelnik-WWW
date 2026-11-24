@@ -1165,3 +1165,28 @@ body.front-page .nc-book-card .nc-book-category-list:before{
   margin:0;
   background:#d8bd91;
 }
+
+
+/* Strona główna — dodatkowa linia opisu bez zmiany wysokości kart */
+body.home .nc-book-card .nc-book-excerpt,
+body.front-page .nc-book-card .nc-book-excerpt{
+  -webkit-line-clamp:3;
+  height:calc(1.35em * 3);
+  min-height:calc(1.35em * 3);
+  max-height:calc(1.35em * 3);
+}
+@media(max-width:1200px) and (min-width:621px){
+  body.home .nc-book-card .nc-book-details,
+  body.front-page .nc-book-card .nc-book-details{
+    height:64cqi;
+  }
+}
+@media(max-width:620px){
+  body.home .nc-book-card .nc-book-excerpt,
+  body.front-page .nc-book-card .nc-book-excerpt{
+    -webkit-line-clamp:2;
+    height:calc(1.35em * 2);
+    min-height:calc(1.35em * 2);
+    max-height:calc(1.35em * 2);
+  }
+}
