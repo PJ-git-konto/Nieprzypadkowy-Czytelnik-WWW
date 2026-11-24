@@ -39,7 +39,7 @@ $books_query = new WP_Query([
               <div class="nc-book-details">
                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <?php $author = get_post_meta(get_the_ID(), '_nc_book_author', true); ?>
-                <?php if ($author) : ?><p class="nc-book-author"><?php echo esc_html($author); ?></p><?php endif; ?>
+                <p class="nc-book-author"><?php echo esc_html($author); ?></p>
                 <p class="nc-book-excerpt"><?php echo esc_html(get_the_excerpt()); ?></p>
                 <?php $book_categories = get_the_terms(get_the_ID(), 'kategoria_ksiazki'); ?>
                 <?php if ($book_categories && !is_wp_error($book_categories)) : ?>
