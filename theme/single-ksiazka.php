@@ -161,12 +161,15 @@ while (have_posts()) :
         </div>
         <?php if ($has_purchase_links) : ?>
           <div class="nc-book-detail-buy-links">
-            <?php foreach (['empik' => 'empik', 'allegro' => 'allegro', 'amazon' => 'amazon.pl', 'more' => 'Zobacz więcej ofert'] as $key => $label) : ?>
+            <?php foreach (['empik' => 'empik', 'allegro' => 'allegro', 'amazon' => 'amazon.pl'] as $key => $label) : ?>
               <?php if ($purchase_links[$key] !== '') : ?>
-                <a href="<?php echo esc_url($purchase_links[$key]); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($label); ?><?php if ($key === 'more') : ?> <span aria-hidden="true">→</span><?php endif; ?></a>
+                <a href="<?php echo esc_url($purchase_links[$key]); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($label); ?></a>
               <?php endif; ?>
             <?php endforeach; ?>
           </div>
+          <?php if ($purchase_links['more'] !== '') : ?>
+            <a class="nc-book-detail-buy-more" href="<?php echo esc_url($purchase_links['more']); ?>" target="_blank" rel="noopener noreferrer">Zobacz więcej ofert <span aria-hidden="true">→</span></a>
+          <?php endif; ?>
         <?php else : ?>
           <p class="nc-book-detail-buy-empty">Linki do księgarni dodamy, gdy będą dostępne.</p>
         <?php endif; ?>
