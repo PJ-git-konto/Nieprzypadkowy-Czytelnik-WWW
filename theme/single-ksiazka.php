@@ -23,6 +23,13 @@ while (have_posts()) :
     ];
     $has_purchase_links = (bool) array_filter($purchase_links);
     $archive_url = get_post_type_archive_link('ksiazka');
+    $fallback_return_url = $archive_url ?: home_url('/');
+    $return_url = wp_get_referer();
+    if (!$return_url || untrailingslashit($return_url) === untrailingslashit(get_permalink($book_id))) {
+        $return_url = $fallback_return_url;
+    } else {
+        $return_url = wp_validate_redirect($return_url, $fallback_return_url);
+    }
 
     $similar_args = [
         'post_type' => 'ksiazka',
@@ -178,7 +185,7 @@ while (have_posts()) :
       </section>
 
       <footer class="nc-book-detail-footer">
-        <a href="<?php echo esc_url($archive_url ?: home_url('/')); ?>"><span aria-hidden="true">←</span> Powrót do listy książek</a>
+        <a href="<?php echo esc_url($return_url); ?>"><span aria-hidden="true">←</span> Powrót</a>
         <span>Dobra książka. Lepszy dzień.</span>
         <span class="nc-book-detail-footer-mark" aria-hidden="true">📖</span>
       </footer>
