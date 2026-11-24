@@ -78,7 +78,7 @@ while (have_posts()) :
             <?php if ($book_excerpt !== '') : ?><div class="nc-book-detail-tagline"><?php echo wp_kses_post(wpautop($book_excerpt)); ?></div><?php endif; ?>
             <a class="nc-book-detail-buy-button" href="#nc-book-buy"><span class="nc-book-detail-buy-cart" aria-hidden="true">🛒</span><span>Może bym kupił</span><span aria-hidden="true">→</span></a>
           </div>
-          <img class="nc-hero-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero-test-3.jpeg'); ?>" alt="" aria-hidden="true">
+          <img class="nc-hero-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero-test-1.jpeg'); ?>" alt="" aria-hidden="true">
         </div>
       </section>
 
