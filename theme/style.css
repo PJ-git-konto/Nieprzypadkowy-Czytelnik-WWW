@@ -74,9 +74,6 @@ button,input{font:inherit}
 .nc-actions{display:flex;justify-content:center;margin:18px 0 0}
 .nc-status{min-height:1.2em;margin:5px 0 0;color:var(--nc-muted);text-align:center;font-size:.82rem}
 .nc-empty{grid-column:1/-1;padding:28px;border:1px solid var(--nc-line);background:var(--nc-paper);color:var(--nc-muted)}
-.nc-quote-band{width:min(100%,1440px);height:97px;min-height:97px;box-sizing:border-box;margin-inline:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:4px 20px;border-top:1px solid var(--nc-line);border-bottom:1px solid var(--nc-line);background-color:var(--nc-cream);background-image:url('assets/images/baner_ksiazka_1440x97.png');background-position:center;background-repeat:no-repeat;background-size:1440px 97px}
-.nc-quote-band>p{margin:0;color:var(--nc-navy);font-size:clamp(1rem,2vw,1.8rem);font-style:italic;line-height:1.1;text-align:center;text-shadow:0 1px 5px rgba(255,250,241,.9)}
-.nc-quote-band .nc-button{min-height:34px;padding:5px 24px;font-size:.9rem}
 .nc-site-footer{padding:13px 24px;background:var(--nc-navy);color:#f8efdf}
 .nc-footer-inner{width:min(100%,1456px);margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center}
 .nc-footer-brand{font-weight:700}.nc-footer-note{display:none}
@@ -108,8 +105,6 @@ button,input{font:inherit}
  .nc-book-grid{grid-template-columns:1fr;gap:14px}.nc-book-card{grid-template-columns:112px minmax(0,1fr);gap:15px;padding:0 0 14px;border-right:0;border-bottom:1px solid var(--nc-line)}
  .nc-book-cover{max-height:168px}.nc-book-card h3{margin-top:4px;font-size:1.2rem}.nc-book-author{margin-bottom:8px}.nc-book-excerpt{font-size:.88rem}
  .nc-editorial{grid-template-columns:1fr;padding:15px}.nc-editorial>h2{grid-column:auto}.nc-editorial-item{grid-template-columns:54px 1fr;margin:3px 0 10px}
- .nc-quote-band{grid-template-columns:1fr;gap:10px;padding:16px}.nc-open-book-placeholder{height:72px;border-right:0;border-bottom:1px solid var(--nc-gold)}
- .nc-quote-band>p{font-size:1.8rem}.nc-quote-band .nc-button{justify-self:center}
  .nc-footer-inner{flex-direction:column;align-items:flex-start}
 }
 
@@ -1865,4 +1860,3 @@ body.front-page #nc-books-status{
   }
 }
 
-@media(max-width:620px){.nc-quote-band{padding:4px 10px}.nc-quote-band>p{font-size:1rem}.nc-quote-band .nc-button{min-height:32px;padding:4px 18px;font-size:.85rem}}
