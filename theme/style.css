@@ -1951,7 +1951,7 @@ body.front-page #nc-books-status{
 .nc-home-closing-button:hover{transform:translateY(calc(-50% - 1px))}
 @media(max-width:900px){
   .nc-home-closing{min-height:88px;padding:12px 20px}
-  .nc-home-closing-copy{padding:0 155px 0 0}
+  .nc-home-closing-copy{padding:0}
   .nc-home-closing-copy p{font-size:clamp(1.05rem,2.1vw,1.35rem);gap:8px}
   .nc-home-closing-button{right:20px;min-height:44px;padding:9px 17px;font-size:.9rem}
 }
@@ -1961,7 +1961,7 @@ body.front-page #nc-books-status{
     padding:18px 16px;
     align-items:flex-start;
   }
-  .nc-home-closing-image{object-fit:cover;object-position:left center}
+  .nc-home-closing-image{object-fit:contain;object-position:left center}
   .nc-home-closing-copy{padding:0 0 52px}
   .nc-home-closing-copy p{font-size:clamp(1.15rem,5vw,1.4rem)}
   .nc-home-closing-button{
