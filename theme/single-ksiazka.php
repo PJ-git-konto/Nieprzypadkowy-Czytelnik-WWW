@@ -44,7 +44,6 @@ while (have_posts()) :
     <main class="nc-main nc-book-detail">
       <section class="nc-book-detail-hero nc-hero">
         <div class="nc-book-detail-hero-inner nc-hero-inner">
-          <img class="nc-hero-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero-ksiazki-kubek.png'); ?>" alt="" aria-hidden="true">
           <div class="nc-book-detail-cover">
             <?php if (has_post_thumbnail()) : ?>
               <?php the_post_thumbnail('large', [
@@ -55,27 +54,29 @@ while (have_posts()) :
               <div class="nc-book-detail-cover-placeholder">Okładka książki</div>
             <?php endif; ?>
           </div>
-        </div>
-      </section>
-
-      <div class="nc-book-detail-layout">
-        <article <?php post_class('nc-book-detail-article'); ?>>
-          <header class="nc-book-detail-heading">
+          <div class="nc-book-detail-intro nc-hero-copy">
             <div class="nc-book-detail-badges">
               <?php if (get_post_meta($book_id, '_nc_book_recommended', true)) : ?>
                 <span class="nc-book-detail-badge nc-book-detail-badge-gold">★ Nasza rekomendacja</span>
               <?php endif; ?>
               <?php if ($book_terms && !is_wp_error($book_terms)) : ?>
-                <?php foreach (array_slice($book_terms, 0, 2) as $term) : ?>
+                <?php foreach (array_slice($book_terms, 0, 3) as $term) : ?>
                   <a class="nc-book-detail-badge" href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo esc_html($term->name); ?></a>
                 <?php endforeach; ?>
               <?php endif; ?>
             </div>
             <h1><?php the_title(); ?></h1>
             <?php if ($book_author !== '') : ?><p class="nc-book-detail-author"><?php echo esc_html($book_author); ?></p><?php endif; ?>
+            <div class="nc-book-detail-title-rule"></div>
             <?php if ($book_excerpt !== '') : ?><div class="nc-book-detail-tagline"><?php echo wp_kses_post(wpautop($book_excerpt)); ?></div><?php endif; ?>
             <?php if ($has_purchase_links) : ?><a class="nc-book-detail-buy-button" href="#nc-book-buy">🛒 <span>Może bym kupił</span> <span aria-hidden="true">→</span></a><?php endif; ?>
-          </header>
+          </div>
+          <img class="nc-hero-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero-ksiazki-kubek.png'); ?>" alt="" aria-hidden="true">
+        </div>
+      </section>
+
+      <div class="nc-book-detail-layout">
+        <article <?php post_class('nc-book-detail-article'); ?>>
           <?php if ($book_recommendation !== '' || ($book_excerpt !== '' && trim(wp_strip_all_tags($book_excerpt)) !== '')) : ?>
             <section class="nc-book-detail-panel nc-book-detail-feature">
               <span class="nc-book-detail-section-icon" aria-hidden="true">★</span>
