@@ -1,0 +1,32 @@
+name: Export book mockup for inspection
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/export-book-mockup.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and package the mockup
+        run: |
+          set -euo pipefail
+          FILE='_robocze/assets/images/Elegancka recenzja książki „Ścieżki wyboru”.png'
+          test -s "$FILE"
+          file "$FILE"
+          mkdir -p /tmp/book-mockup
+          cp "$FILE" /tmp/book-mockup/mockup.png
+      - name: Upload mockup artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: book-mockup-for-inspection
+          path: /tmp/book-mockup/mockup.png
+          if-no-files-found: error
+          retention-days: 1
