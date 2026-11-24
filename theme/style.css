@@ -74,8 +74,9 @@ button,input{font:inherit}
 .nc-actions{display:flex;justify-content:center;margin:18px 0 0}
 .nc-status{min-height:1.2em;margin:5px 0 0;color:var(--nc-muted);text-align:center;font-size:.82rem}
 .nc-empty{grid-column:1/-1;padding:28px;border:1px solid var(--nc-line);background:var(--nc-paper);color:var(--nc-muted)}
-.nc-quote-band{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:14px 20px;border-top:1px solid var(--nc-line);border-bottom:1px solid var(--nc-line);background-color:var(--nc-cream);background-image:url('assets/images/baner_ksiazka_1440x97.png');background-position:center;background-repeat:no-repeat;background-size:100% 97px}
-.nc-quote-band>p{margin:0;color:var(--nc-navy);font-size:clamp(1.35rem,2.7vw,2.15rem);font-style:italic;line-height:1.15;text-align:center;text-shadow:0 1px 5px rgba(255,250,241,.9)}
+.nc-quote-band{width:min(100%,1440px);height:97px;min-height:97px;box-sizing:border-box;margin-inline:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:4px 20px;border-top:1px solid var(--nc-line);border-bottom:1px solid var(--nc-line);background-color:var(--nc-cream);background-image:url('assets/images/baner_ksiazka_1440x97.png');background-position:center;background-repeat:no-repeat;background-size:1440px 97px}
+.nc-quote-band>p{margin:0;color:var(--nc-navy);font-size:clamp(1rem,2vw,1.8rem);font-style:italic;line-height:1.1;text-align:center;text-shadow:0 1px 5px rgba(255,250,241,.9)}
+.nc-quote-band .nc-button{min-height:34px;padding:5px 24px;font-size:.9rem}
 .nc-site-footer{padding:13px 24px;background:var(--nc-navy);color:#f8efdf}
 .nc-footer-inner{width:min(100%,1456px);margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center}
 .nc-footer-brand{font-weight:700}.nc-footer-note{display:none}
@@ -1864,4 +1865,4 @@ body.front-page #nc-books-status{
   }
 }
 
-@media(max-width:620px){.nc-quote-band{min-height:142px;padding:14px 16px;background-size:auto 97px}.nc-quote-band>p{font-size:1.3rem}}
+@media(max-width:620px){.nc-quote-band{padding:4px 10px}.nc-quote-band>p{font-size:1rem}.nc-quote-band .nc-button{min-height:32px;padding:4px 18px;font-size:.85rem}}
