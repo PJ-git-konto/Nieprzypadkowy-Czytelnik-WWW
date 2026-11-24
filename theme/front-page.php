@@ -76,9 +76,10 @@ $books_query = new WP_Query([
     </aside>
   </section>
 
-  <section class="nc-quote-band" aria-label="Dołącz do Nieprzypadkowego Czytelnika">
+  <footer class="nc-autumn-closing" aria-label="Zakończenie strony">
+    <span class="nc-autumn-closing-mark" aria-hidden="true">✦</span>
     <p>Dobra książka to zawsze dobry wybór.</p>
-    <a class="nc-button nc-button-gold" href="<?php echo esc_url(home_url('/o-nas/')); ?>">Dołącz do nas <span aria-hidden="true">→</span></a>
-  </section>
+    <span class="nc-autumn-closing-mark" aria-hidden="true">✦</span>
+  </footer>
 </main>
 <?php get_footer(); ?>
