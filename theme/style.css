@@ -1190,3 +1190,13 @@ body.front-page .nc-book-card .nc-book-excerpt{
     max-height:calc(1.35em * 2);
   }
 }
+
+/* Strona główna — komunikat ładowania nie może zmieniać wysokości układu */
+body.home #nc-books-status,
+body.front-page #nc-books-status{
+  height:1.2em;
+  min-height:1.2em;
+  max-height:1.2em;
+  overflow:hidden;
+  white-space:nowrap;
+}
