@@ -9,7 +9,7 @@
   }[char]));
 
   const renderCategories = (categories) => {
-    if (!Array.isArray(categories) || !categories.length) return '';
+    if (!Array.isArray(categories)) categories = [];
     return '<div class="nc-book-category-list" aria-label="Kategorie książki">' +
       categories.map((category) => {
         const name = escapeHtml(category.name);
