@@ -1152,9 +1152,13 @@ body.front-page .nc-book-card .nc-book-category{
 body.home .nc-book-card .nc-book-category-list:before,
 body.front-page .nc-book-card .nc-book-category-list:before{
   content:"";
+  position:absolute;
+  top:3px;
+  left:50%;
+  transform:translateX(-50%);
   display:block;
   width:42px;
   height:1px;
-  margin:0 auto 8px;
+  margin:0;
   background:#d8bd91;
 }
