@@ -48,7 +48,7 @@
         return '<article class="nc-book-card" data-book-id="' + escapeHtml(book.id) + '">' +
           '<a class="nc-book-cover" href="' + escapeHtml(book.url) + '" aria-label="Przejdź do książki: ' + escapeHtml(book.title) + '">' + cover + '</a>' +
           '<div class="nc-book-details"><h3><a href="' + escapeHtml(book.url) + '">' + escapeHtml(book.title) + '</a></h3>' +
-          (book.author ? '<p class="nc-book-author">' + escapeHtml(book.author) + '</p>' : '') +
+          '<p class="nc-book-author">' + escapeHtml(book.author) + '</p>' +
           '<p class="nc-book-excerpt">' + escapeHtml(book.excerpt) + '</p>' +
           renderCategories(book.categories) + '</div></article>';
       }).join('');
