@@ -1109,7 +1109,8 @@ body.front-page .nc-book-card .nc-book-category-list{
   max-height:none;
   margin-top:auto;
   padding:8px 0 0;
-  border-top:1px solid #d8bd91;
+  border-top:0;
+  position:relative;
   overflow:hidden;
 }
 body.home .nc-book-card .nc-book-category,
@@ -1146,4 +1147,14 @@ body.front-page .nc-book-card .nc-book-category{
   body.front-page .nc-book-card .nc-book-category-list{
     padding-top:6px;
   }
+}
+
+body.home .nc-book-card .nc-book-category-list:before,
+body.front-page .nc-book-card .nc-book-category-list:before{
+  content:"";
+  display:block;
+  width:42px;
+  height:1px;
+  margin:0 auto 8px;
+  background:#d8bd91;
 }
