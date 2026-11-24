@@ -1070,3 +1070,80 @@ body.front-page .nc-book-card .nc-book-category-list{
     aspect-ratio:2/3;
   }
 }
+
+
+/* Strona główna — typografia i dolne wyrównanie kategorii w kartach książek */
+body.home .nc-book-card,
+body.front-page .nc-book-card{
+  container-type:inline-size;
+}
+body.home .nc-book-card .nc-book-details,
+body.front-page .nc-book-card .nc-book-details{
+  height:72cqi;
+  min-height:0;
+  padding:0;
+}
+body.home .nc-book-card h3,
+body.front-page .nc-book-card h3{
+  margin:5px 0 7px;
+  font-size:clamp(1.2rem,1.55vw,1.48rem);
+  line-height:1.12;
+}
+body.home .nc-book-card .nc-book-author,
+body.front-page .nc-book-card .nc-book-author{
+  margin:0 0 10px;
+  font-size:1.06rem;
+  line-height:1.2;
+}
+body.home .nc-book-card .nc-book-excerpt,
+body.front-page .nc-book-card .nc-book-excerpt{
+  margin:0;
+  font-size:.96rem;
+  line-height:1.35;
+}
+body.home .nc-book-card .nc-book-category-list,
+body.front-page .nc-book-card .nc-book-category-list{
+  flex:0 0 auto;
+  height:auto;
+  min-height:0;
+  max-height:none;
+  margin-top:auto;
+  padding:8px 0 0;
+  border-top:1px solid #d8bd91;
+  overflow:hidden;
+}
+body.home .nc-book-card .nc-book-category,
+body.front-page .nc-book-card .nc-book-category{
+  min-height:27px;
+  font-size:.76rem;
+}
+@media(max-width:1200px){
+  body.home .nc-book-card .nc-book-details,
+  body.front-page .nc-book-card .nc-book-details{
+    height:55.5cqi;
+  }
+}
+@media(max-width:620px){
+  body.home .nc-book-card .nc-book-details,
+  body.front-page .nc-book-card .nc-book-details{
+    height:168px;
+  }
+  body.home .nc-book-card h3,
+  body.front-page .nc-book-card h3{
+    margin:2px 0 6px;
+    font-size:1.25rem;
+  }
+  body.home .nc-book-card .nc-book-author,
+  body.front-page .nc-book-card .nc-book-author{
+    margin-bottom:7px;
+    font-size:1rem;
+  }
+  body.home .nc-book-card .nc-book-excerpt,
+  body.front-page .nc-book-card .nc-book-excerpt{
+    font-size:.92rem;
+  }
+  body.home .nc-book-card .nc-book-category-list,
+  body.front-page .nc-book-card .nc-book-category-list{
+    padding-top:6px;
+  }
+}
