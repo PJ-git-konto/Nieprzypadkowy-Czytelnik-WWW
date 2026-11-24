@@ -8,7 +8,7 @@ $books_query = new WP_Query([
     'no_found_rows' => true,
 ]);
 ?>
-<main class="nc-main">
+<main class="nc-main nc-autumn-page">
   <section class="nc-hero">
     <div class="nc-hero-inner">
       <img class="nc-hero-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero-test-1.jpeg'); ?>" alt="Książki ułożone obok kubka z kawą">
