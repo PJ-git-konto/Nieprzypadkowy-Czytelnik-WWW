@@ -8,7 +8,7 @@ $books_query = new WP_Query([
     'no_found_rows' => true,
 ]);
 ?>
-<main class="nc-main nc-autumn-page">
+<main class="nc-main nc-home-page">
   <section class="nc-hero">
     <div class="nc-hero-inner">
       <img class="nc-hero-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero-test-1.jpeg'); ?>" alt="Książki ułożone obok kubka z kawą">
@@ -76,8 +76,8 @@ $books_query = new WP_Query([
     </aside>
   </section>
 
-  <footer class="nc-autumn-closing" aria-label="Zakończenie strony">
-    <img class="nc-autumn-closing-image" src="<?php echo esc_url(get_theme_file_uri('/assets/images/baner_ksiazka_1440x97.png')); ?>" alt="Ilustracja książki">
+  <footer class="nc-home-closing" aria-label="Zakończenie strony">
+    <img class="nc-home-closing-image" src="<?php echo esc_url(get_theme_file_uri('/assets/images/baner_ksiazka_1440x97.png')); ?>" alt="Ilustracja książki">
   </footer>
 </main>
 <?php get_footer(); ?>
