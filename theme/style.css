@@ -1823,3 +1823,40 @@ body.front-page #nc-books-status{
     min-width:0;
   }
 }
+
+/* Korekta hero: stała wysokość, trzy linie opisu i spójne narożniki bloku zakupowego */
+.single-ksiazka .nc-book-detail-hero{
+  height:311px;
+  min-height:311px;
+  padding:0;
+  overflow:hidden;
+}
+.single-ksiazka .nc-book-detail-hero-inner{
+  height:311px;
+  min-height:311px;
+  padding-top:0;
+  padding-bottom:0;
+}
+.single-ksiazka .nc-book-detail-intro .nc-book-detail-tagline{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
+.single-ksiazka .nc-book-detail-buy{
+  border-radius:4px;
+}
+@media(max-width:620px){
+  .single-ksiazka .nc-book-detail-hero{
+    height:auto;
+    min-height:0;
+    padding:22px 0 24px;
+    overflow:visible;
+  }
+  .single-ksiazka .nc-book-detail-hero-inner{
+    height:auto;
+    min-height:0;
+    padding-top:0;
+    padding-bottom:0;
+  }
+}
