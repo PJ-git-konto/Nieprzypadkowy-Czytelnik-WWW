@@ -1200,3 +1200,8 @@ body.front-page #nc-books-status{
   overflow:hidden;
   white-space:nowrap;
 }
+
+
+/* Strona główna — zaokrąglenie notesu jak wyróżnionej lektury */
+.nc-editorial{border-radius:17px}
+@media(max-width:760px){.nc-editorial{border-radius:14px}}
