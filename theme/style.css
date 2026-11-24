@@ -966,5 +966,10 @@ button,input{font:inherit}
 
 /* Strona główna — stała minimalna wysokość wierszy rekomendacji */
 .front-page .nc-book-grid{
-  grid-auto-rows:minmax(260px,auto);
+  grid-auto-rows:270px;
+}
+@media(max-width:620px){
+  .front-page .nc-book-grid{
+    grid-auto-rows:auto;
+  }
 }
