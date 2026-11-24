@@ -1111,7 +1111,7 @@ body.front-page .nc-book-card .nc-book-category-list{
   padding:8px 0 0;
   border-top:0;
   position:relative;
-  overflow:hidden;
+  overflow:visible;
 }
 body.home .nc-book-card .nc-book-category,
 body.front-page .nc-book-card .nc-book-category{
@@ -1153,7 +1153,7 @@ body.home .nc-book-card .nc-book-category-list:before,
 body.front-page .nc-book-card .nc-book-category-list:before{
   content:"";
   position:absolute;
-  top:1px;
+  top:-9px;
   left:50%;
   transform:translateX(-50%);
   display:block;
