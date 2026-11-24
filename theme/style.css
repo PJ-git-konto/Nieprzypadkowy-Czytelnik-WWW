@@ -964,6 +964,31 @@ button,input{font:inherit}
   }
 }
 
+/* Strona główna — jednakowa wysokość kart i okładek niezależnie od kategorii */
+.front-page .nc-book-card{
+  height:270px;
+  min-height:270px;
+  max-height:270px;
+  box-sizing:border-box;
+}
+.front-page .nc-book-card .nc-book-cover{
+  height:100%;
+  min-height:0;
+  max-height:none;
+  aspect-ratio:auto;
+}
+@media(max-width:620px){
+  .front-page .nc-book-card{
+    height:auto;
+    min-height:0;
+    max-height:none;
+  }
+  .front-page .nc-book-card .nc-book-cover{
+    height:auto;
+    aspect-ratio:2/3;
+    max-height:168px;
+  }
+}
 /* Strona główna — stała minimalna wysokość wierszy rekomendacji */
 .front-page .nc-book-grid{
   grid-auto-rows:270px;
