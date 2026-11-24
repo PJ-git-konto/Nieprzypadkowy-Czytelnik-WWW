@@ -69,7 +69,7 @@ while (have_posts()) :
             <?php if ($book_author !== '') : ?><p class="nc-book-detail-author"><?php echo esc_html($book_author); ?></p><?php endif; ?>
             <div class="nc-book-detail-title-rule"></div>
             <?php if ($book_excerpt !== '') : ?><div class="nc-book-detail-tagline"><?php echo wp_kses_post(wpautop($book_excerpt)); ?></div><?php endif; ?>
-            <?php if ($has_purchase_links) : ?><a class="nc-book-detail-buy-button" href="#nc-book-buy">🛒 <span>Może bym kupił</span> <span aria-hidden="true">→</span></a><?php endif; ?>
+            <a class="nc-book-detail-buy-button" href="#nc-book-buy"><span class="nc-book-detail-buy-cart" aria-hidden="true">🛒</span><span>Może bym kupił</span><span aria-hidden="true">→</span></a>
           </div>
           <img class="nc-hero-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero-ksiazki-kubek.png'); ?>" alt="" aria-hidden="true">
         </div>
@@ -151,15 +151,15 @@ while (have_posts()) :
       </div>
       <?php wp_reset_postdata(); ?>
 
-      <?php if ($has_purchase_links) : ?>
-        <section class="nc-book-detail-buy" id="nc-book-buy">
-          <div class="nc-book-detail-buy-copy">
-            <span class="nc-book-detail-buy-icon" aria-hidden="true">🛒</span>
-            <div>
-              <h2>Gdzie kupić?</h2>
-              <p>Sprawdź dostępność książki w księgarniach:</p>
-            </div>
+      <section class="nc-book-detail-buy" id="nc-book-buy">
+        <div class="nc-book-detail-buy-copy">
+          <span class="nc-book-detail-buy-icon" aria-hidden="true">🛒</span>
+          <div>
+            <h2>Gdzie kupić?</h2>
+            <p>Sprawdź dostępność książki w księgarniach:</p>
           </div>
+        </div>
+        <?php if ($has_purchase_links) : ?>
           <div class="nc-book-detail-buy-links">
             <?php foreach (['empik' => 'empik', 'allegro' => 'allegro', 'amazon' => 'amazon.pl', 'more' => 'Zobacz więcej ofert'] as $key => $label) : ?>
               <?php if ($purchase_links[$key] !== '') : ?>
@@ -167,8 +167,10 @@ while (have_posts()) :
               <?php endif; ?>
             <?php endforeach; ?>
           </div>
-        </section>
-      <?php endif; ?>
+        <?php else : ?>
+          <p class="nc-book-detail-buy-empty">Linki do księgarni dodamy, gdy będą dostępne.</p>
+        <?php endif; ?>
+      </section>
 
       <footer class="nc-book-detail-footer">
         <a href="<?php echo esc_url($archive_url ?: home_url('/')); ?>"><span aria-hidden="true">←</span> Powrót do listy książek</a>
