@@ -1713,7 +1713,7 @@ body.front-page #nc-books-status{
 }
 .single-ksiazka .nc-book-detail-hero .nc-book-detail-cover-image{width:100%;height:100%;object-fit:contain;object-position:center}
 .single-ksiazka .nc-book-detail-intro{
-  position:relative;z-index:1;width:100%;max-width:700px;padding:14px 0;
+  position:relative;z-index:1;width:100%;max-width:650px;padding:14px 0;
 }
 .single-ksiazka .nc-book-detail-hero .nc-hero-image{
   position:absolute;z-index:-1;right:max(0px,calc(3.6% - 15px));top:50%;
