@@ -1221,12 +1221,11 @@ body.front-page #nc-books-status{
 .nc-editorial>h2:after{
   content:"";
   position:absolute;
-  left:50%;
+  left:0;
   bottom:-1px;
-  width:44px;
-  height:2px;
-  transform:translateX(-50%);
-  background:#c98217;
+  width:100%;
+  height:1px;
+  background:#d8c4a7;
 }
 
 /* Strona główna — separatory i kolory notesu */
