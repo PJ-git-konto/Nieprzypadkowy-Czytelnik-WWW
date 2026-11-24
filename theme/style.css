@@ -917,3 +917,43 @@ button,input{font:inherit}
     line-height:1.4;
   }
 }
+
+/* Strona główna — stałe pola tytułu, autorów i kategorii kart książek */
+.front-page .nc-book-card h3{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+  min-height:calc(1.13em * 2);
+}
+.front-page .nc-book-card .nc-book-author{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+  min-height:calc(1.3em * 2);
+  max-height:calc(1.3em * 2);
+}
+.front-page .nc-book-card .nc-book-category-list{
+  flex:0 0 60px;
+  width:100%;
+  height:60px;
+  min-height:60px;
+  max-height:60px;
+  box-sizing:border-box;
+  align-content:flex-start;
+  overflow:hidden;
+}
+@media(max-width:620px){
+  .front-page .nc-book-card .nc-book-author{
+    min-height:calc(1.3em * 2);
+    max-height:calc(1.3em * 2);
+  }
+  .front-page .nc-book-card .nc-book-category-list{
+    flex-basis:60px;
+    height:60px;
+    min-height:60px;
+    max-height:60px;
+  }
+}
+
