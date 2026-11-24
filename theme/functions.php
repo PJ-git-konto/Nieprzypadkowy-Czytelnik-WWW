@@ -15,10 +15,13 @@ function nc_theme_setup(): void {
 add_action('after_setup_theme', 'nc_theme_setup');
 
 function nc_enqueue_assets(): void {
-    $version = wp_get_theme()->get('Version');
-    wp_enqueue_style('nc-style', get_stylesheet_uri(), [], $version);
+    $style_file = get_stylesheet_directory() . '/style.css';
+    $style_version = file_exists($style_file) ? (string) filemtime($style_file) : wp_get_theme()->get('Version');
+    wp_enqueue_style('nc-style', get_stylesheet_uri(), [], $style_version);
     if (is_front_page()) {
-        wp_enqueue_script('nc-home', get_template_directory_uri() . '/assets/js/home.js', [], $version, true);
+        $home_script = get_template_directory() . '/assets/js/home.js';
+        $script_version = file_exists($home_script) ? (string) filemtime($home_script) : wp_get_theme()->get('Version');
+        wp_enqueue_script('nc-home', get_template_directory_uri() . '/assets/js/home.js', [], $script_version, true);
         wp_localize_script('nc-home', 'ncHome', [
             'endpoint' => esc_url_raw(rest_url('nc/v1/recommendations')),
             'categoryIconSprite' => esc_url_raw(get_template_directory_uri() . '/assets/images/category-icons.svg'),
