@@ -167,11 +167,13 @@ while (have_posts()) :
               <?php endif; ?>
             <?php endforeach; ?>
           </div>
-          <?php if ($purchase_links['more'] !== '') : ?>
-            <a class="nc-book-detail-buy-more" href="<?php echo esc_url($purchase_links['more']); ?>" target="_blank" rel="noopener noreferrer">Zobacz więcej ofert <span aria-hidden="true">→</span></a>
-          <?php endif; ?>
         <?php else : ?>
           <p class="nc-book-detail-buy-empty">Linki do księgarni dodamy, gdy będą dostępne.</p>
+        <?php endif; ?>
+        <?php if ($purchase_links['more'] !== '') : ?>
+          <a class="nc-book-detail-buy-more" href="<?php echo esc_url($purchase_links['more']); ?>" target="_blank" rel="noopener noreferrer">Zobacz więcej ofert <span aria-hidden="true">→</span></a>
+        <?php else : ?>
+          <span class="nc-book-detail-buy-more is-disabled" aria-disabled="true" title="Link do dodatkowych ofert nie został jeszcze dodany">Zobacz więcej ofert <span aria-hidden="true">→</span></span>
         <?php endif; ?>
       </section>
 
