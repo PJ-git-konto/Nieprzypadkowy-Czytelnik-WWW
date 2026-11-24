@@ -1765,3 +1765,19 @@ body.front-page #nc-books-status{
 
 /* Podstrona książki — przycisk zakupu i pusty stan listy sklepów */
 .single-ksiazka .nc-book-detail-buy-empty{margin:0;color:var(--nc-navy);font-size:.95rem}
+
+
+/* Korekta podstrony książki — kolor bloku sklepów i miejsce na CTA w hero */
+.single-ksiazka .nc-book-detail-buy{
+  background:#d8dee7;
+}
+.single-ksiazka .nc-book-detail-intro .nc-book-detail-tagline{
+  font-size:.92rem;
+  line-height:1.25;
+}
+@media(max-width:620px){
+  .single-ksiazka .nc-book-detail-intro .nc-book-detail-tagline{
+    font-size:.84rem;
+    line-height:1.25;
+  }
+}
