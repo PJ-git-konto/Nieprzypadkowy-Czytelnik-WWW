@@ -1228,3 +1228,22 @@ body.front-page #nc-books-status{
   transform:translateX(-50%);
   background:#c98217;
 }
+
+/* Strona główna — separatory i kolory notesu */
+.nc-editorial-item{
+  padding-bottom:14px;
+  border-bottom:1px solid #d8c4a7;
+}
+.nc-editorial-item:last-of-type{
+  padding-bottom:0;
+  border-bottom:0;
+}
+.nc-editorial-icon{
+  border-color:#c98217;
+  color:#c98217;
+  box-shadow:inset 0 0 0 3px rgba(201,130,23,.12);
+}
+.nc-editorial-item h3{
+  color:#a66b20;
+}
+
