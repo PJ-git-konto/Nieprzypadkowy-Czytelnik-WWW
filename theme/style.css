@@ -1895,22 +1895,33 @@ body.front-page #nc-books-status{
 }
 
 
-/* Strona główna — treść i przycisk w dolnym banerze */
+/* Strona główna — pełnowymiarowa grafika tła, centralny napis i CTA po prawej */
 .nc-home-closing{
+  position:relative;
   min-height:98px;
-  padding:10px 3.6%;
-  gap:clamp(16px,2.2vw,34px);
+  padding:14px 3.6%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
 .nc-home-closing-image{
-  flex:0 1 42%;
-  width:42%;
-  max-width:620px;
-  min-width:0;
+  position:absolute;
+  z-index:0;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:cover;
+  object-position:left center;
 }
 .nc-home-closing-copy{
-  flex:1 1 auto;
+  position:relative;
+  z-index:1;
+  width:100%;
   min-width:0;
   text-align:center;
+  pointer-events:none;
 }
 .nc-home-closing-copy p{
   margin:0;
@@ -1930,29 +1941,34 @@ body.front-page #nc-books-status{
   font-style:normal;
 }
 .nc-home-closing-button{
-  flex:0 0 auto;
+  position:absolute;
+  z-index:2;
+  top:50%;
+  right:3.6%;
+  transform:translateY(-50%);
   white-space:nowrap;
 }
+.nc-home-closing-button:hover{transform:translateY(calc(-50% - 1px))}
 @media(max-width:900px){
-  .nc-home-closing{gap:14px;padding-inline:20px}
-  .nc-home-closing-image{flex-basis:34%;width:34%}
+  .nc-home-closing{min-height:88px;padding:12px 20px}
+  .nc-home-closing-copy{padding:0 155px 0 0}
   .nc-home-closing-copy p{font-size:clamp(1.05rem,2.1vw,1.35rem);gap:8px}
-  .nc-home-closing-button{min-height:44px;padding:9px 17px;font-size:.9rem}
+  .nc-home-closing-button{right:20px;min-height:44px;padding:9px 17px;font-size:.9rem}
 }
 @media(max-width:620px){
   .nc-home-closing{
-    min-height:0;
+    min-height:130px;
     padding:18px 16px;
-    flex-direction:column;
-    gap:13px;
+    align-items:flex-start;
   }
-  .nc-home-closing-image{
-    flex:0 1 auto;
-    width:100%;
-    max-width:480px;
-    max-height:none;
+  .nc-home-closing-image{object-fit:cover;object-position:left center}
+  .nc-home-closing-copy{padding:0 0 52px}
+  .nc-home-closing-copy p{font-size:clamp(1.15rem,5vw,1.4rem)}
+  .nc-home-closing-button{
+    top:auto;
+    right:50%;
+    bottom:14px;
+    transform:translateX(50%);
   }
-  .nc-home-closing-copy{flex:0 1 auto}
-  .nc-home-closing-copy p{font-size:clamp(1.2rem,5vw,1.5rem)}
-  .nc-home-closing-button{min-height:44px}
+  .nc-home-closing-button:hover{transform:translate(50%,-1px)}
 }
