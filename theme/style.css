@@ -1862,20 +1862,24 @@ body.front-page #nc-books-status{
 
 
 
-/* Dolny pas strony głównej — centralna ilustracja line-art */
+/* Dolny pas strony głównej — baner z grafiką wyrównaną do lewej */
 .nc-autumn-closing{
-  min-height:100px;
-  padding:10px 4%;
-  gap:18px;
+  min-height:0;
+  padding:0;
+  justify-content:flex-start;
+  gap:0;
+  overflow:hidden;
 }
 .nc-autumn-closing-image{
   display:block;
-  width:min(100%,1080px);
+  flex:0 1 1440px;
+  width:min(100%,1440px);
   height:auto;
-  max-height:76px;
+  max-height:none;
+  margin:0;
   object-fit:contain;
 }
 @media(max-width:620px){
-  .nc-autumn-closing{gap:8px;padding:10px 14px}
-  .nc-autumn-closing-image{max-height:62px}
+  .nc-autumn-closing{padding:0}
+  .nc-autumn-closing-image{width:100%;max-height:none}
 }
