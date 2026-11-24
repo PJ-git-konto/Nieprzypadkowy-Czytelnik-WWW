@@ -11,7 +11,7 @@
   const renderCategories = (categories) => {
     if (!Array.isArray(categories)) categories = [];
     return '<div class="nc-book-category-list" aria-label="Kategorie książki">' +
-      categories.map((category) => {
+      categories.slice(0, 1).map((category) => {
         const name = escapeHtml(category.name);
         const icon = /^[a-z-]+$/.test(category.icon || '') ? category.icon : 'book';
         const sprite = escapeHtml(window.ncHome.categoryIconSprite);
