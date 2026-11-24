@@ -1893,3 +1893,66 @@ body.front-page #nc-books-status{
   .nc-home-closing{padding:0}
   .nc-home-closing-image{width:100%;max-height:none}
 }
+
+
+/* Strona główna — treść i przycisk w dolnym banerze */
+.nc-home-closing{
+  min-height:98px;
+  padding:10px 3.6%;
+  gap:clamp(16px,2.2vw,34px);
+}
+.nc-home-closing-image{
+  flex:0 1 42%;
+  width:42%;
+  max-width:620px;
+  min-width:0;
+}
+.nc-home-closing-copy{
+  flex:1 1 auto;
+  min-width:0;
+  text-align:center;
+}
+.nc-home-closing-copy p{
+  margin:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(8px,1.2vw,18px);
+  color:var(--nc-navy);
+  font-size:clamp(1.25rem,2vw,1.85rem);
+  font-style:italic;
+  line-height:1.15;
+}
+.nc-home-closing-mark{
+  flex:0 0 auto;
+  color:var(--nc-gold);
+  font-size:.8em;
+  font-style:normal;
+}
+.nc-home-closing-button{
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+@media(max-width:900px){
+  .nc-home-closing{gap:14px;padding-inline:20px}
+  .nc-home-closing-image{flex-basis:34%;width:34%}
+  .nc-home-closing-copy p{font-size:clamp(1.05rem,2.1vw,1.35rem);gap:8px}
+  .nc-home-closing-button{min-height:44px;padding:9px 17px;font-size:.9rem}
+}
+@media(max-width:620px){
+  .nc-home-closing{
+    min-height:0;
+    padding:18px 16px;
+    flex-direction:column;
+    gap:13px;
+  }
+  .nc-home-closing-image{
+    flex:0 1 auto;
+    width:100%;
+    max-width:480px;
+    max-height:none;
+  }
+  .nc-home-closing-copy{flex:0 1 auto}
+  .nc-home-closing-copy p{font-size:clamp(1.2rem,5vw,1.5rem)}
+  .nc-home-closing-button{min-height:44px}
+}
