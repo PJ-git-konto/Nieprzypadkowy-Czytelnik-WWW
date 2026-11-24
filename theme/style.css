@@ -1247,3 +1247,14 @@ body.front-page #nc-books-status{
   color:#a66b20;
 }
 
+
+
+/* Z redakcyjnego notesu — zaakceptowane ilustracje z wariantu 1 */
+.nc-editorial-icon{
+  background-image:url("assets/images/editorial-icons.png"),radial-gradient(circle at 35% 30%,#fffaf0 0%,#f3e2c5 100%);
+  background-size:198px 66px,auto;
+  background-repeat:no-repeat;
+}
+.nc-editorial-icon-book{background-position:0 0,center}
+.nc-editorial-icon-compass{background-position:-66px 0,center}
+.nc-editorial-icon-quill{background-position:-132px 0,center}
