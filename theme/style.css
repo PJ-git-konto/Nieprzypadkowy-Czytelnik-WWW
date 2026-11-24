@@ -1860,3 +1860,22 @@ body.front-page #nc-books-status{
   }
 }
 
+
+
+/* Dolny pas strony głównej — centralna ilustracja line-art */
+.nc-autumn-closing{
+  min-height:100px;
+  padding:10px 4%;
+  gap:18px;
+}
+.nc-autumn-closing-image{
+  display:block;
+  width:min(100%,1080px);
+  height:auto;
+  max-height:76px;
+  object-fit:contain;
+}
+@media(max-width:620px){
+  .nc-autumn-closing{gap:8px;padding:10px 14px}
+  .nc-autumn-closing-image{max-height:62px}
+}
