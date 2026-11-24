@@ -74,10 +74,8 @@ button,input{font:inherit}
 .nc-actions{display:flex;justify-content:center;margin:18px 0 0}
 .nc-status{min-height:1.2em;margin:5px 0 0;color:var(--nc-muted);text-align:center;font-size:.82rem}
 .nc-empty{grid-column:1/-1;padding:28px;border:1px solid var(--nc-line);background:var(--nc-paper);color:var(--nc-muted)}
-.nc-quote-band{min-height:108px;display:grid;grid-template-columns:minmax(180px,25%) minmax(0,1fr) auto;align-items:center;gap:28px;padding:10px 3.2%;border-top:1px solid var(--nc-line);border-bottom:1px solid var(--nc-line);background:linear-gradient(90deg,#f3e6d2,#fff8ed 50%,#f4e5ce)}
-.nc-open-book-placeholder{height:96px;display:grid;place-items:center;overflow:hidden;border-right:2px solid var(--nc-gold);background:radial-gradient(ellipse at 50% 100%,#b78a50 0 12%,transparent 62%),linear-gradient(0deg,#e8d2b2,#fff8ed)}
-.nc-open-book-placeholder span{padding:4px 8px;background:#fff8edaa;color:#846a47;font-size:.75rem;font-style:italic}
-.nc-quote-band>p{margin:0;color:var(--nc-navy);font-size:clamp(1.7rem,3.5vw,3rem);font-style:italic;text-align:center}
+.nc-quote-band{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:14px 20px;border-top:1px solid var(--nc-line);border-bottom:1px solid var(--nc-line);background-color:var(--nc-cream);background-image:url('assets/images/baner_ksiazka_1440x97.png');background-position:center;background-repeat:no-repeat;background-size:100% 97px}
+.nc-quote-band>p{margin:0;color:var(--nc-navy);font-size:clamp(1.35rem,2.7vw,2.15rem);font-style:italic;line-height:1.15;text-align:center;text-shadow:0 1px 5px rgba(255,250,241,.9)}
 .nc-site-footer{padding:13px 24px;background:var(--nc-navy);color:#f8efdf}
 .nc-footer-inner{width:min(100%,1456px);margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center}
 .nc-footer-brand{font-weight:700}.nc-footer-note{display:none}
@@ -1865,3 +1863,5 @@ body.front-page #nc-books-status{
     padding-bottom:0;
   }
 }
+
+@media(max-width:620px){.nc-quote-band{min-height:142px;padding:14px 16px;background-size:auto 97px}.nc-quote-band>p{font-size:1.3rem}}
