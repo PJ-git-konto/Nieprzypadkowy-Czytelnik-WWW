@@ -1771,13 +1771,39 @@ body.front-page #nc-books-status{
 .single-ksiazka .nc-book-detail-buy{
   background:#d8dee7;
 }
-..single-ksiazka .nc-book-detail-intro .nc-book-detail-tagline{
+.single-ksiazka .nc-book-detail-intro .nc-book-detail-tagline{
   font-size:1.05rem;
   line-height:1.25;
+}
+.single-ksiazka .nc-book-detail-buy-more{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  min-height:50px;
+  margin-left:auto;
+  padding:10px 22px;
+  border:1px solid var(--nc-navy);
+  border-radius:15px;
+  background:var(--nc-navy);
+  color:#fff;
+  font-size:1rem;
+  font-weight:700;
+  white-space:nowrap;
+  box-shadow:0 2px 5px rgba(16,43,73,.12);
+}
+.single-ksiazka .nc-book-detail-buy-more:hover{
+  background:#1c4267;
+  color:#fff;
 }
 @media(max-width:620px){
   .single-ksiazka .nc-book-detail-intro .nc-book-detail-tagline{
     font-size:.88rem;
     line-height:1.25;
+  }
+  .single-ksiazka .nc-book-detail-buy-more{
+    width:100%;
+    margin-left:0;
   }
 }
