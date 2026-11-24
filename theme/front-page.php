@@ -77,9 +77,7 @@ $books_query = new WP_Query([
   </section>
 
   <footer class="nc-autumn-closing" aria-label="Zakończenie strony">
-    <span class="nc-autumn-closing-mark" aria-hidden="true">✦</span>
-    <img class="nc-autumn-closing-image" src="<?php echo esc_url(get_theme_file_uri('/assets/images/baner_ksiazka_1440x97.png')); ?>" alt="Ilustracja otwartej książki w stylu line-art">
-    <span class="nc-autumn-closing-mark" aria-hidden="true">✦</span>
+    <img class="nc-autumn-closing-image" src="<?php echo esc_url(get_theme_file_uri('/assets/images/baner_ksiazka_1440x97.png')); ?>" alt="Ilustracja książki">
   </footer>
 </main>
 <?php get_footer(); ?>
