@@ -68,15 +68,15 @@ $books_query = new WP_Query([
     <aside class="nc-editorial" aria-labelledby="nc-editorial-title">
       <h2 id="nc-editorial-title">Z redakcyjnego notesu</h2>
       <article class="nc-editorial-item">
-        <span class="nc-editorial-icon nc-editorial-icon-book" aria-hidden="true"></span>
+        <span class="nc-editorial-icon nc-editorial-icon-book" aria-hidden="true"><img src="<?php echo esc_url(get_theme_file_uri('/assets/images/ksiazka_z_lisciem.png')); ?>" alt="" /></span>
         <div><h3>Jesienne inspiracje</h3><p>10 książek, które umilą długie wieczory.</p><a class="nc-editorial-link" href="<?php echo esc_url(get_permalink(get_page_by_path('jesienne-inspiracje'))); ?>">Zobacz listę <b aria-hidden="true">→</b></a></div>
       </article>
       <article class="nc-editorial-item">
-        <span class="nc-editorial-icon nc-editorial-icon-compass" aria-hidden="true"></span>
+        <span class="nc-editorial-icon nc-editorial-icon-compass" aria-hidden="true"><img src="<?php echo esc_url(get_theme_file_uri('/assets/images/kompas.png')); ?>" alt="" /></span>
         <div><h3>Podróże bez biletu</h3><p>Literackie podróże w nieznane.</p><a class="nc-editorial-link" href="<?php echo esc_url(get_permalink(get_page_by_path('podroze-bez-biletu'))); ?>">Zobacz listę <b aria-hidden="true">→</b></a></div>
       </article>
       <article class="nc-editorial-item">
-        <span class="nc-editorial-icon nc-editorial-icon-quill" aria-hidden="true"></span>
+        <span class="nc-editorial-icon nc-editorial-icon-quill" aria-hidden="true"><img src="<?php echo esc_url(get_theme_file_uri('/assets/images/pioro_z_kalamarzem.png')); ?>" alt="" /></span>
         <div><h3>Klasyka, która wciąż zachwyca</h3><p>Ponadczasowe książki na każdą okazję.</p><a class="nc-editorial-link" href="<?php echo esc_url(get_permalink(get_page_by_path('klasyka-ktora-wciaz-zachwyca'))); ?>">Zobacz listę <b aria-hidden="true">→</b></a></div>
       </article>
     </aside>
