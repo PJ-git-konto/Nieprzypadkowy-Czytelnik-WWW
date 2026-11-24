@@ -155,7 +155,7 @@ function nc_book_card_data(int $post_id): array {
         'id' => $post_id,
         'title' => get_the_title($post_id),
         'author' => (string) get_post_meta($post_id, '_nc_book_author', true),
-        'excerpt' => wp_trim_words(get_the_excerpt($post_id), 14, '…'),
+        'excerpt' => wp_trim_words(get_the_excerpt($post_id), 16, '…'),
         'url' => get_permalink($post_id),
         'image' => $image ? esc_url($image) : '',
         'categories' => $categories,
