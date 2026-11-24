@@ -1205,3 +1205,6 @@ body.front-page #nc-books-status{
 /* Strona główna — zaokrąglenie notesu jak wyróżnionej lektury */
 .nc-editorial{border-radius:17px}
 @media(max-width:760px){.nc-editorial{border-radius:14px}}
+
+/* Strona główna — kolory notesu jak wyróżnionej lektury */
+.nc-editorial{background:#f8efdf;border-color:#d8c4a7}
