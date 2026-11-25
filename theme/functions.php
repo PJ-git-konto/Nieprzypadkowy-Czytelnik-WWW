@@ -18,6 +18,31 @@ function nc_enqueue_assets(): void {
     $style_file = get_stylesheet_directory() . '/style.css';
     $style_version = file_exists($style_file) ? (string) filemtime($style_file) : wp_get_theme()->get('Version');
     wp_enqueue_style('nc-style', get_stylesheet_uri(), [], $style_version);
+
+    // Arkusze podstron są ładowane warunkowo i zależą od wspólnego fundamentu.
+    $page_styles = [
+        'home' => is_front_page(),
+        'autumn' => is_page('jesienne-inspiracje'),
+        'travel' => is_page('podroze-bez-biletu'),
+        'book-detail' => is_singular('ksiazka'),
+    ];
+
+    foreach ($page_styles as $style_name => $should_load) {
+        if (!$should_load) {
+            continue;
+        }
+
+        $relative_path = '/assets/css/pages/' . $style_name . '.css';
+        $page_style_file = get_theme_file_path($relative_path);
+        if (file_exists($page_style_file)) {
+            wp_enqueue_style(
+                'nc-page-' . $style_name,
+                get_theme_file_uri($relative_path),
+                ['nc-style'],
+                (string) filemtime($page_style_file)
+            );
+        }
+    }
     if (is_front_page()) {
         $home_script = get_template_directory() . '/assets/js/home.js';
         $script_version = file_exists($home_script) ? (string) filemtime($home_script) : wp_get_theme()->get('Version');
