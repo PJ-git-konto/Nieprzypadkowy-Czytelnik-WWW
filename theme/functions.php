@@ -60,6 +60,16 @@ function nc_register_book_type(): void {
         },
     ]);
 
+    register_post_meta('ksiazka', '_nc_travel_category', [
+        'type' => 'string',
+        'single' => true,
+        'show_in_rest' => true,
+        'sanitize_callback' => 'sanitize_key',
+        'auth_callback' => static function ($allowed, $meta_key, $post_id): bool {
+            return current_user_can('edit_post', $post_id);
+        },
+    ]);
+
     register_taxonomy('kategoria_ksiazki', ['ksiazka'], [
         'labels' => [
             'name' => __('Kategorie książek', 'nieprzypadkowy-czytelnik'),
@@ -84,13 +94,30 @@ function nc_add_book_author_box(): void {
 }
 add_action('add_meta_boxes', 'nc_add_book_author_box');
 
+function nc_travel_categories(): array {
+    return [
+        'polnoc-dzikie-bezkresy' => __('Północ i dzikie bezkresy', 'nieprzypadkowy-czytelnik'),
+        'morza-wyspy-oceany' => __('Morza, wyspy i oceany', 'nieprzypadkowy-czytelnik'),
+        'podroze-nieznane-wewnetrzne' => __('Podróże w nieznane i wewnętrzne', 'nieprzypadkowy-czytelnik'),
+    ];
+}
+
 function nc_render_book_author_box(WP_Post $post): void {
     wp_nonce_field('nc_save_book_details', 'nc_book_details_nonce');
     $author = get_post_meta($post->ID, '_nc_book_author', true);
+    $travel_category = (string) get_post_meta($post->ID, '_nc_travel_category', true);
     ?>
     <p><label for="nc_book_author"><?php esc_html_e('Autor / autorka', 'nieprzypadkowy-czytelnik'); ?></label></p>
     <input type="text" id="nc_book_author" name="nc_book_author" value="<?php echo esc_attr((string) $author); ?>" class="widefat">
-    <p class="description"><?php esc_html_e('Okładkę dodaj jako obrazek wyróżniający.', 'nieprzypadkowy-czytelnik'); ?></p>
+    <hr>
+    <p><label for="nc_travel_category"><?php esc_html_e('Kategoria podróży', 'nieprzypadkowy-czytelnik'); ?></label></p>
+    <select id="nc_travel_category" name="nc_travel_category" class="widefat">
+      <option value=""><?php esc_html_e('— Wybierz kategorię —', 'nieprzypadkowy-czytelnik'); ?></option>
+      <?php foreach (nc_travel_categories() as $slug => $label) : ?>
+        <option value="<?php echo esc_attr($slug); ?>" <?php selected($travel_category, $slug); ?>><?php echo esc_html($label); ?></option>
+      <?php endforeach; ?>
+    </select>
+    <p class="description"><?php esc_html_e('Okładkę dodaj jako obrazek wyróżniający. Kategoria podróży jest niezależna od kategorii literackich.', 'nieprzypadkowy-czytelnik'); ?></p>
     <?php
 }
 
@@ -106,6 +133,14 @@ function nc_save_book_details(int $post_id): void {
     }
     if (isset($_POST['nc_book_author'])) {
         update_post_meta($post_id, '_nc_book_author', sanitize_text_field(wp_unslash($_POST['nc_book_author'])));
+    }
+    if (isset($_POST['nc_travel_category'])) {
+        $travel_category = sanitize_key(wp_unslash($_POST['nc_travel_category']));
+        if (array_key_exists($travel_category, nc_travel_categories())) {
+            update_post_meta($post_id, '_nc_travel_category', $travel_category);
+        } elseif ($travel_category === '') {
+            delete_post_meta($post_id, '_nc_travel_category');
+        }
     }
 }
 add_action('save_post_ksiazka', 'nc_save_book_details');
