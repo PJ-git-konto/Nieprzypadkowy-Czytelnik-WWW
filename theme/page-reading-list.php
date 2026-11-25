@@ -288,7 +288,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
                 <a class="nc-travel-primary-link nc-button" href="<?php echo esc_url($featured_return); ?>">Zobacz szczegóły książki <span aria-hidden="true">→</span></a>
               </div>
             </div>
-            <img class="nc-travel-compass-image" src="<?php echo esc_url(get_theme_file_uri('/assets/images/kompas.png')); ?>" alt="" aria-hidden="true">
+            <img class="nc-travel-compass-image" src="https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_ce7abbec-1.png" alt="" aria-hidden="true">
           </article>
         <?php else : ?>
           <div class="nc-travel-featured nc-travel-featured-empty">
