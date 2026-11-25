@@ -24,11 +24,20 @@ while (have_posts()) :
     $has_purchase_links = (bool) array_filter($purchase_links);
     $archive_url = get_post_type_archive_link('ksiazka');
     $fallback_return_url = $archive_url ?: home_url('/');
-    $return_url = wp_get_referer();
-    if (!$return_url || untrailingslashit($return_url) === untrailingslashit(get_permalink($book_id))) {
-        $return_url = $fallback_return_url;
-    } else {
-        $return_url = wp_validate_redirect($return_url, $fallback_return_url);
+    $return_url = '';
+    if (isset($_GET['nc_return'])) {
+        $requested_return = esc_url_raw(wp_unslash($_GET['nc_return']));
+        if ($requested_return !== '') {
+            $return_url = wp_validate_redirect($requested_return, '');
+        }
+    }
+    if (!$return_url) {
+        $return_url = wp_get_referer();
+        if (!$return_url || untrailingslashit($return_url) === untrailingslashit(get_permalink($book_id))) {
+            $return_url = $fallback_return_url;
+        } else {
+            $return_url = wp_validate_redirect($return_url, $fallback_return_url);
+        }
     }
 
     $similar_args = [
