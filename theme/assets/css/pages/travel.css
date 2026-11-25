@@ -91,38 +91,84 @@
  .nc-travel-stop{min-height:132px}
 }
 
-/* TYPOGRAFIA — blok 1: główna rekomendacja, dopasowanie do Jesiennych inspiracji */
-.nc-travel-featured-copy h2{font-size:clamp(1.65rem,2.3vw,2.35rem);line-height:1.08}
-.nc-travel-author{font-size:1rem;line-height:1.35}
-.nc-travel-featured-description{font-size:.91rem;line-height:1.48}
-.nc-travel-book-meta{font-size:.78rem;line-height:1.4}
-.nc-travel-primary-link{font-size:.92rem;font-weight:600}
+/* BLOK 1 — formatowanie rekomendacji zgodne z „Jesiennymi inspiracjami” */
+.nc-travel-opening{max-width:1536px;padding:28px 3.6% 30px;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:34px;align-items:start}
+.nc-travel-opening-copy{max-width:520px;padding-top:8px}
+.nc-travel-breadcrumbs{margin-bottom:18px;font-size:.83rem}
+.nc-travel-opening h1{font-size:clamp(2.55rem,3.8vw,3.65rem);font-weight:400;line-height:1.04;letter-spacing:-.035em;margin-bottom:10px}
+.nc-travel-subheading{font-size:clamp(1.05rem,1.3vw,1.25rem);font-style:normal;line-height:1.35;margin:0 0 14px}
+.nc-travel-opening-copy>p:not(.nc-travel-subheading){font-size:1rem;line-height:1.5;margin:0 0 12px}
+.nc-travel-featured{
+  grid-template-columns:minmax(150px,.55fr) minmax(0,1.45fr);
+  gap:26px;padding:24px;border:1px solid #e2cfb2;border-radius:17px;
+  background:rgba(248,239,223,.94);box-shadow:0 5px 18px rgba(62,46,25,.07)
+}
+.nc-travel-featured-cover{width:100%;height:auto;max-width:250px;margin:auto;border:0;border-radius:7px;box-shadow:0 7px 16px rgba(35,27,18,.2)}
+.nc-travel-featured-cover img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
+.nc-travel-featured-copy h2{font-size:clamp(1.65rem,2.3vw,2.35rem);font-weight:400;line-height:1.08;margin:0 0 8px}
+.nc-travel-station-label{font-size:.74rem;letter-spacing:.13em;margin-bottom:8px}
+.nc-travel-author{font-size:1rem;line-height:1.35;margin-bottom:12px}
+.nc-travel-featured-description{font-size:.91rem;line-height:1.48;margin-bottom:12px}
+.nc-travel-book-meta{font-size:.78rem;line-height:1.4;margin-bottom:14px}
+.nc-travel-primary-link{font-size:.92rem;font-weight:600;padding:10px 22px}
 .nc-travel-secondary-link{font-size:.86rem}
+.nc-travel-compass-image{z-index:0;pointer-events:none}
 
-/* TYPOGRAFIA — blok 2: karty książek w trzech kategoriach */
-.nc-travel-stop-copy h4{font-size:1.08rem;font-weight:400;line-height:1.12}
-.nc-travel-stop-copy .nc-travel-author{font-size:.78rem;line-height:1.2}
-.nc-travel-stop-description{font-size:.76rem;line-height:1.35}
-.nc-travel-stop-tag{font-size:.62rem;line-height:1.2}
-.nc-travel-read-more{font-size:.75rem;font-weight:500}
-
+/* BLOK 2 — karty książek: proporcje, typografia i odstępy jak w „Jesiennych inspiracjach” */
+.nc-travel-chapters{gap:22px}
+.nc-travel-chapter>h3{font-size:.9rem;font-weight:700;line-height:1.2;margin-bottom:10px;text-transform:none}
+.nc-travel-stops{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.nc-travel-stop{
+  min-height:178px;padding:13px 13px 12px;
+  grid-template-columns:minmax(68px,.7fr) minmax(0,1.3fr);
+  gap:12px;align-items:start;border:1px solid #dfc9a9;border-radius:14px;
+  background:rgba(255,250,241,.94);box-shadow:0 3px 9px rgba(62,46,25,.07);
+  transition:transform .18s ease,box-shadow .18s ease
+}
+.nc-travel-stop:hover{transform:translateY(-2px);box-shadow:0 7px 16px rgba(62,46,25,.11)}
+.nc-travel-stop-number{top:7px;left:8px;width:26px;height:26px;border:0;background:#bd873c;font-size:.85rem}
+.nc-travel-stop-cover{width:100%;height:auto;align-self:start;margin:0;border:0;border-radius:5px;box-shadow:0 4px 9px rgba(35,27,18,.16)}
+.nc-travel-stop-cover img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
+.nc-travel-stop-copy h4{margin:0 0 4px;font-size:1.08rem;font-weight:700;line-height:1.12;min-height:calc(1.12em * 2)}
+.nc-travel-stop-copy .nc-travel-author{font-size:.78rem;line-height:1.2;margin:0 0 7px;color:#a66b20}
+.nc-travel-stop-description{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;
+  min-height:calc(1.35em * 4);margin:0 0 8px;color:#102b49;font-size:.76rem;line-height:1.35
+}
+.nc-travel-stop-tag{display:block;margin:0 0 6px;color:#856536;font-size:.62rem;line-height:1.2}
+.nc-travel-read-more{font-size:.75rem;font-weight:500;color:#102b49}
+.nc-travel-pagination{margin-top:14px}
+@media(max-width:1100px){
+ .nc-travel-opening{grid-template-columns:1fr;gap:22px}
+ .nc-travel-opening-copy{max-width:760px}
+ .nc-travel-featured{max-width:900px;width:100%;margin:auto}
+ .nc-travel-chapters{grid-template-columns:1fr;gap:22px}
+ .nc-travel-stops{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .nc-travel-chapter>h3{font-size:.9rem}
+}
 @media(max-width:760px){
+ .nc-travel-opening{padding:24px 20px}
+ .nc-travel-featured{grid-template-columns:125px minmax(0,1fr);gap:17px;padding:16px;border-radius:14px}
+ .nc-travel-featured-cover{width:100%;height:auto}
  .nc-travel-featured-copy h2{font-size:1.5rem}
  .nc-travel-featured-description{font-size:.82rem;line-height:1.45}
- .nc-travel-book-meta{font-size:.7rem}
- .nc-travel-primary-link{font-size:.78rem}
+ .nc-travel-primary-link{font-size:.78rem;padding:9px 13px}
  .nc-travel-secondary-link{font-size:.76rem}
- .nc-travel-stop-copy h4{font-size:1.05rem}
- .nc-travel-stop-copy .nc-travel-author{font-size:.78rem}
- .nc-travel-stop-description{font-size:.78rem;line-height:1.35}
- .nc-travel-stop-tag{font-size:.65rem}
- .nc-travel-read-more{font-size:.75rem}
+ .nc-travel-expedition{padding:22px 20px}
+ .nc-travel-stops{grid-template-columns:1fr;gap:12px}
+ .nc-travel-stop{grid-template-columns:95px minmax(0,1fr);min-height:0;padding:13px;border-radius:13px}
+ .nc-travel-stop-cover{width:100%;height:auto}
+ .nc-travel-stop-description{min-height:calc(1.4em * 4);font-size:.8rem;line-height:1.4}
+ .nc-travel-stop-copy h4{font-size:1.08rem}
 }
-@media(max-width:480px){
- .nc-travel-featured-copy h2{font-size:1.25rem}
- .nc-travel-featured-description{font-size:.78rem}
- .nc-travel-primary-link{font-size:.72rem}
- .nc-travel-secondary-link{font-size:.7rem}
- .nc-travel-stop-copy h4{font-size:1.05rem}
- .nc-travel-stop-description{font-size:.78rem}
+@media(max-width:520px){
+ .nc-travel-opening{padding:20px 16px}
+ .nc-travel-opening h1{font-size:2.55rem}
+ .nc-travel-featured{grid-template-columns:100px minmax(0,1fr);gap:13px;padding:12px}
+ .nc-travel-featured-copy h2{font-size:1.5rem}
+ .nc-travel-featured-description{font-size:.82rem}
+ .nc-travel-primary-link{padding:9px 12px;font-size:.78rem}
+ .nc-travel-expedition{padding:20px 16px}
+ .nc-travel-stop{grid-template-columns:82px minmax(0,1fr);gap:11px;padding:11px}
+ .nc-travel-stop-description{min-height:calc(1.4em * 4);font-size:.78rem}
 }
