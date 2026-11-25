@@ -195,6 +195,169 @@ if ($page_slug === 'jesienne-inspiracje') :
       </footer>
     </main>
     <?php
+
+elseif ($page_slug === 'podroze-bez-biletu') :
+    $travel_categories = nc_travel_categories();
+    $travel_page_keys = [
+        'polnoc-dzikie-bezkresy' => 'polnoc',
+        'morza-wyspy-oceany' => 'morza',
+        'podroze-nieznane-wewnetrzne' => 'nieznane',
+    ];
+    $travel_pages = [];
+    foreach ($travel_page_keys as $category_slug => $query_key) {
+        $travel_pages[$category_slug] = isset($_GET[$query_key]) ? max(1, absint(wp_unslash($_GET[$query_key]))) : 1;
+    }
+
+    // Pierwszy przystanek jest wyróżnioną rekomendacją całej wyprawy.
+    $featured_query = new WP_Query([
+        'post_type' => 'ksiazka',
+        'post_status' => 'publish',
+        'posts_per_page' => 1,
+        'meta_key' => '_nc_travel_category',
+        'meta_value' => 'polnoc-dzikie-bezkresy',
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'no_found_rows' => true,
+    ]);
+    $featured_book = $featured_query->have_posts() ? $featured_query->posts[0] : null;
+    $featured_id = $featured_book ? (int) $featured_book->ID : 0;
+
+    $travel_queries = [];
+    foreach ($travel_categories as $category_slug => $category_label) {
+        $args = [
+            'post_type' => 'ksiazka',
+            'post_status' => 'publish',
+            'posts_per_page' => 3,
+            'paged' => $travel_pages[$category_slug],
+            'meta_key' => '_nc_travel_category',
+            'meta_value' => $category_slug,
+            'orderby' => 'date',
+            'order' => 'DESC',
+        ];
+        if ($category_slug === 'polnoc-dzikie-bezkresy' && $featured_id) {
+            $args['post__not_in'] = [$featured_id];
+        }
+        $travel_queries[$category_slug] = new WP_Query($args);
+        $max_pages = (int) $travel_queries[$category_slug]->max_num_pages;
+        if ($max_pages > 0 && $travel_pages[$category_slug] > $max_pages) {
+            $travel_pages[$category_slug] = $max_pages;
+            $args['paged'] = $max_pages;
+            $travel_queries[$category_slug] = new WP_Query($args);
+        }
+    }
+    $travel_return_base = get_permalink();
+    ?>
+    <main class="nc-main nc-travel-page">
+      <div class="nc-travel-background" aria-hidden="true"></div>
+      <section class="nc-travel-opening">
+        <div class="nc-travel-opening-copy">
+          <nav class="nc-travel-breadcrumbs" aria-label="Okruszki nawigacyjne">
+            <a href="<?php echo esc_url(home_url('/')); ?>">Kolekcje</a><span>/</span><span>Podróże bez biletu</span><span>·</span><span>Literacka ekspedycja</span>
+          </nav>
+          <h1><?php the_title(); ?></h1>
+          <p class="nc-travel-subheading">Literackie podróże w nieznane.</p>
+          <p>Są książki, które potrafią przenieść nas na najdalsze krańce ziemi bez wstawania z fotela. To opowieści o nieprzetartych szlakach, dalekich kulturach i wewnętrznych wędrówkach, które na zawsze zmieniają perspektywę.</p>
+          <p>Przedstawiamy autorską kolekcję 10 dzieł – Twój literacki paszport w nieznane.</p>
+        </div>
+
+        <?php if ($featured_book) :
+            $featured_id = (int) $featured_book->ID;
+            $featured_author = (string) get_post_meta($featured_id, '_nc_book_author', true);
+            $featured_terms = get_the_terms($featured_id, 'kategoria_ksiazki');
+            $featured_return = add_query_arg($travel_page_keys, array_values($travel_pages), $travel_return_base);
+            $featured_return = add_query_arg('nc_return', rawurlencode($featured_return . '#nc-travel-chapter-polnoc-dzikie-bezkresy'), get_permalink($featured_id));
+            ?>
+          <article class="nc-travel-featured">
+            <a class="nc-travel-featured-cover" href="<?php echo esc_url($featured_return); ?>">
+              <?php if (has_post_thumbnail($featured_id)) : ?>
+                <?php echo get_the_post_thumbnail($featured_id, 'large', ['alt' => esc_attr(get_the_title($featured_id) . ' — okładka')]); ?>
+              <?php else : ?><span class="nc-cover-placeholder">Miejsce<br>na okładkę</span><?php endif; ?>
+            </a>
+            <div class="nc-travel-featured-copy">
+              <p class="nc-travel-station-label"><span aria-hidden="true">◉</span> STACJA #1&nbsp; · &nbsp;GŁÓWNA REKOMENDACJA REDAKCJI</p>
+              <h2>1. <a href="<?php echo esc_url($featured_return); ?>"><?php echo esc_html(get_the_title($featured_id)); ?></a></h2>
+              <?php if ($featured_author !== '') : ?><p class="nc-travel-author"><?php echo esc_html($featured_author); ?></p><?php endif; ?>
+              <p class="nc-travel-featured-description"><?php echo esc_html(get_the_excerpt($featured_id)); ?></p>
+              <?php if ($featured_terms && !is_wp_error($featured_terms)) : ?>
+                <p class="nc-travel-book-meta">Gatunek: <?php echo esc_html($featured_terms[0]->name); ?> <span>•</span> Kierunek: Północ i dzikie bezkresy</p>
+              <?php endif; ?>
+              <div class="nc-travel-featured-actions">
+                <a class="nc-travel-primary-link" href="<?php echo esc_url($featured_return); ?>">Przeczytaj pełną recenzję <span aria-hidden="true">→</span></a>
+                <a class="nc-travel-secondary-link" href="<?php echo esc_url($featured_return); ?>">Zobacz szczegóły książki</a>
+              </div>
+            </div>
+            <div class="nc-travel-compass" aria-hidden="true">✥<small>N<br>W&nbsp;&nbsp;&nbsp;E<br>S</small></div>
+          </article>
+        <?php else : ?>
+          <div class="nc-travel-featured nc-travel-featured-empty">
+            <p>Wkrótce pojawi się tu główna rekomendacja redakcji.</p>
+          </div>
+        <?php endif; ?>
+      </section>
+
+      <section class="nc-travel-expedition" aria-labelledby="nc-travel-expedition-title">
+        <header class="nc-travel-expedition-heading">
+          <span></span>
+          <div><h2 id="nc-travel-expedition-title">SZLAK EKSPEDYCJI <b>·</b> DZIEWIĘĆ KOLEJNYCH PRZYSTANKÓW</h2><p>Trasa literackich odkryć przez lądy, oceany i bezkresne przestrzenie</p></div>
+          <span></span>
+        </header>
+        <div class="nc-travel-chapters">
+          <?php foreach ($travel_categories as $category_slug => $category_label) :
+              $query = $travel_queries[$category_slug];
+              $query_key = $travel_page_keys[$category_slug];
+              $chapter_return = add_query_arg($travel_page_keys, array_values($travel_pages), $travel_return_base);
+              ?>
+            <section class="nc-travel-chapter" id="nc-travel-chapter-<?php echo esc_attr($category_slug); ?>">
+              <h3><?php echo esc_html($category_label); ?></h3>
+              <div class="nc-travel-stops">
+                <?php if ($query->have_posts()) :
+                    $number_offset = ($travel_pages[$category_slug] - 1) * 3 + ($category_slug === 'polnoc-dzikie-bezkresy' ? 2 : 5);
+                    while ($query->have_posts()) : $query->the_post();
+                        $book_id = get_the_ID();
+                        $author = (string) get_post_meta($book_id, '_nc_book_author', true);
+                        $terms = get_the_terms($book_id, 'kategoria_ksiazki');
+                        $book_return = add_query_arg('nc_return', rawurlencode($chapter_return . '#nc-travel-chapter-' . $category_slug), get_permalink($book_id));
+                        ?>
+                  <article class="nc-travel-stop">
+                    <span class="nc-travel-stop-number"><?php echo esc_html($number_offset++); ?></span>
+                    <a class="nc-travel-stop-cover" href="<?php echo esc_url($book_return); ?>">
+                      <?php if (has_post_thumbnail()) : ?><?php the_post_thumbnail('medium', ['alt' => esc_attr(get_the_title() . ' — okładka')]); ?><?php else : ?><span class="nc-cover-placeholder">Okładka</span><?php endif; ?>
+                    </a>
+                    <div class="nc-travel-stop-copy">
+                      <h4><a href="<?php echo esc_url($book_return); ?>"><?php the_title(); ?></a></h4>
+                      <?php if ($author !== '') : ?><p class="nc-travel-author"><?php echo esc_html($author); ?></p><?php endif; ?>
+                      <p class="nc-travel-stop-description"><?php echo esc_html(get_the_excerpt()); ?></p>
+                      <?php if ($terms && !is_wp_error($terms)) : ?><span class="nc-travel-stop-tag"><?php echo esc_html($terms[0]->name); ?></span><?php endif; ?>
+                      <a class="nc-travel-read-more" href="<?php echo esc_url($book_return); ?>">Czytaj dalej <span aria-hidden="true">→</span></a>
+                    </div>
+                  </article>
+                <?php endwhile; wp_reset_postdata(); else : ?>
+                  <p class="nc-travel-empty">Kolejne przystanki tej trasy są jeszcze przygotowywane.</p>
+                <?php endif; ?>
+              </div>
+              <?php
+                $max_pages = (int) $query->max_num_pages;
+                if ($max_pages > 1) :
+                    $pagination_base = add_query_arg($travel_page_keys, array_values($travel_pages), $travel_return_base);
+                    ?>
+                <nav class="nc-travel-pagination" aria-label="<?php echo esc_attr('Strony kategorii: ' . $category_label); ?>">
+                  <?php if ($travel_pages[$category_slug] > 1) : ?>
+                    <a href="<?php echo esc_url(add_query_arg($query_key, $travel_pages[$category_slug] - 1, $pagination_base) . '#nc-travel-chapter-' . $category_slug); ?>">←</a>
+                  <?php endif; ?>
+                  <?php for ($page_number = 1; $page_number <= $max_pages; $page_number++) : ?>
+                    <a href="<?php echo esc_url(add_query_arg($query_key, $page_number, $pagination_base) . '#nc-travel-chapter-' . $category_slug); ?>" class="<?php echo $travel_pages[$category_slug] === $page_number ? 'is-active' : ''; ?>" <?php echo $travel_pages[$category_slug] === $page_number ? 'aria-current="page"' : ''; ?>><?php echo esc_html($page_number); ?></a>
+                  <?php endfor; ?>
+                  <?php if ($travel_pages[$category_slug] < $max_pages) : ?>
+                    <a href="<?php echo esc_url(add_query_arg($query_key, $travel_pages[$category_slug] + 1, $pagination_base) . '#nc-travel-chapter-' . $category_slug); ?>">Następne →</a>
+                  <?php endif; ?>
+                </nav>
+              <?php endif; ?>
+            </section>
+          <?php endforeach; ?>
+        </div>
+      </section>
+    </main>
+    <?php
 else :
     $books_query = new WP_Query([
         'post_type' => 'ksiazka',
@@ -255,5 +418,6 @@ else :
       </section>
     </main>
     <?php
+
 endif;
 get_footer();
