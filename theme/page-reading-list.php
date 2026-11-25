@@ -310,7 +310,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
               $chapter_return = add_query_arg($travel_query_args, $travel_return_base);
               ?>
             <section class="nc-travel-chapter" id="nc-travel-chapter-<?php echo esc_attr($category_slug); ?>">
-              <h3>Kierunek <?php echo esc_html($direction_number++); ?>: <?php echo esc_html($category_label); ?></h3>
+              <h3><span class="nc-travel-direction-label">Kierunek <?php echo esc_html($direction_number++); ?>:</span><span class="nc-travel-direction-name"><?php echo esc_html($category_label); ?></span></h3>
               <div class="nc-travel-stops">
                 <?php if ($query->have_posts()) :
                     $number_offset = ($travel_pages[$category_slug] - 1) * 3 + ($category_slug === 'polnoc-dzikie-bezkresy' ? 2 : 5);
