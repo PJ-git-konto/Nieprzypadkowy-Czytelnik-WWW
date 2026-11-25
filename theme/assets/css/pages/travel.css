@@ -210,3 +210,45 @@
   .nc-travel-stop-copy h4{font-size:.94rem}
   .nc-travel-stop-description{font-size:.75rem}
 }
+
+
+/* Korekty typografii i elementów ekspedycji — 25.11.2026 */
+.nc-travel-background{background-image:none!important;opacity:0}
+.nc-travel-breadcrumbs{
+  color:#b86b08;
+  font-family:var(--nc-serif);
+  font-size:1rem;
+  line-height:1.35;
+}
+.nc-travel-breadcrumbs a{color:inherit}
+.nc-travel-expedition-heading{align-items:start}
+.nc-travel-expedition-heading>span{
+  align-self:start;
+  margin-top:.68em;
+}
+.nc-travel-expedition-heading h2{
+  font-size:1.3rem;
+  font-weight:400;
+  line-height:1.2;
+}
+.nc-travel-expedition-heading h2 b{font-weight:400}
+.nc-travel-expedition-heading p{
+  font-size:1.05rem;
+  line-height:1.35;
+}
+.nc-travel-expedition-title-group{min-width:0}
+.nc-travel-chapter>h3{font-weight:400}
+.nc-travel-primary-link{
+  transition:transform .2s,background .2s,color .2s;
+}
+.nc-travel-primary-link:hover{
+  transform:translateY(-1px);
+  background:#1c4267;
+  color:#fff;
+}
+@media(max-width:760px){
+  .nc-travel-expedition-heading{align-items:center}
+  .nc-travel-expedition-heading>span{display:none}
+  .nc-travel-expedition-heading h2{font-size:1.15rem}
+  .nc-travel-expedition-heading p{font-size:1rem}
+}
