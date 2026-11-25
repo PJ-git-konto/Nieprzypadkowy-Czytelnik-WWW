@@ -52,6 +52,7 @@ if ($page_slug === 'jesienne-inspiracje') :
         'post_status' => 'publish',
         'post__in' => $autumn_book_ids,
         'orderby' => 'post__in',
+        'meta_query' => [nc_exclude_test_books_meta_query()],
         'posts_per_page' => count($autumn_book_ids),
         'no_found_rows' => true,
     ]);
@@ -375,6 +376,7 @@ else :
         'posts_per_page' => -1,
         'orderby' => 'title',
         'order' => 'ASC',
+        'meta_query' => [nc_exclude_test_books_meta_query()],
         'no_found_rows' => true,
     ]);
     ?>
