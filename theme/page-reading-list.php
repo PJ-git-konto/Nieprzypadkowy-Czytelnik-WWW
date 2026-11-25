@@ -246,6 +246,10 @@ elseif ($page_slug === 'podroze-bez-biletu') :
         }
     }
     $travel_return_base = get_permalink();
+    $travel_query_args = [];
+    foreach ($travel_page_keys as $category_slug => $query_key) {
+        $travel_query_args[$query_key] = $travel_pages[$category_slug];
+    }
     ?>
     <main class="nc-main nc-travel-page">
       <div class="nc-travel-background" aria-hidden="true"></div>
@@ -264,8 +268,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
             $featured_id = (int) $featured_book->ID;
             $featured_author = (string) get_post_meta($featured_id, '_nc_book_author', true);
             $featured_terms = get_the_terms($featured_id, 'kategoria_ksiazki');
-            $featured_return = add_query_arg($travel_page_keys, array_values($travel_pages), $travel_return_base);
-            $featured_return = add_query_arg('nc_return', rawurlencode($featured_return . '#nc-travel-chapter-polnoc-dzikie-bezkresy'), get_permalink($featured_id));
+            $featured_return = add_query_arg('nc_return', add_query_arg($travel_query_args, $travel_return_base) . '#nc-travel-chapter-polnoc-dzikie-bezkresy', get_permalink($featured_id));
             ?>
           <article class="nc-travel-featured">
             <a class="nc-travel-featured-cover" href="<?php echo esc_url($featured_return); ?>">
@@ -305,7 +308,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
           <?php foreach ($travel_categories as $category_slug => $category_label) :
               $query = $travel_queries[$category_slug];
               $query_key = $travel_page_keys[$category_slug];
-              $chapter_return = add_query_arg($travel_page_keys, array_values($travel_pages), $travel_return_base);
+              $chapter_return = add_query_arg($travel_query_args, $travel_return_base);
               ?>
             <section class="nc-travel-chapter" id="nc-travel-chapter-<?php echo esc_attr($category_slug); ?>">
               <h3><?php echo esc_html($category_label); ?></h3>
@@ -338,7 +341,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
               <?php
                 $max_pages = (int) $query->max_num_pages;
                 if ($max_pages > 1) :
-                    $pagination_base = add_query_arg($travel_page_keys, array_values($travel_pages), $travel_return_base);
+                    $pagination_base = add_query_arg($travel_query_args, $travel_return_base);
                     ?>
                 <nav class="nc-travel-pagination" aria-label="<?php echo esc_attr('Strony kategorii: ' . $category_label); ?>">
                   <?php if ($travel_pages[$category_slug] > 1) : ?>
