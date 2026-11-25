@@ -285,8 +285,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
                 <p class="nc-travel-book-meta">Gatunek: <?php echo esc_html($featured_terms[0]->name); ?> <span>•</span> Kierunek: Północ i dzikie bezkresy</p>
               <?php endif; ?>
               <div class="nc-travel-featured-actions">
-                <a class="nc-travel-primary-link" href="<?php echo esc_url($featured_return); ?>">Przeczytaj pełną recenzję <span aria-hidden="true">→</span></a>
-                <a class="nc-travel-secondary-link" href="<?php echo esc_url($featured_return); ?>">Zobacz szczegóły książki</a>
+                <a class="nc-travel-primary-link nc-button" href="<?php echo esc_url($featured_return); ?>">Zobacz szczegóły książki <span aria-hidden="true">→</span></a>
               </div>
             </div>
             <img class="nc-travel-compass-image" src="<?php echo esc_url(get_theme_file_uri('/assets/images/kompas.png')); ?>" alt="" aria-hidden="true">
@@ -301,17 +300,17 @@ elseif ($page_slug === 'podroze-bez-biletu') :
       <section class="nc-travel-expedition" aria-labelledby="nc-travel-expedition-title">
         <header class="nc-travel-expedition-heading">
           <span></span>
-          <div><h2 id="nc-travel-expedition-title">SZLAK EKSPEDYCJI <b>·</b> DZIEWIĘĆ KOLEJNYCH PRZYSTANKÓW</h2><p>Trasa literackich odkryć przez lądy, oceany i bezkresne przestrzenie</p></div>
+          <div class="nc-travel-expedition-title-group"><h2 id="nc-travel-expedition-title">SZLAK EKSPEDYCJI <b>·</b> DZIEWIĘĆ KOLEJNYCH PRZYSTANKÓW</h2><p>Trasa literackich odkryć przez lądy, oceany i bezkresne przestrzenie</p></div>
           <span></span>
         </header>
         <div class="nc-travel-chapters">
-          <?php foreach ($travel_categories as $category_slug => $category_label) :
+          <?php $direction_number = 1; foreach ($travel_categories as $category_slug => $category_label) :
               $query = $travel_queries[$category_slug];
               $query_key = $travel_page_keys[$category_slug];
               $chapter_return = add_query_arg($travel_query_args, $travel_return_base);
               ?>
             <section class="nc-travel-chapter" id="nc-travel-chapter-<?php echo esc_attr($category_slug); ?>">
-              <h3><?php echo esc_html($category_label); ?></h3>
+              <h3>Kierunek <?php echo esc_html($direction_number++); ?>: <?php echo esc_html($category_label); ?></h3>
               <div class="nc-travel-stops">
                 <?php if ($query->have_posts()) :
                     $number_offset = ($travel_pages[$category_slug] - 1) * 3 + ($category_slug === 'polnoc-dzikie-bezkresy' ? 2 : 5);
