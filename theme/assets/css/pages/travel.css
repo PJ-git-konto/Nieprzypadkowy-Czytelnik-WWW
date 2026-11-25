@@ -230,3 +230,7 @@
   .nc-travel-expedition-heading h2{font-size:1.05rem}
   .nc-travel-expedition-heading p{font-size:.91rem}
 }
+
+
+/* Nagłówki trzech kierunków — zapis wersalikami */
+.nc-travel-chapter>h3{text-transform:uppercase;}
