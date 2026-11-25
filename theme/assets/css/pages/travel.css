@@ -286,3 +286,99 @@
   letter-spacing:.025em;
   line-height:1.3;
 }
+
+
+/* DEKORACJE PODRÓŻNICZE — pięć zaakceptowanych grafik, bez ingerencji w układ treści
+   Grafiki są wyłącznie ozdobne; treść i kontrast pozostają niezależne od ich widoczności. */
+.nc-travel-opening{
+  position:relative;
+  isolation:isolate;
+}
+.nc-travel-opening::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  top:4px;
+  right:2.5%;
+  width:min(48%,680px);
+  height:210px;
+  background:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_21675f36.png") right center/contain no-repeat;
+  opacity:.17;
+  pointer-events:none;
+}
+.nc-travel-expedition{
+  position:relative;
+  isolation:isolate;
+}
+.nc-travel-expedition::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  top:70px;
+  right:0;
+  width:100%;
+  height:calc(100% - 70px);
+  background:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_30e1fe7d-1.png") center top/100% auto no-repeat;
+  opacity:.12;
+  pointer-events:none;
+}
+.nc-travel-expedition-heading{
+  position:relative;
+  padding-bottom:28px;
+}
+.nc-travel-expedition-heading::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-5px;
+  width:min(310px,46vw);
+  height:48px;
+  transform:translateX(-50%);
+  background:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_756f880c-1.png") center/contain no-repeat;
+  opacity:.58;
+  pointer-events:none;
+}
+.nc-travel-chapter:nth-child(2){
+  position:relative;
+}
+.nc-travel-chapter:nth-child(2)::after{
+  content:"";
+  position:absolute;
+  top:-8px;
+  right:2px;
+  width:68px;
+  height:68px;
+  background:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_ce7abbec-1.png") center/contain no-repeat;
+  opacity:.28;
+  pointer-events:none;
+}
+.nc-travel-page .nc-home-closing{
+  position:relative;
+  isolation:isolate;
+}
+.nc-travel-page .nc-home-closing::after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  right:4%;
+  top:50%;
+  width:112px;
+  height:84px;
+  transform:translateY(-50%);
+  background:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_faf4eb1c-1.png") center/contain no-repeat;
+  opacity:.72;
+  pointer-events:none;
+}
+@media(max-width:760px){
+  .nc-travel-opening::before{top:0;right:0;width:74%;height:150px;opacity:.12}
+  .nc-travel-expedition::before{top:95px;opacity:.08;background-size:auto 440px}
+  .nc-travel-expedition-heading{padding-bottom:22px}
+  .nc-travel-expedition-heading::after{width:210px;height:34px;opacity:.42}
+  .nc-travel-chapter:nth-child(2)::after{width:48px;height:48px;opacity:.2}
+  .nc-travel-page .nc-home-closing::after{right:2%;width:70px;height:56px;opacity:.45}
+}
+@media(max-width:480px){
+  .nc-travel-opening::before{width:88%;height:125px;opacity:.1}
+  .nc-travel-expedition::before{opacity:.06}
+  .nc-travel-page .nc-home-closing::after{width:52px;height:42px}
+}
