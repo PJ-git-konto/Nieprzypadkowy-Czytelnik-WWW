@@ -1972,3 +1972,101 @@ body.front-page #nc-books-status{
   }
   .nc-home-closing-button:hover{transform:translate(50%,-1px)}
 }
+
+
+/* Podróże bez biletu — układ zgodny z zaakceptowaną makietą */
+.nc-travel-page{position:relative;isolation:isolate;overflow:hidden;padding:0 0 36px;background:#f8f2e5;color:#102b49}
+.nc-travel-background{position:absolute;z-index:-1;inset:0;pointer-events:none;opacity:.42;background-image:radial-gradient(ellipse at 8% 34%,transparent 0 60px,#c7a879 61px 62px,transparent 63px),radial-gradient(ellipse at 92% 20%,transparent 0 100px,#c7a879 101px 102px,transparent 103px);background-size:520px 420px,620px 500px}
+.nc-travel-opening{width:min(100%,1456px);margin:0 auto;padding:28px 36px 26px;display:grid;grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr);gap:42px;align-items:center}
+.nc-travel-opening-copy{max-width:500px}
+.nc-travel-breadcrumbs{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:0 0 20px;color:#9a773f;font-size:.83rem}
+.nc-travel-breadcrumbs a{color:inherit;text-decoration:none}
+.nc-travel-opening h1{margin:0 0 3px;color:#102b49;font-family:var(--nc-serif);font-size:clamp(2.5rem,4vw,3.8rem);font-weight:700;line-height:1.03;letter-spacing:-.035em}
+.nc-travel-subheading{margin:0 0 14px;font-family:var(--nc-serif);font-size:1.35rem;font-style:italic;line-height:1.3}
+.nc-travel-opening-copy>p:not(.nc-travel-subheading){margin:0 0 12px;color:#171717;font-size:.96rem;line-height:1.48}
+.nc-travel-featured{position:relative;min-width:0;min-height:258px;padding:18px 28px 18px 24px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:25px;align-items:center;border:1px solid #e0d1b8;border-radius:12px;background:rgba(255,252,245,.91);box-shadow:0 3px 9px rgba(47,39,26,.16)}
+.nc-travel-featured-cover{position:relative;z-index:1;display:block;width:146px;height:220px;overflow:hidden;border:1px solid rgba(16,43,73,.22);border-radius:4px;background:#e9dfcf;box-shadow:0 4px 9px rgba(32,30,26,.2)}
+.nc-travel-featured-cover img{display:block;width:100%;height:100%;object-fit:cover}
+.nc-travel-featured-copy{position:relative;z-index:1;min-width:0}
+.nc-travel-station-label{display:inline-block;margin:0 0 8px;padding:5px 10px;border-radius:20px;background:#f3e6cf;color:#102b49;font-size:.69rem;font-weight:700;letter-spacing:.025em}
+.nc-travel-featured-copy h2{margin:0 0 2px;font-family:var(--nc-serif);font-size:1.65rem;line-height:1.15}
+.nc-travel-featured-copy h2 a{color:inherit;text-decoration:none}
+.nc-travel-author{margin:0 0 7px;color:#a56e25;font-size:.92rem}
+.nc-travel-featured-description{margin:0 0 8px;color:#242424;font-size:.82rem;line-height:1.4}
+.nc-travel-book-meta{margin:0 0 10px;color:#242424;font-size:.72rem}
+.nc-travel-book-meta span{padding:0 5px;color:#a56e25}
+.nc-travel-featured-actions{display:flex;flex-wrap:wrap;gap:15px;align-items:center}
+.nc-travel-primary-link{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border-radius:24px;background:#102b49;color:#fff;text-decoration:none;font-size:.8rem;font-weight:700}
+.nc-travel-primary-link:hover{background:#23466c;color:#fff}
+.nc-travel-secondary-link{color:#a16c27;text-decoration:none;font-size:.8rem}
+.nc-travel-compass{position:absolute;right:-17px;top:-20px;width:112px;height:112px;display:grid;place-items:center;border:2px solid rgba(178,143,88,.48);border-radius:50%;color:#b18b54;font-size:4.3rem;line-height:1;opacity:.85}
+.nc-travel-compass:before,.nc-travel-compass:after{content:"";position:absolute;background:#b18b54;opacity:.65}
+.nc-travel-compass:before{width:1px;height:125%;top:-12.5%}
+.nc-travel-compass:after{height:1px;width:125%;left:-12.5%}
+.nc-travel-compass small{position:absolute;inset:5px;display:flex;justify-content:space-between;align-items:center;text-align:center;font-size:.55rem;line-height:1.1}
+.nc-travel-featured-empty{grid-template-columns:1fr;min-height:150px}
+.nc-travel-featured-empty p{margin:0;text-align:center}
+.nc-travel-expedition{width:min(100%,1456px);margin:0 auto;padding:12px 36px 0}
+.nc-travel-expedition-heading{display:grid;grid-template-columns:minmax(30px,1fr) auto minmax(30px,1fr);gap:16px;align-items:center;margin:0 0 25px;text-align:center}
+.nc-travel-expedition-heading>span{height:1px;background:#cbb28d}
+.nc-travel-expedition-heading h2{margin:0;color:#102b49;font-size:1.18rem;font-weight:700;line-height:1.2}
+.nc-travel-expedition-heading h2 b{padding:0 5px;color:#b27c35}
+.nc-travel-expedition-heading p{margin:4px 0 0;font-family:var(--nc-serif);font-size:.85rem;font-style:italic}
+.nc-travel-chapters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.nc-travel-chapter{min-width:0;scroll-margin-top:20px}
+.nc-travel-chapter>h3{min-height:28px;margin:0 0 8px;color:#102b49;font-size:.78rem;font-weight:700;line-height:1.25;text-transform:uppercase}
+.nc-travel-stops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.nc-travel-stop{position:relative;min-width:0;min-height:148px;padding:12px 8px 9px;display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px;align-items:start;border:1px solid #e1d3bd;border-radius:9px;background:rgba(255,252,245,.93);box-shadow:0 2px 5px rgba(47,39,26,.11)}
+.nc-travel-stop-number{position:absolute;z-index:2;top:-9px;left:-6px;width:27px;height:27px;display:grid;place-items:center;border:2px solid #c69a55;border-radius:50%;background:#b9873f;color:#fff;font-size:.8rem;font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.nc-travel-stop-cover{display:block;width:48px;height:76px;overflow:hidden;border:1px solid #c9b99f;border-radius:2px;background:#eee2ce;box-shadow:0 2px 4px rgba(0,0,0,.12)}
+.nc-travel-stop-cover img{display:block;width:100%;height:100%;object-fit:cover}
+.nc-travel-stop-copy{min-width:0}
+.nc-travel-stop-copy h4{margin:0 0 3px;color:#102b49;font-family:var(--nc-serif);font-size:.7rem;line-height:1.15}
+.nc-travel-stop-copy h4 a{color:inherit;text-decoration:none}
+.nc-travel-stop-copy h4 a:hover{text-decoration:underline}
+.nc-travel-stop-copy .nc-travel-author{margin:0 0 3px;font-size:.57rem;line-height:1.2}
+.nc-travel-stop-description{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;margin:0 0 4px;color:#292929;font-size:.56rem;line-height:1.25}
+.nc-travel-stop-tag{display:block;margin:0 0 4px;color:#856536;font-size:.55rem;line-height:1.2}
+.nc-travel-read-more{color:#9b6e30;text-decoration:none;font-size:.61rem;white-space:nowrap}
+.nc-travel-empty{grid-column:1/-1;margin:0;padding:18px 8px;border:1px dashed #cbb28d;border-radius:8px;color:#77664f;font-size:.82rem;text-align:center}
+.nc-travel-pagination{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:12px 0 0}
+.nc-travel-pagination a{min-width:27px;padding:5px 8px;border:1px solid transparent;border-radius:18px;color:#9a6c2e;text-align:center;text-decoration:none;font-size:.75rem}
+.nc-travel-pagination a:hover,.nc-travel-pagination a.is-active{border-color:#d5bd96;background:#f1e4cf;color:#102b49}
+@media(max-width:1050px){
+ .nc-travel-opening{grid-template-columns:minmax(250px,.7fr) minmax(0,1.3fr);gap:25px;padding-inline:24px}
+ .nc-travel-expedition{padding-inline:24px}
+ .nc-travel-chapters{gap:14px}
+ .nc-travel-stops{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:760px){
+ .nc-travel-opening{grid-template-columns:1fr;padding:22px 18px 18px;gap:20px}
+ .nc-travel-opening-copy{max-width:none}
+ .nc-travel-featured{grid-template-columns:112px minmax(0,1fr);gap:15px;padding:14px}
+ .nc-travel-featured-cover{width:108px;height:162px}
+ .nc-travel-compass{width:75px;height:75px;right:-10px;top:-12px;font-size:3rem}
+ .nc-travel-featured-copy h2{font-size:1.25rem}
+ .nc-travel-featured-description{font-size:.76rem}
+ .nc-travel-book-meta{font-size:.65rem}
+ .nc-travel-expedition{padding:10px 18px 0}
+ .nc-travel-expedition-heading{grid-template-columns:1fr;gap:0;margin-bottom:18px}
+ .nc-travel-expedition-heading>span{display:none}
+ .nc-travel-expedition-heading h2{font-size:1rem}
+ .nc-travel-chapters{grid-template-columns:1fr;gap:23px}
+ .nc-travel-chapter>h3{font-size:.82rem}
+ .nc-travel-stops{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .nc-travel-stop{grid-template-columns:42px minmax(0,1fr);gap:7px;padding:10px 7px 8px}
+ .nc-travel-stop-cover{width:42px;height:66px}
+}
+@media(max-width:480px){
+ .nc-travel-opening h1{font-size:2.35rem}
+ .nc-travel-opening-copy>p:not(.nc-travel-subheading){font-size:.9rem}
+ .nc-travel-featured{grid-template-columns:88px minmax(0,1fr);gap:10px;padding:11px}
+ .nc-travel-featured-cover{width:86px;height:130px}
+ .nc-travel-station-label{font-size:.56rem;padding:4px 7px}
+ .nc-travel-featured-copy h2{font-size:1.08rem}
+ .nc-travel-featured-actions{gap:8px}
+ .nc-travel-primary-link{padding:7px 9px;font-size:.68rem}
+ .nc-travel-secondary-link{font-size:.67rem}
+ .nc-travel-stops{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .nc-travel-stop{min-height:132px}
+}
