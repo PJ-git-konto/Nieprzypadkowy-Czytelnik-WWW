@@ -70,6 +70,16 @@ function nc_register_book_type(): void {
         },
     ]);
 
+    register_post_meta('ksiazka', '_nc_test_record', [
+        'type' => 'boolean',
+        'single' => true,
+        'show_in_rest' => true,
+        'default' => false,
+        'auth_callback' => static function ($allowed, $meta_key, $post_id): bool {
+            return current_user_can('edit_post', $post_id);
+        },
+    ]);
+
     register_taxonomy('kategoria_ksiazki', ['ksiazka'], [
         'labels' => [
             'name' => __('Kategorie książek', 'nieprzypadkowy-czytelnik'),
@@ -106,6 +116,7 @@ function nc_render_book_author_box(WP_Post $post): void {
     wp_nonce_field('nc_save_book_details', 'nc_book_details_nonce');
     $author = get_post_meta($post->ID, '_nc_book_author', true);
     $travel_category = (string) get_post_meta($post->ID, '_nc_travel_category', true);
+    $is_test_record = (bool) get_post_meta($post->ID, '_nc_test_record', true);
     ?>
     <p><label for="nc_book_author"><?php esc_html_e('Autor / autorka', 'nieprzypadkowy-czytelnik'); ?></label></p>
     <input type="text" id="nc_book_author" name="nc_book_author" value="<?php echo esc_attr((string) $author); ?>" class="widefat">
@@ -117,6 +128,9 @@ function nc_render_book_author_box(WP_Post $post): void {
         <option value="<?php echo esc_attr($slug); ?>" <?php selected($travel_category, $slug); ?>><?php echo esc_html($label); ?></option>
       <?php endforeach; ?>
     </select>
+    <hr>
+    <p><label><input type="checkbox" name="nc_test_record" value="1" <?php checked($is_test_record); ?>> <?php esc_html_e('Rekord testowy', 'nieprzypadkowy-czytelnik'); ?></label></p>
+    <p class="description"><?php esc_html_e('Rekordy testowe są pomijane w zwykłych wynikach i rekomendacjach, ale mogą być pokazywane w kolekcjach testowych.', 'nieprzypadkowy-czytelnik'); ?></p>
     <p class="description"><?php esc_html_e('Okładkę dodaj jako obrazek wyróżniający. Kategoria podróży jest niezależna od kategorii literackich.', 'nieprzypadkowy-czytelnik'); ?></p>
     <?php
 }
@@ -134,6 +148,7 @@ function nc_save_book_details(int $post_id): void {
     if (isset($_POST['nc_book_author'])) {
         update_post_meta($post_id, '_nc_book_author', sanitize_text_field(wp_unslash($_POST['nc_book_author'])));
     }
+    update_post_meta($post_id, '_nc_test_record', isset($_POST['nc_test_record']) && $_POST['nc_test_record'] === '1' ? 1 : 0);
     if (isset($_POST['nc_travel_category'])) {
         $travel_category = sanitize_key(wp_unslash($_POST['nc_travel_category']));
         if (array_key_exists($travel_category, nc_travel_categories())) {
@@ -149,6 +164,34 @@ add_action('save_post_ksiazka', 'nc_save_book_details');
  * Dobiera emblemat do znaczenia kategorii, a nie do jej dosłownej nazwy.
  * Nowe kategorie bez własnej reguły otrzymują neutralny symbol książki.
  */
+/**
+ * Warunek wykluczający rekordy testowe z publicznych list książek.
+ */
+function nc_exclude_test_books_meta_query(): array {
+    return [
+        'relation' => 'OR',
+        ['key' => '_nc_test_record', 'compare' => 'NOT EXISTS'],
+        ['key' => '_nc_test_record', 'value' => '1', 'compare' => '!='],
+    ];
+}
+
+/**
+ * Ukrywa rekordy testowe w głównych publicznych zapytaniach WordPressa.
+ */
+function nc_exclude_test_books_from_main_queries(WP_Query $query): void {
+    if (is_admin() || !$query->is_main_query() || (!$query->is_post_type_archive('ksiazka') && !$query->is_search() && !$query->is_home())) {
+        return;
+    }
+    $post_type = $query->get('post_type');
+    if ($post_type && $post_type !== 'ksiazka' && !(is_array($post_type) && in_array('ksiazka', $post_type, true))) {
+        return;
+    }
+    $meta_query = (array) $query->get('meta_query');
+    $meta_query[] = nc_exclude_test_books_meta_query();
+    $query->set('meta_query', $meta_query);
+}
+add_action('pre_get_posts', 'nc_exclude_test_books_from_main_queries');
+
 function nc_book_category_icon_key(string $slug): string {
     $icons = [
         'klasyka' => 'laurel',
@@ -214,6 +257,7 @@ function nc_get_random_recommendations(WP_REST_Request $request): WP_REST_Respon
         'posts_per_page' => 3,
         'orderby' => 'rand',
         'post__not_in' => $exclude,
+        'meta_query' => [nc_exclude_test_books_meta_query()],
         'no_found_rows' => true,
     ]);
     if ($query->post_count < 3 && $exclude) {
@@ -222,6 +266,7 @@ function nc_get_random_recommendations(WP_REST_Request $request): WP_REST_Respon
             'post_status' => 'publish',
             'posts_per_page' => 3,
             'orderby' => 'rand',
+            'meta_query' => [nc_exclude_test_books_meta_query()],
             'no_found_rows' => true,
         ]);
     }
