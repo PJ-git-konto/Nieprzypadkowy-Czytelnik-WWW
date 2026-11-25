@@ -288,92 +288,91 @@
 }
 
 
-/* DEKORACJE PODRÓŻNICZE — pięć zaakceptowanych grafik, bez ingerencji w układ treści
-   Grafiki są wyłącznie ozdobne; treść i kontrast pozostają niezależne od ich widoczności. */
-.nc-travel-opening{
-  position:relative;
-  isolation:isolate;
-}
+/* DEKORACJE PODRÓŻNICZE — warstwa dekoracyjna nad tłem, pod treścią */
+.nc-travel-opening{position:relative;isolation:isolate}
 .nc-travel-opening::before{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  top:4px;
-  right:2.5%;
-  width:min(48%,680px);
-  height:210px;
+  content:"";position:absolute;z-index:0;top:4px;right:2.5%;
+  width:min(48%,680px);height:210px;
   background:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_21675f36.png") right center/contain no-repeat;
-  opacity:.17;
-  pointer-events:none;
+  opacity:.22;pointer-events:none
 }
-.nc-travel-expedition{
-  position:relative;
-  isolation:isolate;
-}
+.nc-travel-opening-copy,.nc-travel-featured{position:relative;z-index:1}
+.nc-travel-expedition{position:relative;isolation:isolate}
 .nc-travel-expedition::before{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  top:70px;
-  right:0;
-  width:100%;
-  height:calc(100% - 70px);
+  content:"";position:absolute;z-index:0;top:70px;right:0;width:100%;height:calc(100% - 70px);
   background:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_30e1fe7d-1.png") center top/100% auto no-repeat;
-  opacity:.12;
-  pointer-events:none;
+  opacity:.15;pointer-events:none
 }
-.nc-travel-expedition-heading{
-  position:relative;
-  padding-bottom:28px;
-}
+.nc-travel-expedition-heading,.nc-travel-chapters{position:relative;z-index:1}
+.nc-travel-expedition-heading{padding-bottom:30px}
 .nc-travel-expedition-heading::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-5px;
-  width:min(310px,46vw);
-  height:48px;
+  content:"";position:absolute;z-index:0;left:50%;bottom:-4px;width:min(310px,46vw);height:48px;
   transform:translateX(-50%);
   background:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_756f880c-1.png") center/contain no-repeat;
-  opacity:.58;
-  pointer-events:none;
+  opacity:.7;pointer-events:none
 }
-.nc-travel-chapter:nth-child(2){
-  position:relative;
-}
+.nc-travel-expedition-title-group{position:relative;z-index:1}
+.nc-travel-chapter{position:relative}
 .nc-travel-chapter:nth-child(2)::after{
-  content:"";
-  position:absolute;
-  top:-8px;
-  right:2px;
-  width:68px;
-  height:68px;
+  content:"";position:absolute;z-index:0;top:0;right:2px;width:68px;height:68px;
   background:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_ce7abbec-1.png") center/contain no-repeat;
-  opacity:.28;
-  pointer-events:none;
+  opacity:.34;pointer-events:none
 }
+.nc-travel-chapter>h3,.nc-travel-stops,.nc-travel-pagination{position:relative;z-index:1}
 .nc-travel-expedition::after{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  right:3%;
-  bottom:-8px;
-  width:116px;
-  height:88px;
+  content:"";position:absolute;z-index:0;right:3%;bottom:4px;width:116px;height:88px;
   background:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_faf4eb1c-1.png") center/contain no-repeat;
-  opacity:.56;
-  pointer-events:none;
+  opacity:.58;pointer-events:none
+}
+
+/* Dolna belka kolekcji — lokalne odtworzenie układu z home.css.
+   Arkusz homepage nie jest ładowany na podstronie podróży. */
+.nc-travel-page>.nc-home-closing{
+  position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;
+  min-height:98px;margin:0;padding:14px 3.6%;gap:0;overflow:hidden;
+  border-top:1px solid #dfc9a9;border-bottom:1px solid #dfc9a9;
+  background:linear-gradient(90deg,#f1e2cb,#fff8ed 50%,#f1e2cb)
+}
+.nc-travel-page>.nc-home-closing .nc-home-closing-image{
+  position:absolute;z-index:0;inset:0;display:block;width:100%;height:100%;max-width:none;max-height:none;
+  margin:0;object-fit:cover;object-position:left center
+}
+.nc-travel-page>.nc-home-closing .nc-home-closing-copy{
+  position:relative;z-index:1;width:100%;min-width:0;text-align:center;pointer-events:none
+}
+.nc-travel-page>.nc-home-closing .nc-home-closing-copy p{
+  display:flex;align-items:center;justify-content:center;gap:clamp(8px,1.2vw,18px);
+  margin:0;color:var(--nc-navy);font-size:clamp(1.25rem,2vw,1.85rem);font-style:italic;line-height:1.15
+}
+.nc-travel-page>.nc-home-closing .nc-home-closing-mark{flex:0 0 auto;color:var(--nc-gold);font-size:.8em;font-style:normal}
+.nc-travel-page>.nc-home-closing .nc-home-closing-button{
+  position:absolute;z-index:2;top:50%;right:3.6%;transform:translateY(-50%);white-space:nowrap
+}
+@media(max-width:900px){
+  .nc-travel-opening::before{width:55%;opacity:.16}
+  .nc-travel-page>.nc-home-closing{min-height:88px;padding:12px 20px}
+  .nc-travel-page>.nc-home-closing .nc-home-closing-copy p{font-size:clamp(1.05rem,2.1vw,1.35rem);gap:8px}
+  .nc-travel-page>.nc-home-closing .nc-home-closing-button{right:20px;min-height:44px;padding:9px 17px;font-size:.9rem}
 }
 @media(max-width:760px){
-  .nc-travel-opening::before{top:0;right:0;width:74%;height:150px;opacity:.12}
-  .nc-travel-expedition::before{top:95px;opacity:.08;background-size:auto 440px}
-  .nc-travel-expedition-heading{padding-bottom:22px}
-  .nc-travel-expedition-heading::after{width:210px;height:34px;opacity:.42}
-  .nc-travel-chapter:nth-child(2)::after{width:48px;height:48px;opacity:.2}
-  .nc-travel-expedition::after{right:1%;width:78px;height:60px;opacity:.4}
+  .nc-travel-opening::before{top:0;right:0;width:74%;height:150px;opacity:.14}
+  .nc-travel-expedition::before{top:95px;opacity:.1;background-size:auto 440px}
+  .nc-travel-expedition-heading{padding-bottom:24px}
+  .nc-travel-expedition-heading::after{width:210px;height:34px;opacity:.52}
+  .nc-travel-chapter:nth-child(2)::after{width:48px;height:48px;opacity:.25}
+  .nc-travel-expedition::after{right:1%;width:78px;height:60px;opacity:.42}
+}
+@media(max-width:620px){
+  .nc-travel-page>.nc-home-closing{min-height:130px;padding:18px 16px;align-items:flex-start}
+  .nc-travel-page>.nc-home-closing .nc-home-closing-image{object-fit:contain;object-position:left center}
+  .nc-travel-page>.nc-home-closing .nc-home-closing-copy{padding:0 0 52px}
+  .nc-travel-page>.nc-home-closing .nc-home-closing-copy p{font-size:clamp(1.15rem,5vw,1.4rem)}
+  .nc-travel-page>.nc-home-closing .nc-home-closing-button{
+    top:auto;right:50%;bottom:14px;transform:translateX(50%)
+  }
 }
 @media(max-width:480px){
-  .nc-travel-opening::before{width:88%;height:125px;opacity:.1}
-  .nc-travel-expedition::before{opacity:.06}
-  .nc-travel-expedition::after{width:58px;height:44px;opacity:.32}
+  .nc-travel-opening::before{width:88%;height:125px;opacity:.12}
+  .nc-travel-expedition::before{opacity:.08}
+  .nc-travel-expedition::after{width:58px;height:44px;opacity:.34}
 }
