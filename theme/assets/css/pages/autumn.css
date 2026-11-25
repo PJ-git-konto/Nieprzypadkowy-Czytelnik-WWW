@@ -321,7 +321,7 @@
   bottom:0;
   width:95%;
   height:92%;
-  background-image:url("assets/images/galazka-pozioma-2400x700.png");
+  background-image:url("../../images/galazka-pozioma-2400x700.png");
   background-repeat:no-repeat;
   background-position:center center;
   background-size:100% 100%;
@@ -343,7 +343,7 @@
   right:-2%;
   width:48%;
   height:106%;
-  background-image:url("assets/images/galazka-naroznik-2400x700.png");
+  background-image:url("../../images/galazka-naroznik-2400x700.png");
   background-repeat:no-repeat;
   background-position:right top;
   background-size:contain;
