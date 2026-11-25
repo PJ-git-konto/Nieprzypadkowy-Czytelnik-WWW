@@ -233,11 +233,10 @@
 }
 .nc-travel-expedition-heading h2 b{font-weight:400}
 .nc-travel-expedition-heading p{
-  font-size:1.05rem;
+  font-size:clamp(1.05rem,1.3vw,1.25rem);
   line-height:1.35;
 }
 .nc-travel-expedition-title-group{min-width:0}
-.nc-travel-chapter>h3{font-weight:400}
 .nc-travel-primary-link{
   transition:transform .2s,background .2s,color .2s;
 }
