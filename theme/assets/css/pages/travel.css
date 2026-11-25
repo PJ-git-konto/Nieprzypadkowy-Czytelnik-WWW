@@ -352,21 +352,16 @@
   opacity:.28;
   pointer-events:none;
 }
-.nc-travel-page .nc-home-closing{
-  position:relative;
-  isolation:isolate;
-}
-.nc-travel-page .nc-home-closing::after{
+.nc-travel-expedition::after{
   content:"";
   position:absolute;
-  z-index:1;
-  right:4%;
-  top:50%;
-  width:112px;
-  height:84px;
-  transform:translateY(-50%);
+  z-index:-1;
+  right:3%;
+  bottom:-8px;
+  width:116px;
+  height:88px;
   background:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_faf4eb1c-1.png") center/contain no-repeat;
-  opacity:.72;
+  opacity:.56;
   pointer-events:none;
 }
 @media(max-width:760px){
@@ -375,10 +370,10 @@
   .nc-travel-expedition-heading{padding-bottom:22px}
   .nc-travel-expedition-heading::after{width:210px;height:34px;opacity:.42}
   .nc-travel-chapter:nth-child(2)::after{width:48px;height:48px;opacity:.2}
-  .nc-travel-page .nc-home-closing::after{right:2%;width:70px;height:56px;opacity:.45}
+  .nc-travel-expedition::after{right:1%;width:78px;height:60px;opacity:.4}
 }
 @media(max-width:480px){
   .nc-travel-opening::before{width:88%;height:125px;opacity:.1}
   .nc-travel-expedition::before{opacity:.06}
-  .nc-travel-page .nc-home-closing::after{width:52px;height:42px}
+  .nc-travel-expedition::after{width:58px;height:44px;opacity:.32}
 }
