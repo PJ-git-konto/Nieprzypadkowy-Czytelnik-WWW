@@ -2202,3 +2202,31 @@ body.front-page #nc-books-status{
   .nc-travel-primary-link{padding:10px 12px;font-size:.8rem}
   .nc-travel-secondary-link{font-size:.75rem}
 }
+
+/* Podróże bez biletu — typografia tekstu otwierającego zgodna z Jesiennymi inspiracjami */
+.nc-travel-subheading{
+  margin:0 0 17px;
+  color:var(--nc-navy);
+  font-family:var(--nc-serif);
+  font-size:clamp(1.05rem,1.3vw,1.25rem);
+  font-style:normal;
+  line-height:1.35;
+}
+.nc-travel-opening-copy>p:not(.nc-travel-subheading):not(:last-child){
+  margin:0;
+  color:var(--nc-navy);
+  font-size:1rem;
+  line-height:1.5;
+}
+.nc-travel-opening-copy>p:last-of-type{
+  max-width:390px;
+  margin:25px 0 0;
+  color:#81715b;
+  font-size:.92rem;
+  font-style:italic;
+  line-height:1.55;
+}
+@media(max-width:520px){
+  .nc-travel-subheading{font-size:1.05rem;margin-bottom:14px}
+  .nc-travel-opening-copy>p:last-of-type{margin-top:20px;font-size:.9rem}
+}
