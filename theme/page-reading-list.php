@@ -289,7 +289,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
                 <a class="nc-travel-secondary-link" href="<?php echo esc_url($featured_return); ?>">Zobacz szczegóły książki</a>
               </div>
             </div>
-            <div class="nc-travel-compass" aria-hidden="true">✥<small>N<br>W&nbsp;&nbsp;&nbsp;E<br>S</small></div>
+            <img class="nc-travel-compass-image" src="<?php echo esc_url(get_theme_file_uri('/assets/images/kompas.png')); ?>" alt="" aria-hidden="true">
           </article>
         <?php else : ?>
           <div class="nc-travel-featured nc-travel-featured-empty">
@@ -359,6 +359,13 @@ elseif ($page_slug === 'podroze-bez-biletu') :
           <?php endforeach; ?>
         </div>
       </section>
+      <footer class="nc-home-closing" aria-label="Zakończenie kolekcji">
+        <img class="nc-home-closing-image" src="<?php echo esc_url(get_theme_file_uri('/assets/images/baner_ksiazka_1440x97.png')); ?>" alt="">
+        <div class="nc-home-closing-copy">
+          <p><span class="nc-home-closing-mark" aria-hidden="true">✦</span>Dobra książka to zawsze dobry wybór.<span class="nc-home-closing-mark" aria-hidden="true">✦</span></p>
+        </div>
+        <a class="nc-button nc-button-gold nc-home-closing-button" href="<?php echo esc_url(home_url('/o-nas/')); ?>">Dołącz do nas <span aria-hidden="true">→</span></a>
+      </footer>
     </main>
     <?php
 else :
