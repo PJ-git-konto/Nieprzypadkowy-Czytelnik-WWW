@@ -1999,11 +1999,7 @@ body.front-page #nc-books-status{
 .nc-travel-primary-link{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border-radius:24px;background:#102b49;color:#fff;text-decoration:none;font-size:.8rem;font-weight:700}
 .nc-travel-primary-link:hover{background:#23466c;color:#fff}
 .nc-travel-secondary-link{color:#a16c27;text-decoration:none;font-size:.8rem}
-.nc-travel-compass{position:absolute;right:-17px;top:-20px;width:112px;height:112px;display:grid;place-items:center;border:2px solid rgba(178,143,88,.48);border-radius:50%;color:#b18b54;font-size:4.3rem;line-height:1;opacity:.85}
-.nc-travel-compass:before,.nc-travel-compass:after{content:"";position:absolute;background:#b18b54;opacity:.65}
-.nc-travel-compass:before{width:1px;height:125%;top:-12.5%}
-.nc-travel-compass:after{height:1px;width:125%;left:-12.5%}
-.nc-travel-compass small{position:absolute;inset:5px;display:flex;justify-content:space-between;align-items:center;text-align:center;font-size:.55rem;line-height:1.1}
+.nc-travel-compass-image{position:absolute;right:-17px;top:-24px;width:126px;height:126px;object-fit:contain;opacity:.78;pointer-events:none}
 .nc-travel-featured-empty{grid-template-columns:1fr;min-height:150px}
 .nc-travel-featured-empty p{margin:0;text-align:center}
 .nc-travel-expedition{width:min(100%,1456px);margin:0 auto;padding:12px 36px 0}
@@ -2043,7 +2039,7 @@ body.front-page #nc-books-status{
  .nc-travel-opening-copy{max-width:none}
  .nc-travel-featured{grid-template-columns:112px minmax(0,1fr);gap:15px;padding:14px}
  .nc-travel-featured-cover{width:108px;height:162px}
- .nc-travel-compass{width:75px;height:75px;right:-10px;top:-12px;font-size:3rem}
+ .nc-travel-compass-image{width:88px;height:88px;right:-10px;top:-14px}
  .nc-travel-featured-copy h2{font-size:1.25rem}
  .nc-travel-featured-description{font-size:.76rem}
  .nc-travel-book-meta{font-size:.65rem}
