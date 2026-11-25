@@ -45,6 +45,7 @@ while (have_posts()) :
         'post_status' => 'publish',
         'posts_per_page' => 3,
         'post__not_in' => [$book_id],
+        'meta_query' => [nc_exclude_test_books_meta_query()],
         'orderby' => 'rand',
         'no_found_rows' => true,
     ];
