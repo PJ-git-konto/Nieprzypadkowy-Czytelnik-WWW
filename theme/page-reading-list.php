@@ -303,6 +303,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
           <div class="nc-travel-expedition-title-group"><h2 id="nc-travel-expedition-title">SZLAK EKSPEDYCJI <b>·</b> DZIEWIĘĆ KOLEJNYCH PRZYSTANKÓW</h2><p>Trasa literackich odkryć przez lądy, oceany i bezkresne przestrzenie</p></div>
           <span></span>
         </header>
+        <?php echo wp_get_attachment_image(63, 'full', false, ['class' => 'nc-travel-route-art', 'alt' => 'Złota trasa ekspedycji']); ?>
         <div class="nc-travel-chapters">
           <?php $direction_number = 1; foreach ($travel_categories as $category_slug => $category_label) :
               $query = $travel_queries[$category_slug];
