@@ -558,6 +558,15 @@
 .nc-travel-closing-ornament-wrap{transform:translate(80px,-50px);}
 
 
-/* Przy paginacji książek dajemy dolnemu ornamentowi więcej oddechu,
-   aby dłuższe karty z kolejnej strony nie nachodziły na grafikę. */
-.nc-travel-closing-ornament-wrap.is-paginated{margin-top:0;}
+
+/* Paginacja kierunków — stałe położenie u dołu wyrównanych bloków. */
+.nc-travel-chapters{align-items:stretch;}
+.nc-travel-chapter{display:flex;flex-direction:column;min-height:100%;}
+.nc-travel-stops{flex:1 0 auto;}
+.nc-travel-pagination{margin-top:auto;padding-top:14px;}
+
+@media(max-width:1100px){
+  .nc-travel-chapter{min-height:0;}
+  .nc-travel-stops{flex:0 0 auto;}
+  .nc-travel-pagination{margin-top:14px;padding-top:0;}
+}
