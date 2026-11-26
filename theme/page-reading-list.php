@@ -365,7 +365,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
       <footer class="nc-home-closing" aria-label="Zakończenie kolekcji">
         <img class="nc-home-closing-image" src="<?php echo esc_url(get_theme_file_uri('/assets/images/baner_ksiazka_1440x97.png')); ?>" alt="">
         <div class="nc-home-closing-copy">
-          <p><span class="nc-home-closing-mark" aria-hidden="true">✦</span>Dobra książka to zawsze dobry wybór.<span class="nc-home-closing-mark" aria-hidden="true">✦</span></p>
+          <p><span class="nc-home-closing-mark" aria-hidden="true">✦</span>Każda wielka podróż zaczyna się od jednej strony.<span class="nc-home-closing-mark" aria-hidden="true">✦</span></p>
         </div>
         <a class="nc-button nc-button-gold nc-home-closing-button" href="<?php echo esc_url(home_url('/o-nas/')); ?>">Dołącz do nas <span aria-hidden="true">→</span></a>
       </footer>
