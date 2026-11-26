@@ -454,3 +454,19 @@
 @media(max-width:480px){
   .nc-travel-opening::before{height:205px;}
 }
+
+
+/* Dopasowanie tła otwarcia do delikatności mapy w sekcji ekspedycji */
+.nc-travel-opening::before{
+  opacity:.38;
+  background-image:
+    linear-gradient(to right,#f8f2e5 0%,rgba(248,242,229,0) 24%),
+    linear-gradient(to left,#f8f2e5 0%,rgba(248,242,229,0) 22%),
+    linear-gradient(to bottom,#f8f2e5 0%,rgba(248,242,229,0) 28%),
+    url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/tlo3.png");
+  background-size:100% 100%,100% 100%,100% 100%,cover;
+  background-position:center;background-repeat:no-repeat;
+}
+/* Róża wiatrów przy głównej rekomendacji — dodatkowe 5 px w dół */
+.nc-travel-compass-image{top:-16px;}
+@media(max-width:760px){.nc-travel-compass-image{top:-6px;}}
