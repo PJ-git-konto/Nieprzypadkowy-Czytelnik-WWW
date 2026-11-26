@@ -396,7 +396,7 @@
 .nc-travel-chapter{isolation:isolate}
 .nc-travel-chapter::after{z-index:0}
 .nc-travel-chapter:nth-child(2)::after{
-  top:4px;right:8px;width:104px;height:104px;opacity:.82;
+  top:7px;right:8px;width:104px;height:104px;opacity:.82;
 }
 .nc-travel-chapter>h3,.nc-travel-stops,.nc-travel-pagination{position:relative;z-index:1}
 .nc-travel-expedition::after{
