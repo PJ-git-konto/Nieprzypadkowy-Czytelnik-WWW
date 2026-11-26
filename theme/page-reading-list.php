@@ -358,7 +358,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
             </section>
           <?php endforeach; ?>
         </div>
-        <div class="nc-travel-closing-ornament-wrap" aria-hidden="true">
+        <div class="nc-travel-closing-ornament-wrap<?php echo max($travel_pages) > 1 ? ' is-paginated' : ''; ?>" aria-hidden="true">
           <img class="nc-travel-closing-ornament" src="https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/koniec4.png" alt="">
         </div>
       </section>
