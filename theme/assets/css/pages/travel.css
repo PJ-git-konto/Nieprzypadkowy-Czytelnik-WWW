@@ -493,3 +493,10 @@
 @media(max-width:480px){
   .nc-travel-station-label{margin-right:24px;padding:4px 7px;font-size:.58rem;letter-spacing:.035em}
 }
+
+
+/* Wzmocnienie dekoracji podróżniczych — większa głębia mapy i pełna czytelność róży */
+.nc-travel-compass-image{opacity:1;}
+.nc-travel-expedition::before{opacity:.55;}
+@media(max-width:760px){.nc-travel-expedition::before{opacity:.38;}}
+@media(max-width:480px){.nc-travel-expedition::before{opacity:.30;}}
