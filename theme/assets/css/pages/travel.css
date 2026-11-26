@@ -418,15 +418,17 @@
 }
 
 
-/* Próba tła topograficznego — rekomendacja i wspólny obszar trzech kierunków */
-.nc-travel-featured{
-  background-image:
-    linear-gradient(rgba(248,239,223,.72),rgba(248,239,223,.72)),
-    url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_30e1fe7d-1.png");
+/* Korekta tła — ramka głównej rekomendacji pozostaje bez grafiki */
+.nc-travel-featured{background:transparent;background-image:none;}
+
+/* Trzy kierunki bez dodatkowej ramki i powielonego tła.
+   Jedno tło topograficzne zapewnia pseudo-element .nc-travel-expedition::before. */
+.nc-travel-chapters{padding:0;border:0;border-radius:0;background:none;}
+
+/* Ta sama mapa topograficzna co w dolnej części ekspedycji zastępuje mapę świata. */
+.nc-travel-opening::before{
+  background-image:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_30e1fe7d-1.png");
   background-position:center;
   background-size:cover;
   background-repeat:no-repeat;
 }
-/* Trzy kierunki bez dodatkowej ramki i powielonego tła.
-   Jedno tło topograficzne zapewnia już pseudo-element .nc-travel-expedition::before. */
-.nc-travel-chapters{padding:0;border:0;border-radius:0;background:none;}
