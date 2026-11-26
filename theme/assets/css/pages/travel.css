@@ -531,3 +531,8 @@
 
 /* BLOKI 4.1–4.3 — podniesienie kierunków bliżej ornamentu szlaków */
 .nc-travel-chapters{transform:translateY(-55px);}
+
+/* Róża wiatrów w bloku 2 — ocieplenie odcienia do złota kropki kompasu na szlaku */
+.nc-travel-compass-image{
+  filter:sepia(1) saturate(1.45) hue-rotate(350deg) brightness(.82);
+}
