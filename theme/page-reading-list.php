@@ -358,6 +358,9 @@ elseif ($page_slug === 'podroze-bez-biletu') :
             </section>
           <?php endforeach; ?>
         </div>
+        <div class="nc-travel-closing-ornament-wrap" aria-hidden="true">
+          <img class="nc-travel-closing-ornament" src="https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/koniec4.png" alt="">
+        </div>
       </section>
       <footer class="nc-home-closing" aria-label="Zakończenie kolekcji">
         <img class="nc-home-closing-image" src="<?php echo esc_url(get_theme_file_uri('/assets/images/baner_ksiazka_1440x97.png')); ?>" alt="">
