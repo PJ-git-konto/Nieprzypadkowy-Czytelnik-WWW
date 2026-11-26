@@ -574,6 +574,8 @@
 
 /* Korekta kart i paginacji — równe poziomy, bez rozciągania pojedynczej karty. */
 @media(min-width:1101px){
+  /* Stała przestrzeń na trzy rzędy kart utrzymuje ornament na tej samej wysokości także na dalszych stronach. */
+  .nc-travel-chapters{min-height:680px;}
   .nc-travel-chapter{min-height:0;}
   .nc-travel-stops{
     flex:1 0 auto;
