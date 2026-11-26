@@ -548,8 +548,8 @@
   width:100%;
   height:auto;
   object-fit:contain;
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 25px);
-  mask-image:linear-gradient(to bottom,transparent 0,#000 25px);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 35px);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 35px);
 }
 @media(max-width:760px){
   .nc-travel-closing-ornament-wrap{margin:-20px auto 18px;}
