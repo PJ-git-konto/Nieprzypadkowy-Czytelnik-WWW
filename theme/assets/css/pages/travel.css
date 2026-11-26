@@ -532,7 +532,4 @@
 /* BLOKI 4.1–4.3 — podniesienie kierunków bliżej ornamentu szlaków */
 .nc-travel-chapters{transform:translateY(-55px);}
 
-/* Róża wiatrów w bloku 2 — ciemny brąz z zachowaniem oryginalnych cieni i przejść tonalnych */
-.nc-travel-compass-image{
-  filter:sepia(1) saturate(2.8) hue-rotate(345deg) brightness(.62) contrast(1.15);
-}
+/* Nowa grafika róży wiatrów ma własne kolory i cieniowanie — bez filtrów CSS. */
