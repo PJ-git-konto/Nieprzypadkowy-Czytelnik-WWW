@@ -277,7 +277,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
               <?php else : ?><span class="nc-cover-placeholder">Miejsce<br>na okładkę</span><?php endif; ?>
             </a>
             <div class="nc-travel-featured-copy">
-              <p class="nc-travel-station-label"><span aria-hidden="true">◉</span> STACJA #1&nbsp; · &nbsp;GŁÓWNA REKOMENDACJA REDAKCJI</p>
+              <p class="nc-travel-station-label"><span aria-hidden="true">◉</span> STACJA #1&nbsp; · &nbsp;WYBÓR REDAKCJI</p>
               <h2>1. <a href="<?php echo esc_url($featured_return); ?>"><?php echo esc_html(get_the_title($featured_id)); ?></a></h2>
               <?php if ($featured_author !== '') : ?><p class="nc-travel-author"><?php echo esc_html($featured_author); ?></p><?php endif; ?>
               <p class="nc-travel-featured-description"><?php echo esc_html(get_the_excerpt($featured_id)); ?></p>
