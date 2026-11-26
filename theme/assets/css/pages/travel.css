@@ -528,3 +528,6 @@
 @media(max-width:760px){
   .nc-travel-route-art{margin:-2px auto 8px;max-height:none;}
 }
+
+/* BLOKI 4.1–4.3 — podniesienie kierunków bliżej ornamentu szlaków */
+.nc-travel-chapters{transform:translateY(-15px);}
