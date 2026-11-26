@@ -427,17 +427,6 @@
   background-size:cover;
   background-repeat:no-repeat;
 }
-.nc-travel-chapters{
-  padding:18px;
-  border:1px solid rgba(198,154,85,.32);
-  border-radius:16px;
-  background-image:
-    linear-gradient(rgba(248,239,223,.66),rgba(248,239,223,.66)),
-    url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/image_30e1fe7d-1.png");
-  background-position:center;
-  background-size:cover;
-  background-repeat:no-repeat;
-}
-@media(max-width:760px){
-  .nc-travel-chapters{padding:14px;border-radius:13px}
-}
+/* Trzy kierunki bez dodatkowej ramki i powielonego tła.
+   Jedno tło topograficzne zapewnia już pseudo-element .nc-travel-expedition::before. */
+.nc-travel-chapters{padding:0;border:0;border-radius:0;background:none;}
