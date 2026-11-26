@@ -468,8 +468,8 @@
   background-position:center;background-repeat:no-repeat;
 }
 /* Róża wiatrów wyłącznie w narożniku bloku 2 — dodatkowe 10 px w górę i w prawo */
-.nc-travel-compass-image{top:-36px;right:-37px;}
-@media(max-width:760px){.nc-travel-compass-image{top:-26px;right:-30px;}}
+.nc-travel-compass-image{top:-26px;right:-27px;}
+@media(max-width:760px){.nc-travel-compass-image{top:-16px;right:-20px;}}
 
 /* Róża wiatru usunięta z bloku 3 (dekoracja drugiego rozdziału ekspedycji). */
 .nc-travel-chapter:nth-child(2)::after{display:none;}
