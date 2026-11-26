@@ -473,3 +473,23 @@
 
 /* Róża wiatru usunięta z bloku 3 (dekoracja drugiego rozdziału ekspedycji). */
 .nc-travel-chapter:nth-child(2)::after{display:none;}
+
+/* Róża wiatrów — jasna podkładka odcinająca ją od linii tła bloku 2. */
+.nc-travel-featured{isolation:isolate;}
+.nc-travel-featured::after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  top:-36px;
+  right:-37px;
+  width:145px;
+  height:145px;
+  border-radius:50%;
+  background:radial-gradient(circle,#f8efdf 0 68%,rgba(248,239,223,.98) 80%,rgba(248,239,223,0) 100%);
+  pointer-events:none;
+}
+.nc-travel-compass-image{z-index:2;}
+.nc-travel-featured-copy,.nc-travel-featured-cover{position:relative;z-index:3;}
+@media(max-width:760px){
+  .nc-travel-featured::after{top:-26px;right:-30px;width:101px;height:101px;}
+}
