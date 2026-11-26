@@ -473,3 +473,23 @@
 
 /* Róża wiatru usunięta z bloku 3 (dekoracja drugiego rozdziału ekspedycji). */
 .nc-travel-chapter:nth-child(2)::after{display:none;}
+
+/* Etykieta stacji #1 — krótszy zapis i wolna przestrzeń na różę kompasową */
+.nc-travel-station-label{
+  display:inline-block;
+  margin:0 118px 8px 0;
+  padding:5px 9px;
+  border-radius:20px;
+  font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.075em;
+  line-height:1.2;
+  white-space:nowrap;
+}
+@media(max-width:760px){
+  .nc-travel-station-label{margin-right:72px;font-size:.64rem;letter-spacing:.055em}
+}
+@media(max-width:480px){
+  .nc-travel-station-label{margin-right:24px;padding:4px 7px;font-size:.58rem;letter-spacing:.035em}
+}
