@@ -516,3 +516,15 @@
 @media(max-width:760px){
   .nc-travel-route-art{margin:-2px auto 12px;max-height:none;}
 }
+
+/* Dopasowanie ornamentu szlaków do trzech nagłówków kierunków */
+.nc-travel-expedition-heading{padding-bottom:0!important;margin-bottom:0!important;}
+.nc-travel-expedition-heading::after{display:none!important;}
+.nc-travel-expedition::before{display:none!important;}
+.nc-travel-route-art{
+  margin:-4px auto -12px;
+  max-height:none;
+}
+@media(max-width:760px){
+  .nc-travel-route-art{margin:-2px auto 8px;max-height:none;}
+}
