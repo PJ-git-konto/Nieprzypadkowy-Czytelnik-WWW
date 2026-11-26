@@ -633,3 +633,20 @@
   .nc-travel-stop-description{-webkit-line-clamp:5;min-height:0;}
   .nc-travel-pagination{margin-top:14px;padding-top:0;}
 }
+
+/* Stabilizacja paginacji i dolnego ornamentu: wszystkie trzy kierunki zajmują wspólny wiersz. */
+@media(min-width:1101px){
+  .nc-travel-chapters{
+    grid-auto-rows:minmax(740px,auto);
+  }
+  .nc-travel-chapter{
+    height:100%;
+    min-height:0;
+  }
+  .nc-travel-stops{
+    flex:1 0 auto;
+  }
+  .nc-travel-pagination{
+    margin-top:auto;
+  }
+}
