@@ -440,7 +440,7 @@
 /* Tło głównej rekomendacji — grafika tlo3 za nieprzezroczystą kartą */
 .nc-travel-opening::before{
   top:0;right:0;width:66%;height:100%;
-  background-image:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/tlo3.png");
+  background-image:url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/tlo3-1.png");
   background-position:center;background-size:cover;background-repeat:no-repeat;
   opacity:1;
 }
@@ -463,7 +463,7 @@
     linear-gradient(to right,#f8f2e5 0%,rgba(248,242,229,0) 25%),
     linear-gradient(to left,#f8f2e5 0%,rgba(248,242,229,0) 5%),
     linear-gradient(to top,#f8f2e5 0%,rgba(248,242,229,0) 25%),
-    url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/tlo3.png");
+    url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/tlo3-1.png");
   background-size:100% 100%,100% 100%,100% 100%,cover;
   background-position:center;background-repeat:no-repeat;
 }
