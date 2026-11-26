@@ -556,3 +556,8 @@
 
 /* Korekta położenia dolnego ornamentu: 30 px w prawo i 50 px w górę */
 .nc-travel-closing-ornament-wrap{transform:translate(80px,-50px);}
+
+
+/* Przy paginacji książek dajemy dolnemu ornamentowi więcej oddechu,
+   aby dłuższe karty z kolejnej strony nie nachodziły na grafikę. */
+.nc-travel-closing-ornament-wrap.is-paginated{margin-top:0;}
