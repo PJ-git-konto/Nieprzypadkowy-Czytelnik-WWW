@@ -329,7 +329,7 @@
    Arkusz homepage nie jest ładowany na podstronie podróży. */
 .nc-travel-page>.nc-home-closing{
   position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;
-  min-height:98px;margin:0;transform:translateY(-40px);padding:14px 3.6%;gap:0;overflow:hidden;
+  min-height:98px;margin:0;transform:translateY(-55px);padding:14px 3.6%;gap:0;overflow:hidden;
   border-top:1px solid #dfc9a9;border-bottom:1px solid #dfc9a9;
   background:linear-gradient(90deg,#f1e2cb,#fff8ed 50%,#f1e2cb)
 }
