@@ -359,7 +359,7 @@ elseif ($page_slug === 'podroze-bez-biletu') :
           <?php endforeach; ?>
         </div>
         <div class="nc-travel-closing-ornament-wrap" aria-hidden="true">
-          <img class="nc-travel-closing-ornament" src="https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/koniec5-1.png" alt="">
+          <img class="nc-travel-closing-ornament" src="https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/koniec5-2.png" alt="">
         </div>
       </section>
       <footer class="nc-home-closing" aria-label="Zakończenie kolekcji">
