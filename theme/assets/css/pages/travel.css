@@ -460,13 +460,16 @@
 .nc-travel-opening::before{
   opacity:.55;
   background-image:
-    linear-gradient(to right,#f8f2e5 0%,rgba(248,242,229,0) 20%),
+    linear-gradient(to right,#f8f2e5 0%,rgba(248,242,229,0) 25%),
     linear-gradient(to left,#f8f2e5 0%,rgba(248,242,229,0) 5%),
-    linear-gradient(to bottom,#f8f2e5 0%,rgba(248,242,229,0) 20%),
+    linear-gradient(to top,#f8f2e5 0%,rgba(248,242,229,0) 25%),
     url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/tlo3.png");
   background-size:100% 100%,100% 100%,100% 100%,cover;
   background-position:center;background-repeat:no-repeat;
 }
-/* Róża wiatrów przy głównej rekomendacji — dodatkowe 5 px w dół */
-.nc-travel-compass-image{top:-16px;}
-@media(max-width:760px){.nc-travel-compass-image{top:-6px;}}
+/* Róża wiatrów wyłącznie w narożniku bloku 2 — 10 px w górę i w prawo */
+.nc-travel-compass-image{top:-26px;right:-27px;}
+@media(max-width:760px){.nc-travel-compass-image{top:-16px;right:-20px;}}
+
+/* Róża wiatru usunięta z bloku 3 (dekoracja drugiego rozdziału ekspedycji). */
+.nc-travel-chapter:nth-child(2)::after{display:none;}
