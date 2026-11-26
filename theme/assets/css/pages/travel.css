@@ -552,3 +552,7 @@
 @media(max-width:760px){
   .nc-travel-closing-ornament-wrap{margin:-20px auto 18px;}
 }
+
+
+/* Korekta położenia dolnego ornamentu: 30 px w prawo i 50 px w górę */
+.nc-travel-closing-ornament-wrap{transform:translate(30px,-50px);}
