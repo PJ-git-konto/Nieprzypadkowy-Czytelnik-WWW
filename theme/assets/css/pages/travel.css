@@ -460,9 +460,9 @@
 .nc-travel-opening::before{
   opacity:.38;
   background-image:
-    linear-gradient(to right,#f8f2e5 0%,rgba(248,242,229,0) 24%),
-    linear-gradient(to left,#f8f2e5 0%,rgba(248,242,229,0) 22%),
-    linear-gradient(to bottom,#f8f2e5 0%,rgba(248,242,229,0) 28%),
+    linear-gradient(to right,#f8f2e5 0%,rgba(248,242,229,0) 12%),
+    linear-gradient(to left,#f8f2e5 0%,rgba(248,242,229,0) 11%),
+    linear-gradient(to bottom,#f8f2e5 0%,rgba(248,242,229,0) 14%),
     url("https://test.nieprzypadkowyczytelnik.pl/wp-content/uploads/2026/11/tlo3.png");
   background-size:100% 100%,100% 100%,100% 100%,cover;
   background-position:center;background-repeat:no-repeat;
