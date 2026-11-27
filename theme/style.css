@@ -404,3 +404,16 @@ button,input{font:inherit}
   font-family:Arial,Helvetica,sans-serif;
   font-size:.8rem;
 }
+
+
+/* Stopka — jasne tło dla zdecydowanie lepszej czytelności. */
+.nc-site-footer{background:#f4ecdf;color:#172f49}
+.nc-site-footer .nc-footer-brand{color:#172f49;font-family:Arial,Helvetica,sans-serif;font-size:1.55rem;font-weight:700;letter-spacing:-.025em}
+.nc-site-footer .nc-footer-tagline{color:#76521f;font-family:Arial,Helvetica,sans-serif;font-size:1rem;font-style:normal;font-weight:600}
+.nc-site-footer .nc-footer-description{color:#26394d;font-family:Arial,Helvetica,sans-serif;font-size:1rem;font-weight:500;line-height:1.65}
+.nc-site-footer .nc-footer-nav h2{color:#172f49;font-family:Arial,Helvetica,sans-serif;font-size:1.05rem;font-weight:700}
+.nc-site-footer .nc-footer-nav a{color:#173b5e;font-family:Arial,Helvetica,sans-serif;font-size:.98rem;font-weight:600;text-decoration:underline;text-decoration-color:rgba(23,59,94,.35);text-underline-offset:3px}
+.nc-site-footer .nc-footer-nav a:hover{color:#8a5b1e;text-decoration-color:currentColor}
+.nc-site-footer .nc-footer-nav a span{color:#76521f}
+.nc-site-footer .nc-footer-disclosure{color:#35475a;border-top-color:rgba(23,47,73,.22);font-family:Arial,Helvetica,sans-serif;font-size:.88rem;font-weight:500;line-height:1.6}
+.nc-site-footer .nc-footer-bottom{color:#35475a;border-top-color:rgba(23,47,73,.22);font-family:Arial,Helvetica,sans-serif;font-size:.86rem;font-weight:500}
