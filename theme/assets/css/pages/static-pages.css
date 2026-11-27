@@ -289,3 +289,15 @@
   .page-id-75 .nc-static-page-inner{padding:18px 20px 30px}
   .page-id-75 .nc-about-grid{grid-template-columns:1fr;gap:24px}
 }
+
+
+/* O nas — ramka kontaktowa w stylu głównej rekomendacji Jesiennych inspiracji. */
+.page-id-75 .nc-about-cta{
+  padding:18px 20px;
+  border:1px solid #d8c4a7;
+  border-radius:17px;
+  background:#f8efdf;
+}
+@media(max-width:760px){
+  .page-id-75 .nc-about-cta{padding:15px 16px;border-radius:14px}
+}
