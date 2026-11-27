@@ -30,7 +30,7 @@ button,input{font:inherit}
 .nc-nav ul{display:flex;align-items:center;gap:0;margin:0;padding:0;list-style:none}
 .nc-nav li a{display:block;padding:9px 17px;border-right:1px solid #eadfcf;color:var(--nc-navy);font-size:clamp(.85rem,1.15vw,1.05rem);white-space:nowrap}
 .nc-nav li:first-child a{border:0;border-radius:30px;background:var(--nc-navy);color:white;padding-inline:24px}
-.nc-nav li:nth-child(2) a{margin-left:17px;border-left:1px solid #eadfcf;padding-left:17px}
+.nc-nav li:nth-child(2) a{margin-left:17px}
 .nc-nav li.current-menu-item:not(:first-child) a{color:var(--nc-gold)}
 .nc-search{display:flex;align-items:center;gap:5px}
 .nc-search input{width:0;min-width:0;padding:0;border:0;border-bottom:1px solid transparent;background:transparent;transition:width .2s,padding .2s}
