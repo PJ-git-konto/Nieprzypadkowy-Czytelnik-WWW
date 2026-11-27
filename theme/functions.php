@@ -25,6 +25,7 @@ function nc_enqueue_assets(): void {
         'autumn' => is_page('jesienne-inspiracje'),
         'travel' => is_page('podroze-bez-biletu'),
         'book-detail' => is_singular('ksiazka'),
+        'static-pages' => is_page() && !is_page_template('page-reading-list.php'),
     ];
 
     foreach ($page_styles as $style_name => $should_load) {
