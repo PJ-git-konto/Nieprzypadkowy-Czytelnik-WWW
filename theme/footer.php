@@ -9,7 +9,7 @@
       <h2>Poznaj nas</h2>
       <a href="<?php echo esc_url(home_url('/?page_id=75')); ?>">O nas</a>
       <a href="<?php echo esc_url(home_url('/?page_id=71')); ?>">Kontakt</a>
-      <a href="https://www.instagram.com/nieprzypadkowyczytelnik/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+      <a href="<?php echo esc_url(home_url('/?page_id=88')); ?>">Jesteśmy w sieci <span aria-hidden="true">↗</span></a>
     </nav>
     <p class="nc-footer-disclosure">Niektóre linki na stronie są afiliacyjne. Dokonując zakupu poprzez nasze rekomendacje, wspierasz rozwój naszego serwisu.</p>
   </div>
