@@ -1,10 +1,21 @@
 <footer class="nc-site-footer">
   <div class="nc-footer-inner">
-    <div><div class="nc-footer-brand">Nieprzypadkowy Czytelnik</div><p class="nc-footer-note">Dobre książki. Świadome wybory.</p></div>
-    <div class="nc-footer-links">
-      <a href="<?php echo esc_url(home_url('/ksiazki/')); ?>">Kolekcje</a>
-      <a href="<?php echo esc_url(home_url('/polityka-prywatnosci/')); ?>">Prywatność</a>
+    <div class="nc-footer-about">
+      <div class="nc-footer-brand">Nieprzypadkowy Czytelnik</div>
+      <p class="nc-footer-tagline">Dobre książki. Świadome wybory.</p>
+      <p class="nc-footer-description">Miejsce dla tych, którzy szukają czegoś więcej niż kolejnej książki na półkę.</p>
     </div>
+    <nav class="nc-footer-nav" aria-label="Informacje">
+      <h2>Poznaj nas</h2>
+      <a href="<?php echo esc_url(home_url('/?page_id=75')); ?>">O nas</a>
+      <a href="<?php echo esc_url(home_url('/?page_id=71')); ?>">Kontakt</a>
+      <a href="https://www.instagram.com/nieprzypadkowyczytelnik/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+    </nav>
+    <p class="nc-footer-disclosure">Niektóre odnośniki do księgarni mogą mieć charakter afiliacyjny. Jeśli dokonasz zakupu, możemy otrzymać prowizję — bez dodatkowych kosztów dla Ciebie.</p>
+  </div>
+  <div class="nc-footer-bottom">
+    <span>© <?php echo esc_html(wp_date('Y')); ?> Nieprzypadkowy Czytelnik</span>
+    <span>Dobre książki. Świadome wybory.</span>
   </div>
 </footer>
 <?php wp_footer(); ?>
