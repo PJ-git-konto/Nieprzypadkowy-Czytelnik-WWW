@@ -364,3 +364,43 @@ button,input{font:inherit}
   .nc-footer-disclosure{grid-column:auto;padding-top:13px}
   .nc-footer-bottom{margin-top:20px;align-items:flex-start;flex-direction:column;gap:5px}
 }
+
+
+/* Stopka — mocniejszy kontrast i czytelniejsza typografia. */
+.nc-footer-about{max-width:none}
+.nc-footer-description{
+  max-width:none;
+  color:#fffaf1;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:.94rem;
+  font-weight:500;
+  line-height:1.55;
+}
+.nc-footer-tagline{
+  color:#f4dfbb;
+  font-size:1.02rem;
+  font-weight:500;
+}
+.nc-footer-nav h2{
+  color:#fffaf1;
+  font-size:1.14rem;
+}
+.nc-footer-nav a{
+  color:#fffaf1;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:.93rem;
+  font-weight:500;
+}
+.nc-footer-nav a span{color:#f4dfbb}
+.nc-footer-disclosure{
+  color:#f1eadf;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:.82rem;
+  font-weight:400;
+  line-height:1.55;
+}
+.nc-footer-bottom{
+  color:#f1eadf;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:.8rem;
+}
