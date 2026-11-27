@@ -85,3 +85,163 @@
   .nc-static-page-header{margin-bottom:25px;padding-bottom:19px}
   .nc-static-page-content{font-size:.97rem;line-height:1.7}
 }
+
+
+/* O nas — układ redakcyjny inspirowany zaakceptowaną makietą onas2.
+   Reguły są ograniczone do strony ID 75; pozostałe strony informacyjne bez zmian. */
+.page-id-75 .nc-static-page{
+  padding:clamp(22px,3vw,42px) 22px 54px;
+  background:
+    radial-gradient(circle at 78% 18%,rgba(218,196,155,.18),transparent 28%),
+    linear-gradient(90deg,rgba(196,171,125,.07) 1px,transparent 1px),
+    var(--nc-cream);
+  background-size:auto,72px 72px,auto;
+}
+.page-id-75 .nc-static-page-inner{
+  width:min(100%,1120px);
+  padding:clamp(24px,3.2vw,42px) clamp(22px,3.4vw,48px);
+  border:0;
+  border-radius:0;
+  background:rgba(255,250,241,.78);
+  box-shadow:none;
+}
+.page-id-75 .nc-static-page-header{
+  margin:0 0 10px;
+  padding:0;
+  border:0;
+  text-align:left;
+}
+.page-id-75 .nc-static-page-eyebrow{display:none}
+.page-id-75 .nc-static-page-header h1{
+  font-size:clamp(2rem,3vw,2.65rem);
+  line-height:1.05;
+}
+.page-id-75 .nc-static-page-content{font-size:.96rem;line-height:1.58}
+.page-id-75 .nc-about-kicker{
+  margin:0 0 12px;
+  color:var(--nc-gold);
+  font-family:var(--nc-serif);
+  font-style:italic;
+  font-size:.98rem;
+}
+.page-id-75 .nc-about-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr);
+  gap:clamp(28px,4.2vw,58px);
+  align-items:start;
+}
+.page-id-75 .nc-about-lead{
+  margin:0 0 22px;
+  color:var(--nc-navy);
+  font-family:var(--nc-serif);
+  font-size:clamp(1.45rem,2.2vw,2rem);
+  line-height:1.15;
+}
+.page-id-75 .nc-about-intro p{margin:0 0 10px}
+.page-id-75 .nc-about-section-title{
+  margin:24px 0 14px;
+  color:var(--nc-navy);
+  font-family:var(--nc-serif);
+  font-size:1.35rem;
+  font-weight:400;
+  line-height:1.2;
+}
+.page-id-75 .nc-about-principle{
+  display:grid;
+  grid-template-columns:54px minmax(0,1fr);
+  gap:13px;
+  align-items:center;
+  margin:0 0 17px;
+}
+.page-id-75 .nc-about-principle img{
+  display:block;
+  width:50px;
+  height:50px;
+  object-fit:contain;
+}
+.page-id-75 .nc-about-principle h3{
+  margin:0 0 3px;
+  color:var(--nc-navy);
+  font-family:var(--nc-serif);
+  font-size:1.12rem;
+  font-weight:400;
+}
+.page-id-75 .nc-about-principle p{margin:0;font-size:.9rem;line-height:1.48}
+.page-id-75 .nc-about-quote{
+  margin:0 0 20px;
+  padding:12px 8px 16px;
+  border-bottom:1px solid var(--nc-line);
+  color:var(--nc-navy);
+  font-family:var(--nc-serif);
+  font-size:clamp(1.45rem,2.2vw,1.9rem);
+  line-height:1.2;
+  text-align:center;
+}
+.page-id-75 .nc-about-visual{
+  width:100%;
+  max-height:280px;
+  display:block;
+  object-fit:cover;
+  border-radius:5px;
+  box-shadow:0 7px 20px rgba(48,35,18,.13);
+}
+.page-id-75 .nc-about-caption{
+  margin:7px 0 22px;
+  color:var(--nc-gold);
+  font-family:var(--nc-serif);
+  font-size:.82rem;
+  font-style:italic;
+  text-align:right;
+}
+.page-id-75 .nc-about-manifest{
+  padding:15px 0 14px;
+  border-top:1px solid var(--nc-line);
+  border-bottom:1px solid var(--nc-line);
+}
+.page-id-75 .nc-about-manifest h2{
+  margin:0 0 8px;
+  font-size:1.15rem;
+}
+.page-id-75 .nc-about-manifest p{margin:0 0 7px;font-size:.88rem}
+.page-id-75 .nc-about-lower{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  margin-top:28px;
+  padding-top:22px;
+  border-top:1px solid var(--nc-line);
+}
+.page-id-75 .nc-about-lower h2{
+  margin:0 0 9px;
+  font-size:1.35rem;
+}
+.page-id-75 .nc-about-lower p{margin:0 0 10px}
+.page-id-75 .nc-about-cta{
+  margin-top:22px;
+  padding:16px 18px;
+  border:1px solid rgba(174,143,88,.65);
+  border-radius:5px;
+  background:rgba(244,235,217,.72);
+}
+.page-id-75 .nc-about-cta p{margin:0 0 10px}
+.page-id-75 .nc-about-cta-links{display:flex;flex-wrap:wrap;gap:9px}
+.page-id-75 .nc-about-cta a{
+  display:inline-block;
+  padding:7px 11px;
+  border-radius:3px;
+  background:var(--nc-navy);
+  color:#fffaf1;
+  font-size:.82rem;
+  text-decoration:none;
+}
+.page-id-75 .nc-about-cta a:hover{background:var(--nc-gold);color:#fff}
+@media(max-width:760px){
+  .page-id-75 .nc-static-page{padding:16px 10px 36px}
+  .page-id-75 .nc-static-page-inner{padding:22px 17px}
+  .page-id-75 .nc-about-grid{grid-template-columns:1fr;gap:24px}
+  .page-id-75 .nc-about-right{display:grid;grid-template-columns:1fr;gap:0}
+  .page-id-75 .nc-about-visual{max-height:250px}
+  .page-id-75 .nc-about-lower{grid-template-columns:1fr;gap:18px}
+  .page-id-75 .nc-about-principle{grid-template-columns:46px minmax(0,1fr);gap:10px}
+  .page-id-75 .nc-about-principle img{width:44px;height:44px}
+}
