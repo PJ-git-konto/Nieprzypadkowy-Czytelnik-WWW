@@ -11,7 +11,7 @@
       <a href="<?php echo esc_url(home_url('/?page_id=71')); ?>">Kontakt</a>
       <a href="https://www.instagram.com/nieprzypadkowyczytelnik/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
     </nav>
-    <p class="nc-footer-disclosure">Niektóre odnośniki do księgarni mogą mieć charakter afiliacyjny. Jeśli dokonasz zakupu, możemy otrzymać prowizję — bez dodatkowych kosztów dla Ciebie.</p>
+    <p class="nc-footer-disclosure">Niektóre linki na stronie są afiliacyjne. Dokonując zakupu poprzez nasze rekomendacje, wspierasz rozwój naszego serwisu.</p>
   </div>
   <div class="nc-footer-bottom">
     <span>© <?php echo esc_html(wp_date('Y')); ?> Nieprzypadkowy Czytelnik</span>
