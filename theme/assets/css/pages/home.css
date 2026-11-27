@@ -429,8 +429,11 @@ body.front-page #nc-books-status{
 
 /* Strona główna — własny układ i dolny baner */
 .nc-home-page{
-  padding:0 0 34px;
+  padding:0;
   background:var(--nc-cream);
+}
+.nc-home-page>.nc-home-closing{
+  margin-bottom:34px;
 }
 .nc-home-closing{
   min-height:0;
