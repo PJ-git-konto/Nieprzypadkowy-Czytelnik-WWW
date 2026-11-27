@@ -336,3 +336,60 @@
 }
 .page-id-75 .nc-about-cta a:hover{background:#1d466d;color:#fff;transform:translateY(-2px)}
 @media(max-width:760px){.page-id-75 .nc-about-cta a{padding:9px 12px;font-size:.78rem}}
+
+
+/* Podstrona „Jesteśmy w sieci” — profile społecznościowe */
+.nc-static-page-content .nc-social-intro{
+  max-width:760px;
+  margin:0 auto 34px;
+  color:var(--nc-navy);
+  font-size:1.12rem;
+  line-height:1.7;
+  text-align:center;
+}
+.nc-static-page-content .nc-social-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),380px));
+  justify-content:center;
+  gap:22px;
+  margin:0 auto;
+}
+.nc-static-page-content .nc-social-card{
+  padding:28px 28px 30px;
+  border:1px solid #dfc9a9;
+  border-radius:5px;
+  background:linear-gradient(145deg,#fffaf1 0%,#f5ead8 100%);
+  box-shadow:0 7px 22px rgba(48,35,18,.07);
+}
+.nc-static-page-content .nc-social-card-label{
+  margin:0 0 10px;
+  color:var(--nc-gold);
+  font-family:Arial,sans-serif;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.15em;
+}
+.nc-static-page-content .nc-social-card h2{
+  margin:0 0 12px;
+  color:var(--nc-navy);
+  font-size:1.8rem;
+}
+.nc-static-page-content .nc-social-card p:not(.nc-social-card-label){font-size:.96rem;line-height:1.6}
+.nc-static-page-content .nc-social-card-actions{margin-top:22px}
+.nc-static-page-content .nc-social-button .wp-block-button__link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 20px;
+  border:0;
+  border-radius:28px;
+  background:var(--nc-navy);
+  color:#fffaf1;
+  font-size:.9rem;
+  text-decoration:none;
+}
+.nc-static-page-content .nc-social-button .wp-block-button__link:hover{background:#1d466d;color:#fff}
+@media(max-width:620px){
+  .nc-static-page-content .nc-social-intro{text-align:left;font-size:1rem}
+  .nc-static-page-content .nc-social-card{padding:22px 20px}
+}
