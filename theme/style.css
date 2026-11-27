@@ -409,6 +409,7 @@ button,input{font:inherit}
 /* Stopka — wariant pomarańczowy oparty na palecie logo. */
 .nc-site-footer{background:#f8efdf;color:#172f49}
 .nc-site-footer{position:relative}
+.nc-site-footer:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#c98217 0%,#d9b477 50%,#c98217 100%);pointer-events:none}
 .nc-site-footer .nc-footer-brand{color:#172f49;font-family:Arial,Helvetica,sans-serif;font-size:1.55rem;font-weight:700;letter-spacing:-.025em}
 .nc-site-footer .nc-footer-tagline{color:#8a4f0b;font-family:Arial,Helvetica,sans-serif;font-size:1rem;font-style:normal;font-weight:700}
 .nc-site-footer .nc-footer-description{color:#26394d;font-family:Arial,Helvetica,sans-serif;font-size:1rem;font-weight:500;line-height:1.65}
