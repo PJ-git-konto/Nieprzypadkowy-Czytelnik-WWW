@@ -323,3 +323,16 @@
 @media(max-width:760px){
   .page-id-75 .nc-about-cta{padding:24px 18px}
 }
+
+/* O nas — bez ozdobnych linii; przycisk zgodny z Jesiennymi inspiracjami. */
+.page-id-75 .nc-about-cta::before,
+.page-id-75 .nc-about-cta::after{display:none}
+.page-id-75 .nc-about-cta a{
+  display:inline-flex;align-items:center;gap:13px;
+  padding:10px 22px;border:0;border-radius:28px;
+  background:var(--nc-navy);color:#fff;font-size:.92rem;
+  font-weight:600;line-height:1.3;text-decoration:none;
+  transition:background .2s,transform .2s;
+}
+.page-id-75 .nc-about-cta a:hover{background:#1d466d;color:#fff;transform:translateY(-2px)}
+@media(max-width:760px){.page-id-75 .nc-about-cta a{padding:9px 12px;font-size:.78rem}}
